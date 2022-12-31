@@ -1,5 +1,8 @@
 module ProjectEuler100
 
-# Write your package code here.
+include("lib/lib.jl")
+using .ProjectEulerLibrary
+
+include.(filter(contains(r".jl$"), readdir(dirname(@__FILE__) * "/problems"; join=true)))
 
 end
