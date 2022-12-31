@@ -1,7 +1,9 @@
 # ProjectEuler100.jl
 
-![](https://projecteuler.net/profile/byhill.png)
+[![Build status](https://ci.appveyor.com/api/projects/status/hgkaobx9v1yfwrme?svg=true)](https://ci.appveyor.com/project/byhill/projecteuler100-jl)
 [![Code Style: Blue](https://img.shields.io/badge/code%20style-blue-4495d1.svg)](https://github.com/invenia/BlueStyle)
+
+![](https://projecteuler.net/profile/byhill.png)
 
 This repository contains my solutions to the first 100 problems of [Project Euler](https://projecteuler.net/), written in [Julia](https://julialang.org/).  Hopefully, by making this repository public, it will help someone learn how to tackle Project Euler problems while using Julia.  With the exception of problem 100, the solutions in this repository also work well (after a little modification) for [Hackerrank's](https://www.hackerrank.com/contests/projecteuler/challenges) ongoing Project Euler+ contest.
 
