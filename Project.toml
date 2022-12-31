@@ -4,7 +4,9 @@ authors = ["Bryan Hill <bf361640-7eb8-4e29-80f7-5250fa6b442b@aleeas.com> and con
 version = "0.1.0"
 
 [deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 Primes = "27ebfcd6-29c5-5fa9-bf4b-fb8fc14df3ae"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 
 [compat]
 julia = "1.8"
