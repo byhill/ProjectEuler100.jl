@@ -1,4 +1,4 @@
-export sumto, ispalindrome
+export sumto, sumsquaresto, ispalindrome
 
 """
     sumto(n::Integer)
@@ -7,7 +7,17 @@ Returns 1 + 2 + ... + (n - 1) + n.
 
 Takes constant time.  Unsafe (overflow can occur).
 """
-sumto(n::Integer) = n * (n + 1) ÷ 2
+@inline sumto(n::Integer) = n * (n + 1) ÷ 2
+
+
+"""
+    sumsquaresto(n::Integer)
+
+Returns 1^2 + 2^2 + ... + (n - 1)^2 + n^2.
+
+Takes constant time.  Unsafe (overflow can occur).
+"""
+@inline sumsquaresto(n::Integer) = n * (n + 1) * (2n + 1) ÷ 6
 
 
 """

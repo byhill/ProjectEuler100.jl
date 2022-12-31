@@ -1,6 +1,7 @@
 module ProjectEuler100
 
 using Base.Iterators
+using Primes
 
 include("lib/lib.jl")
 using .ProjectEulerLibrary
