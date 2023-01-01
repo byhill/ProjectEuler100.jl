@@ -47,3 +47,13 @@ You can also view my progress on HackerRanks' Project Euler+ contest
 | 018     | [Maximum path sum I](https://projecteuler.net/problem=018)                       | 5%         | [0.000](src/problems/pb018.jl)  |
 | 019     | [Counting Sundays](https://projecteuler.net/problem=019)                         | 5%         | [0.000](src/problems/pb019.jl)  |
 | 020     | [Factorial digit sum](https://projecteuler.net/problem=020)                      | 5%         | [0.000](src/problems/pb020.jl)  |
+| 021     | [Amicable numbers](https://projecteuler.net/problem=021)                         | 5%         | [0.000](src/problems/pb021.jl)  |
+| 022     | [Names scores](https://projecteuler.net/problem=022)                             | 5%         | [0.002](src/problems/pb022.jl)  |
+| 023     | [Non-abundant sums](https://projecteuler.net/problem=023)                        | 5%         | [0.004](src/problems/pb023.jl)  |
+| 024     | [Lexicographic permutations](https://projecteuler.net/problem=024)               | 5%         | [0.000](src/problems/pb024.jl)  |
+| 025     | [1000-digit Fibonacci number](https://projecteuler.net/problem=025)              | 5%         | [0.000](src/problems/pb025.jl)  |
+| 026     | [Reciprocal cycles](https://projecteuler.net/problem=026)                        | 5%         | [0.000](src/problems/pb026.jl)  |
+| 027     | [Quadratic primes](https://projecteuler.net/problem=027)                         | 5%         | [0.002](src/problems/pb027.jl)  |
+| 028     | [Number spiral diagonals](https://projecteuler.net/problem=028)                  | 5%         | [0.000](src/problems/pb028.jl)  |
+| 029     | [Distinct powers](https://projecteuler.net/problem=029)                          | 5%         | [0.000](src/problems/pb029.jl)  |
+| 030     | [Digit fifth powers](https://projecteuler.net/problem=030)                       | 5%         | [0.001](src/problems/pb030.jl)  |
