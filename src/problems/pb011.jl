@@ -12,8 +12,15 @@ Since Julia uses column-major order, for simplicity, the grid is transposed.
 Assumes the grid is 20x20.
 """
 function problem011(N::Int=4, filename::AbstractString="txt/pb011.txt")
-    M = reduce(hcat, ([parse(Int, n) for n in split(line, " ")] for line in eachline(filename)))
-    d = size(M, 1)
+    strings = readlines(filename)
+    d = length(strings)
+    M = zeros(Int, d, d)
+    for (i, string) in enumerate(strings)
+        for (j, n) in enumerate(split(string, " "))
+            M[j, i] = parse(Int, n)
+        end
+    end
+
     grid_products = Int[]
 
     for x = 1:d, y = 1:d
