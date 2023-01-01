@@ -1,4 +1,4 @@
-export sumto, sumsquaresto, undigits, ispalindrome
+export sumto, sumsquaresto, ilog, undigits, ispalindrome
 
 """
     sumto(n::Integer)
@@ -18,6 +18,14 @@ Returns 1^2 + 2^2 + ... + (n - 1)^2 + n^2.
 Takes constant time.  Unsafe (overflow can occur).
 """
 @inline sumsquaresto(n::Integer) = n * (n + 1) * (2n + 1) ÷ 6
+
+
+"""
+    ilog(base::Integer, n::Integer)
+
+Returns the largest p such that base^p ≤ n.
+"""
+@inline ilog(base::Integer, n::Integer) = ndigits(n; base=base) - 1
 
 
 """
