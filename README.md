@@ -81,5 +81,5 @@ on a 10.15.7 macos, 2.2 GHz Quad-Core Intel Core i7 processor, with 16 GB 1600 M
 | 046     | [Goldbach's other conjecture](https://projecteuler.net/problem=046)              | 5%         | [0.000](src/problems/pb046.jl)  |
 | 047     | [Distinct primes factors](https://projecteuler.net/problem=047)                  | 5%         | [0.011](src/problems/pb047.jl)  |
 | 048     | [Self powers](https://projecteuler.net/problem=048)                              | 5%         | [0.001](src/problems/pb048.jl)  |
-| 049     | [Prime permutations](https://projecteuler.net/problem=049)                       | 5%         | [0.001](src/problem/pb049.jl)   |
+| 049     | [Prime permutations](https://projecteuler.net/problem=049)                       | 5%         | [0.001](src/problems/pb049.jl)   |
 | 050     | [Consecutive prime sum](https://projecteuler.net/problem=050)                    | 5%         | [0.000](src/problems/pb050.jl)  |
