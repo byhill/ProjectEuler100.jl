@@ -12,6 +12,8 @@ it will help someone learn how to tackle Project Euler problems while using Juli
 With the exception of problem 100, the solutions in this repository also work well
 (after a little modification) for [Hackerrank's](https://www.hackerrank.com/contests/projecteuler/challenges)
 ongoing Project Euler+ contest.
+Note that the solutions are tested on 64-bit machines,
+and will likely not run correctly on 32-bit machines.
 
 Due to Project Euler's [policy](https://projecteuler.net/about#publish) on publishing solutions,
 I will **not** share my solutions to problems past the first 100.
@@ -24,6 +26,10 @@ You can also view my progress on HackerRanks' Project Euler+ contest
 [here](https://www.hackerrank.com/byhill).
 
 ## Problems
+
+The following is the list of problems.
+Timings are made using [BenchmarkTools.jl](https://github.com/JuliaCI/BenchmarkTools.jl),
+on a 10.15.7 macos, 2.2 GHz Quad-Core Intel Core i7 processor, with 16 GB 1600 MHz DDR3 memory.
 
 | Problem | Title                                                                            | Difficulty | Running Time (s)                |
 | ---     | ---                                                                              | ---        | ---                             |
@@ -57,3 +63,23 @@ You can also view my progress on HackerRanks' Project Euler+ contest
 | 028     | [Number spiral diagonals](https://projecteuler.net/problem=028)                  | 5%         | [0.000](src/problems/pb028.jl)  |
 | 029     | [Distinct powers](https://projecteuler.net/problem=029)                          | 5%         | [0.000](src/problems/pb029.jl)  |
 | 030     | [Digit fifth powers](https://projecteuler.net/problem=030)                       | 5%         | [0.001](src/problems/pb030.jl)  |
+| 031     | [Coin sums](https://projecteuler.net/problem=031)                                | 5%         | [0.000](src/problems/pb031/jl)  |
+| 032     | [Pandigital products](https://projecteuler.net/problem=032)                      | 5%         | [0.045](src/problems/pb032.jl)  |
+| 033     | [Digit cancelling fractions](https://projecteuler.net/problem=033)               | 5%         | [0.000](src/problems/pb033.jl)  |
+| 034     | [Digit factorials](https://projecteuler.net/problem=034)                         | 5%         | [0.034](src/problems/pb034.jl)  |
+| 035     | [Circular primes](https://projecteuler.net/problem=035)                          | 5%         | [0.008](src/problems/pb035.jl)  |
+| 036     | [Double-base palindromes](https://projecteuler.net/problem=036)                  | 5%         | [0.026](src/problems/pb036.jl)  |
+| 037     | [Truncatable primes](https://projecteuler.net/problem=037)                       | 5%         | [0.000](src/problems/pb037.jl)  |
+| 038     | [Pandigital multiples](https://projecteuler.net/problem=038)                     | 5%         | [0.002](src/problems/pb038.jl)  |
+| 039     | [Integer right triangles](https://projecteuler.net/problem=039)                  | 5%         | [0.000](src/problems/pb039.jl)  |
+| 040     | [Champernowne's constant](https://projecteuler.net/problem=040)                  | 5%         | [0.000](src/problems/pb040.jl)  |
+| 041     | [Pandigital prime](https://projecteuler.net/problem=041)                         | 5%         | [0.052](src/problems/pb041.jl)  |
+| 042     | [Coded triangle numbers](https://projecteuler.net/problem=042)                   | 5%         | [0.000](src/problems/pb042.jl)  |
+| 043     | [Sub-string divisibility](https://projecteuler.net/problem=043)                  | 5%         | [0.795](src/problems/pb043.jl)  |
+| 044     | [Pentagon numbers](https://projecteuler.net/problem=044)                         | 5%         | [0.016](src/problems/pb044.jl)  |
+| 045     | [Triangular, pentagonal, and hexagonal](https://projecteuler.net/problem=045)    | 5%         | [0.000](src/problems/pb045.jl)  |
+| 046     | [Goldbach's other conjecture](https://projecteuler.net/problem=046)              | 5%         | [0.000](src/problems/pb046.jl)  |
+| 047     | [Distinct primes factors](https://projecteuler.net/problem=047)                  | 5%         | [0.011](src/problems/pb047.jl)  |
+| 048     | [Self powers](https://projecteuler.net/problem=048)                              | 5%         | [0.001](src/problems/pb048.jl)  |
+| 049     | [Prime permutations](https://projecteuler.net/problem=049)                       | 5%         | [0.001](src/problem/pb049.jl)   |
+| 050     | [Consecutive prime sum](https://projecteuler.net/problem=050)                    | 5%         | [0.000](src/problems/pb050.jl)  |

@@ -30,6 +30,6 @@ function collatzlength(n::Int)
     end
 end
 
-end
+end  # module
 
 using .Problem014

@@ -1,7 +1,7 @@
 module ProjectEuler100
 
 using Base.Iterators
-using Combinatorics: with_replacement_combinations
+using Combinatorics: permutations, with_replacement_combinations
 using Primes
 
 include("lib/lib.jl")
