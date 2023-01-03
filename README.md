@@ -81,5 +81,15 @@ on a 10.15.7 macos, 2.2 GHz Quad-Core Intel Core i7 processor, with 16 GB 1600 M
 | 046     | [Goldbach's other conjecture](https://projecteuler.net/problem=046)              | 5%         | [0.000](src/problems/pb046.jl)  |
 | 047     | [Distinct primes factors](https://projecteuler.net/problem=047)                  | 5%         | [0.011](src/problems/pb047.jl)  |
 | 048     | [Self powers](https://projecteuler.net/problem=048)                              | 5%         | [0.001](src/problems/pb048.jl)  |
-| 049     | [Prime permutations](https://projecteuler.net/problem=049)                       | 5%         | [0.001](src/problem/pb049.jl)   |
+| 049     | [Prime permutations](https://projecteuler.net/problem=049)                       | 5%         | [0.001](src/problems/pb049.jl)  |
 | 050     | [Consecutive prime sum](https://projecteuler.net/problem=050)                    | 5%         | [0.000](src/problems/pb050.jl)  |
+| 051     | [Prime digit replacements](https://projecteuler.net/problem=051)                 | 15%        | [0.025](src/problems/pb051.jl)  |
+| 052     | [Permuted multiples](https://projecteuler.net/problem=052)                       | 5%         | [0.061](src/problems/pb052.jl)  |
+| 053     | [Combinatoric selections](https://projecteuler.net/problem=053)                  | 5%         | [0.000](src.problems/pb053.jl)  |
+| 054     | [Poker hands](https://projecteuler.net/problem=054)                              | 10%        | [0.005](src/problems/pb054.jl)  |
+| 055     | [Lychrel numbers](https://projecteuler.net/problem=055)                          | 5%         | [0.054](src/problems/pb055.jl)  |
+| 056     | [Powerful digit sum](https://projecteuler.net/problem=056)                       | 5%         | [0.013](src/problems/pb056.jl)  |
+| 057     | [Square root convergents](https://projecteuler.net/problem=057)                  | 5%         | [0.001](src/problems/pb057.jl)  |
+| 058     | [Spiral primes](https://projecteuler.net/problem=058)                            | 5%         | [0.016](src/problems/pb058.jl)  |
+| 059     | [XOR decryption](https://projecteuler.net/problem=059)                           | 5%         | [0.066](src/problems/pb059.jl)  |
+| 060     | [Prime pair sets](https://projecteuler.net/problem=060)                          | 20%        | [2.806](src/problems/pb060.jl)  |

@@ -1,4 +1,5 @@
-export nthprime_upperbound
+# primes.jl
+
 
 """
     nthprime_upperbound(n::Integer)

@@ -1,6 +1,4 @@
-export sumto, sumsquaresto, ilog, concat, undigits
-export ispalindrome, ispandigital, issquare, istriangular, ispentagonal
-export digit_factorial
+# misc.jl
 
 const DIGIT_FACTORIAL = (1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 1)
 

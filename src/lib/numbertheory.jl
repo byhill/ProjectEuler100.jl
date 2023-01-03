@@ -1,4 +1,5 @@
-export σₓ
+# numbertheory.jl
+
 
 """
     σₓ(x::Int, N::Int)
