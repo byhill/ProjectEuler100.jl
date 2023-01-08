@@ -93,3 +93,13 @@ on a 10.15.7 macos, 2.2 GHz Quad-Core Intel Core i7 processor, with 16 GB 1600 M
 | 058     | [Spiral primes](https://projecteuler.net/problem=058)                            | 5%         | [0.016](src/problems/pb058.jl)  |
 | 059     | [XOR decryption](https://projecteuler.net/problem=059)                           | 5%         | [0.066](src/problems/pb059.jl)  |
 | 060     | [Prime pair sets](https://projecteuler.net/problem=060)                          | 20%        | [2.806](src/problems/pb060.jl)  |
+| 061     | [Cyclical figurate numbers](https://projecteuler.net/problem=061)                | 20%        | [0.065](src/problems/pb061.jl)  |
+| 062     | [Cubic permutations](https://projecteuler.net/problem=062)                       | 15%        | [0.005](src/problems/pb062.jl)  |
+| 063     | [Powerful digit counts](https://projecteuler.net/problem=63)                     | 5%         | [0.000](src/problems/pb063.jl)  |
+| 064     | [Odd period square roots](https://projecteuler.net/problem=064)                  | 20%        | [0.018](src/problems/pb064.jl)  |
+| 065     | [Convergents of e](https://projecteuler.net/problem=065)                         | 15%        | [0.000](src/problems/pb065.jl)  |
+| 066     | [Diophantine equation](https://projecteuler.net/problem=066)                     | 25%        | [0.013](src/problems/pb066.jl)  |
+| 067     | [Maximum path sum II](https://projecteuler.net/problem=067)                      | 5%         | [0.001](src/problems/pb067.jl)  |
+| 068     | [Magic 5-gon ring](https://projecteuler.net/problem=068)                         | 25%        | [0.000](src/problems/pb068.jl)  |
+| 069     | [Totient maximum](https://projecteuler.net/problem=069)                          | 10%        | [0.000](src/problems/pb069.jl)  |
+| 070     | [Totient permutation](https://projecteuler.net/problem=070)                      | 20%        | [6.482](src/problems/pb070.jl)  |
