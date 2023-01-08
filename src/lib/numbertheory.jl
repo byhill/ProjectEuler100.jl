@@ -26,3 +26,22 @@ function σₓ(x::Int, N::Int)
 
     return σ
 end
+
+
+"""
+    totients(N::Integer)
+
+Returns an vector `φ` of length `N`,
+where `φ[n]` is the Euler totient function evaluated at `n`.
+"""
+function totients(N::Integer)
+    φ = collect(1:N)
+    for p = 2:N
+        φ[p] != p && continue
+        for n = p:p:N
+            φ[n] -= φ[n] ÷ p
+        end
+    end
+
+    return φ
+end

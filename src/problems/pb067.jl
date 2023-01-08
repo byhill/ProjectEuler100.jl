@@ -1,16 +1,16 @@
-export problem018
+export problem067
 
 
 """
-    problem018(filename::AbstractString="txt/pb018.txt")
+    problem067()
 
-Problem 018 of Project Euler.
+Problem 067 of Project Euler.
 
-https://projecteuler.net/problem=018
+https://projecteuler.net/problem=067
 
 Bottom-up dynamic programming.
 """
-function problem018(filename::AbstractString="txt/pb018.txt")
+function problem067(filename::AbstractString="txt/pb067.txt")
     triangle = Vector{Int}[]
     for line in eachline(filename)
         push!(triangle, [parse(Int, n) for n in split(line, " ")])
