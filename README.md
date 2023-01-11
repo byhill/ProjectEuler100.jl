@@ -103,3 +103,13 @@ on a 10.15.7 macos, 2.2 GHz Quad-Core Intel Core i7 processor, with 16 GB 1600 M
 | 068     | [Magic 5-gon ring](https://projecteuler.net/problem=068)                         | 25%        | [0.000](src/problems/pb068.jl)  |
 | 069     | [Totient maximum](https://projecteuler.net/problem=069)                          | 10%        | [0.000](src/problems/pb069.jl)  |
 | 070     | [Totient permutation](https://projecteuler.net/problem=070)                      | 20%        | [6.482](src/problems/pb070.jl)  |
+| 071     | [Ordered fractions](https://projecteuler.net/problem=071)                        | 10%        | [0.000](src/problems/pb071.jl)  |
+| 072     | [Counting fractions](https://projecteuler.net/problem=072)                       | 20%        | [0.019](src/problems/pb072.jl)  |
+| 073     | [Counting fractions in a range](https://projecteuler.net/problem=073)            | 15%        | [0.000](src/problems/pb073.jl)  |
+| 074     | [Digit factorial chains](https://projecteuler.net/problem=074)                   | 15%        | [0.277](src/problems/pb074.jl)  |
+| 075     | [Singular integer right triangles](https://projecteuler.net/problem=075)         | 25%        | [0.018](src/problems/pb075.jl)  |
+| 076     | [Counting summations](https://projecteuler.net/problem=076)                      | 10%        | [0.000](src/problems/pb076.jl)  |
+| 077     | [Prime summations](https://projecteuler.net/problem=077)                         | 25%        | [0.000](src/problems/pb077.jl)  |
+| 078     | [Coin partitions](https://projecteuler.net/problem=078)                          | 30%        | [0.001](src/problems/pb078.jl)  |
+| 079     | [Passcode derivation](https://projecteuler.net/problem=079)                      | 5%         | [0.000](src/problems/pb079.jl)  |
+| 080     | [Square root digital expansion](https://projecteuler.net/problem=080)            | 20%        | [0.000](src/problems/pb080.jl)  |

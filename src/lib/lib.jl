@@ -6,7 +6,7 @@ using Primes
 
 export cartesianproduct
 
-export pells_equation_fundamental_solution
+export bezouts, pells_equation_fundamental_solution
 
 export sumto, sumsquaresto, ilog, concat, undigits
 export ispalindrome, ispandigital, issquare, istriangular, ispentagonal
