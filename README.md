@@ -123,3 +123,13 @@ on a 10.15.7 macos, 2.2 GHz Quad-Core Intel Core i7 processor, with 16 GB 1600 M
 | 088     | [Product-sum numbers](https://projecteuler.net/problem=088)                      | 40%        | [0.006](src/problems/pb088.jl)  |
 | 089     | [Roman numerals](https://projecteuler.net/problem=089)                           | 20%        | [0.001](src/problems/pb089.jl)  |
 | 090     | [Cube digit pairs](https://projecteuler.net/problem=090)                         | 40%        | [0.026](src/problems/pb090.jl)  |
+| 091     | [Right triangles with integer coordinates](https://projecteuler.net/problem=091) | 25%        | [0.000](src/problems/pb091.jl)  |
+| 092     | [Square digit chains](https://projecteuler.net/problem=092)                      | 5%         | [0.001](src/problems/pb092.jl)  |
+| 093     | [Arithmetic expressions](https://projecteuler.net/problem=093)                   | 35%        | [0.335](src/problems/pb093.jl)  |
+| 094     | [Almost equilateral triangles](https://projecteuler.net/problem=094)             | 35%        | [0.000](src/problems/pb094.jl)  |
+| 095     | [Amicable chains](https://projecteuler.net/problem=095)                          | 30%        | [0.964](src/problems/pb095.jl)  |
+| 096     | [Su Doku](https://projecteuler.net/problem=096)                                  | 25%        | [1.652](src/problems/pb096.jl)  |
+| 097     | [Large non-Mersenne prime](https://projecteuler.net/problem=097)                 | 5%         | [0.000](src/problems/pb097.jl)  |
+| 098     | [Anagramic squares](https://projecteuler.net/problem=098)                        | 35%        | [0.056](src/problems/pb056.jl)  |
+| 099     | [Largest exponential](https://projecteuler.net/problem=099)                      | 10%        | [0.001](src/problems/pb099.jl)  |
+| 100     | [Arranged probability](https://projecteuler.net/problem=100)                     | 30%        | [0.000](src/problems/pb100.jl)  |
