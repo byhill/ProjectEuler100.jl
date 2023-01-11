@@ -4,8 +4,6 @@
 Gives a solution (x, y) to ax + by = d, if one exits.
 If a type `T` is provided, calculates the answer using type `T`.
 Throws a `DomainError` if `d` does not divide gcd(`a`, `b`).
-
-TODO: Make O(1) space.
 """
 bezouts(a::Integer, b::Integer, d::Integer) = bezouts(typeof(d), a, b, d)
 
@@ -14,19 +12,18 @@ function bezouts(T::Type{<:Integer}, a::Integer, b::Integer, d::Integer)
         throw(DomainError((a, b, d), "$d does not divide gcd($a, $b)"))
     end
 
-    q = T[0, 0]
-    r = T[a, b]
-    s = T[1, 0]
-    t = T[0, 1]
-    while r[end] != 0
-        push!(q, r[end-1] ÷ r[end])
-        push!(r, r[end-1] - q[end] * r[end])
-        push!(s, s[end-1] - q[end] * s[end])
-        push!(t, t[end-1] - q[end] * t[end])
+    (r₋₁, r) = (T(a), T(b))
+    (s₋₁, s) = (one(T), zero(T))
+    (t₋₁, t) = (zero(T), one(T))
+    while r ≠ 0
+        q = r₋₁ ÷ r
+        (r₋₁, r) = (r, r₋₁ - q * r)
+        (s₋₁, s) = (s, s₋₁ - q * s)
+        (t₋₁, t) = (t, t₋₁ - q * t)
     end
-    m = d ÷ r[end-1]
-    x = m * s[end-1]
-    y = m * t[end-1]
+    m = d ÷ r₋₁
+    x = m * s₋₁
+    y = m * t₋₁
     return (x, y)
 end
 
