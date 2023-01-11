@@ -113,3 +113,13 @@ on a 10.15.7 macos, 2.2 GHz Quad-Core Intel Core i7 processor, with 16 GB 1600 M
 | 078     | [Coin partitions](https://projecteuler.net/problem=078)                          | 30%        | [0.001](src/problems/pb078.jl)  |
 | 079     | [Passcode derivation](https://projecteuler.net/problem=079)                      | 5%         | [0.000](src/problems/pb079.jl)  |
 | 080     | [Square root digital expansion](https://projecteuler.net/problem=080)            | 20%        | [0.000](src/problems/pb080.jl)  |
+| 081     | [Path sum: two ways](https://projecteuler.net/problem=081)                       | 10%        | [0.001](src/problems/pb081.jl)  |
+| 082     | [Path sum: three ways](https://projecteuler.net/problem=082)                     | 20%        | [0.007](src/problems/pb082.jl)  |
+| 083     | [Path sum: four ways](https://projecteuler.net/problem=083)                      | 25%        | [0.010](src/problems/pb083.jl)  |
+| 084     | [Monopoly odds](https://projecteuler.net/problem=084)                            | 35%        | [0.002](src/problems/pb084.jl)  |
+| 085     | [Counting rectangles](https://projecteuler.net/problem=085)                      | 15%        | [0.000](src/problems/pb085.jl)  |
+| 086     | [Cuboid route](https://projecteuler.net/problem=086)                             | 35%        | [0.000](src/problems/pb086.jl)  |
+| 087     | [Prime power triples](https://projecteuler.net/problem=087)                      | 20%        | [0.109](src/probems/pb087.jl)   |
+| 088     | [Product-sum numbers](https://projecteuler.net/problem=088)                      | 40%        | [0.006](src/problems/pb088.jl)  |
+| 089     | [Roman numerals](https://projecteuler.net/problem=089)                           | 20%        | [0.001](src/problems/pb089.jl)  |
+| 090     | [Cube digit pairs](https://projecteuler.net/problem=090)                         | 40%        | [0.026](src/problems/pb090.jl)  |
