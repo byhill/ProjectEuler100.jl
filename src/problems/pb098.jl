@@ -38,7 +38,7 @@ function problem098(filename="txt/pb098.txt")
 end
 
 
-function square_anagram(w1::String, w2::String)
+function square_anagram(w1::AbstractString, w2::AbstractString)
     l = length(w1)
     ans = -1
 

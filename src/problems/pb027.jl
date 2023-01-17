@@ -15,7 +15,7 @@ The rest is brute-force.
 """
 function problem027(N::Integer=1000)
 
-    function chain(a::Int, b::Int)
+    function chain(a::Integer, b::Integer)
         for n in countfrom()
             y = n^2 + a * n + b
             !isprime(y) && return n - 1

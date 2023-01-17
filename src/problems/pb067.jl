@@ -10,7 +10,7 @@ https://projecteuler.net/problem=067
 
 Bottom-up dynamic programming.
 """
-function problem067(filename::AbstractString="txt/pb067.txt")
+function problem067(filename="txt/pb067.txt")
     triangle = Vector{Int}[]
     for line in eachline(filename)
         push!(triangle, [parse(Int, n) for n in split(line, " ")])

@@ -106,7 +106,7 @@ Problem 054 of Project Euler.
 
 https://projecteuler.net/problem=054
 """
-function problem054(filename::AbstractString="txt/pb054.txt")
+function problem054(filename="txt/pb054.txt")
     splits = (split(s, " ") for s in readlines(filename))
     hands1 = [PokerHand(s[1:5]) for s in splits]
     hands2 = [PokerHand(s[6:10]) for s in splits]

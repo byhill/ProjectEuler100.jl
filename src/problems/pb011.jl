@@ -11,7 +11,7 @@ https://projecteuler.net/problem=011
 Since Julia uses column-major order, for simplicity, the grid is transposed.
 Assumes the grid is 20x20.
 """
-function problem011(N::Int=4, filename::AbstractString="txt/pb011.txt")
+function problem011(N::Integer=4, filename="txt/pb011.txt")
     strings = readlines(filename)
     d = length(strings)
     M = zeros(Int, d, d)

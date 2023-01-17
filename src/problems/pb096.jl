@@ -52,17 +52,17 @@ function solve_soduku!(M, i)
 end
 
 
-@inline function column(i::Int)
+@inline function column(i::Integer)
     return (i - 1) ÷ 9 + 1
 end
 
 
-@inline function row(i::Int)
+@inline function row(i::Integer)
     return mod1(i, 9)
 end
 
 
-@inline function box(i::Int)
+@inline function box(i::Integer)
     row = mod(i - 1, 9) ÷ 3
     column = (i - 1) ÷ 27
     return collect(flatten(27column + 3row + 1 + i + 9j for (i, j) in product(0:2, 0:2)))

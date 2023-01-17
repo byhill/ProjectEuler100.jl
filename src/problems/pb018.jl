@@ -2,7 +2,7 @@ export problem018
 
 
 """
-    problem018(filename::AbstractString="txt/pb018.txt")
+    problem018()
 
 Problem 018 of Project Euler.
 
@@ -10,7 +10,7 @@ https://projecteuler.net/problem=018
 
 Bottom-up dynamic programming.
 """
-function problem018(filename::AbstractString="txt/pb018.txt")
+function problem018(filename="txt/pb018.txt")
     triangle = Vector{Int}[]
     for line in eachline(filename)
         push!(triangle, [parse(Int, n) for n in split(line, " ")])

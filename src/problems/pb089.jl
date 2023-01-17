@@ -18,7 +18,7 @@ Problem 089 of Project Euler.
 
 https://projecteuler.net/problem=089
 """
-function problem089(filename::String="txt/pb089.txt")
+function problem089(filename="txt/pb089.txt")
     sum(length(rm) - length(decimal_to_roman(roman_to_decimal(rm))) for rm in readlines(filename))
 end
 
