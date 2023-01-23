@@ -13,8 +13,6 @@ Recall that
     ∑{k = 1}^n = 1 + 2 + ... + (n - 1) + n = n * (n + 1) ÷ 2.
 
 Then use the inclusion-exclusion principle.
-
-Test
 """
 function problem001(n::Integer=1000)
     n -= 1
