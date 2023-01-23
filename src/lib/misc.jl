@@ -47,12 +47,10 @@ The inverse of digits(n), i.e.,
 
     n = undigits(digits(n; base=b); base=b).
 """
-function undigits(digits::Vector{T}; base::Integer=10) where {T<:Integer}
-    return foldr((a, b) -> muladd(base, b, a), digits, init=0)
-end
+undigits(digits::Vector{T}; base::Integer=10) where {T<:Integer} = undigits(T, digits; base=base)
 
 function undigits(T::Type{<:Integer}, digits::Vector{U}; base::Integer=10) where {U<:Integer}
-    return foldr((a, b,) -> muladd(base, b, a), digits, init=T(0))
+    return foldr((a, b,) -> muladd(base, b, a), digits, init=zero(T))
 end
 
 
@@ -65,8 +63,8 @@ function ispalindrome(n::Integer; base::Integer=10)
     m = n
     p = 0
     while m > 0
-        p = p * base + m % base
-        m ÷= base
+        (m, r) = divrem(m, base)
+        p = muladd(p, base, r)
     end
     return n == p
 end
@@ -80,13 +78,15 @@ Returns true if and only if n is a 0-N pandigital number in base `base`.
 If `zeroless = true`,
 returns true if and only if n is a 1-N pandigital number in base `base`.
 """
-function ispandigital(n::Integer; base::Int=10, zeroless::Bool=false, N::Int=base - 1)
+function ispandigital(n::Integer; base::Integer=10, zeroless::Bool=false, N::Integer=base - 1)
     N ≥ base && return false
 
     digits = falses(base)
     zeroless && (digits[0+1] = true)
+    println(typeof(n))
     while n > 0
         (n, r) = divrem(n, base)
+        println(typeof(n))
         digits[r+1] = true
     end
 
@@ -126,11 +126,11 @@ end
 
 Returns the sum of the factorial of each digit in `n` (in base 10).
 """
-function digit_factorial(n::Integer)
-    s = 0
+function digit_factorial(n::T) where {T<:Integer}
+    s = zero(T)
     while n > 0
-        s += DIGIT_FACTORIAL[mod1(n, 10)]
-        n ÷= 10
+        s += T(DIGIT_FACTORIAL[mod1(n, 10)])
+        n ÷= T(10)
     end
     return s
 end
