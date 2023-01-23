@@ -1,4 +1,3 @@
-# Test
 const SOLUTIONS = Base.ImmutableDict(
     "001" => 233168,
     "002" => 4613732,
