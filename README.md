@@ -377,7 +377,7 @@ No solutions are provided.
 | 757     | [Stealthy Numbers](https://projecteuler.net/problem=757)                | 10%                                     |      |
 | 764     | [Asymmetric Diophantine Equation](https://projecteuler.net/problem=764) | 40%                                     |      |
 | 777     | [Lissajous Curves](https://projecteuler.net/problem=777)                | 95%                                     | 91   |
-| 780     | [Toriangulations](https://projecteuler.net/problem=780)                 | 100% (Not finalized yet, < 100 solvers) | 58   |
+| 780     | [Toriangulations](https://projecteuler.net/problem=780)                 | *100%                                   | 58   |
 | 788     | [Dominating Numbers](https://projecteuler.net/problem=788)              | 10%                                     |      |
 | 800     | [Hybrid Integers](https://projecteuler.net/problem=800)                 | 5%                                      |      |
 
@@ -386,7 +386,7 @@ No solutions are provided.
 | ---     | ---                                                                               | ---                                    | ---  |
 | 802     | [Iterated Composition](https://projecteuler.net/problem=802)                      | 35%                                    |      |
 | 804     | [Counting Binary Quadratic Representations](https://projecteuler.net/problem=804) | 20%                                    |      |
-| 807     | [Loops of Ropes](https://projecteuler.net/problem=807)                            | 90% (Not finalized yet, < 100 solvers) | 73   |
+| 807     | [Loops of Ropes](https://projecteuler.net/problem=807)                            | *90%                                   | 73   |
 | 808     | [Reversible prime squares](https://projecteuler.net/problem=808)                  | 5%                                     | 94   |
 | 809     | [Rational Recurrence Relation](https://projecteuler.net/problem=809)              | 35%                                    |      |
 | 810     | [XOR-Primes](https://projecteuler.net/problem=810)                                | 20%                                    | 82   |
