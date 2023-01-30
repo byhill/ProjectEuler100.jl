@@ -8,7 +8,7 @@ platform:
 
 branches:
   only:
-    - ProjectEuler100
+    - main
 
 notifications:
   - provider: Email
