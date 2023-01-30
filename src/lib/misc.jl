@@ -83,10 +83,8 @@ function ispandigital(n::Integer; base::Integer=10, zeroless::Bool=false, N::Int
 
     digits = falses(base)
     zeroless && (digits[0+1] = true)
-    println(typeof(n))
     while n > 0
         (n, r) = divrem(n, base)
-        println(typeof(n))
         digits[r+1] = true
     end
 
