@@ -134,7 +134,7 @@ on a 10.15.7 macos, 2.2 GHz Quad-Core Intel Core i7 processor, with 16 GB 1600 M
 | 099     | [Largest exponential](https://projecteuler.net/problem=099)                      | 10%        | [0.001](src/problems/pb099.jl)  |
 | 100     | [Arranged probability](https://projecteuler.net/problem=100)                     | 30%        | [0.000](src/problems/pb100.jl)  |
 
-## Other completed problems  (last updated: 2023/01/30)
+## Other completed problems  (last updated: 2023/02/04)
 
 These are a list of all other Project Euler problems I have completed.
 No solutions are provided.
