@@ -139,7 +139,6 @@ on a 10.15.7 macos, 2.2 GHz Quad-Core Intel Core i7 processor, with 16 GB 1600 M
 These are a list of all other Project Euler problems I have completed.
 No solutions are provided.
 
-### Problems 101-200
 | Problem | Title                                                                                                                                           | Difficulty |
 | ---     | ---                                                                                                                                             | ---        |
 | 101     | [Optimum polynomial](https://projecteuler.net/problem=101)                                                                                      | 35%        |
@@ -197,6 +196,7 @@ No solutions are provided.
 | 153     | [Investigating Gaussian Integers](https://projecteuler.net/problem=153)                                                                         | 65%        |
 | 154     | [Exploring Pascal's pyramid](https://projecteuler.net/problem=154)                                                                              | 65%        |
 | 155     | [Counting Capacitor Circuits](https://projecteuler.net/problem=155)                                                                             | 60%        |
+| 156     | [Counting Digits](https://projecteuler.net/problem=156)                                                                                         | 70%        |
 | 157     | [Solving the diophantine equation 1/a+1/b= p/10n](https://projecteuler.net/problem=157)                                                         | 65%        |
 | 158     | [Exploring strings for which only one character comes lexicographically after its neighbour to the left](https://projecteuler.net/problem=158)  | 55%        |
 | 159     | [Digital root sums of factorisations](https://projecteuler.net/problem=159)                                                                     | 60%        |
@@ -210,6 +210,7 @@ No solutions are provided.
 | 167     | [Investigating Ulam sequences](https://projecteuler.net/problem=167)                                                                            | 75%        |
 | 168     | [Number Rotations](https://projecteuler.net/problem=168)                                                                                        | 65%        |
 | 169     | [Exploring the number of different ways a number can be expressed as a sum of powers of 2](https://projecteuler.net/problem=169)                | 50%        |
+| 170     | [Find the largest 0 to 9 pandigital that can be formed by concatenating products](https://projecteuler.net/problem=170)                         | 70%        |
 | 171     | [Finding numbers for which the sum of the squares of the digits is a square](https://projecteuler.net/problem=171)                              | 65%        |
 | 172     | [Investigating numbers with few repeated digits](https://projecteuler.net/problem=172)                                                          | 55%        |
 | 173     | [Using up to one million tiles how many different "hollow" square laminae can be formed?](https://projecteuler.net/problem=173)                 | 30%        |
@@ -223,6 +224,7 @@ No solutions are provided.
 | 181     | [Investigating in how many ways objects of two different colours can be grouped](https://projecteuler.net/problem=181)                          | 70%        |
 | 182     | [RSA encryption](https://projecteuler.net/problem=182)                                                                                          | 60%        |
 | 183     | [Maximum product of parts](https://projecteuler.net/problem=183)                                                                                | 45%        |
+| 184     | [Triangles containing the origin](https://projecteuler.net/problem=184)                                                                         | 75%        |
 | 185     | [Number Mind](https://projecteuler.net/problem=185)                                                                                             | 55%        |
 | 186     | [Connectedness of a network](https://projecteuler.net/problem=186)                                                                              | 60%        |
 | 187     | [Semiprimes](https://projecteuler.net/problem=187)                                                                                              | 25%        |
@@ -232,6 +234,7 @@ No solutions are provided.
 | 191     | [Prize Strings](https://projecteuler.net/problem=191)                                                                                           | 35%        |
 | 192     | [Best Approximations](https://projecteuler.net/problem=192)                                                                                     | 75%        |
 | 193     | [Squarefree Numbers](https://projecteuler.net/problem=193)                                                                                      | 55%        |
+| 194     | [Coloured Configurations](https://projecteuler.net/problem=194)                                                                                 | 75%        |
 | 195     | [Inscribed circles of triangles with one angle of 60 degrees](https://projecteuler.net/problem=195)                                             | 75%        |
 | 196     | [Prime triplets](https://projecteuler.net/problem=196)                                                                                          | 65%        |
 | 197     | [Investigating the behaviour of a recursively defined sequence](https://projecteuler.net/problem=197)                                           | 45%        |
