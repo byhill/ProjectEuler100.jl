@@ -15,8 +15,8 @@ function problem050(N::Integer=10^6)
 
     primesum = Vector{Int}(undef, length(primesL))
     primesum[1] = 2
-    for i = 2:length(primesL)
-        primesum[i] = primesum[i-1] + primesL[i]
+    for (i, p) in enumerate(primesL[2:end])
+        primesum[i + 1] = primesum[i] + p
     end
 
     i = searchsortedlast(primesum, N)

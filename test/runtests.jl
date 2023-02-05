@@ -4,7 +4,7 @@ using Test
 include("solutions.jl")
 
 @testset "ProjectEuler100.jl" begin
-    cd("..")
+    cd("..")  # A hack so the tests can read the txt directory
     for key in sort(collect(keys(SOLUTIONS)))
         @testset "Problem $key" begin
             f = getfield(Main, Symbol("problem$key"))
