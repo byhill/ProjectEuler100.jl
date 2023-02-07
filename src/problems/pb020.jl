@@ -11,5 +11,5 @@ https://projecteuler.net/problem=020
 Use BigInts...
 """
 function problem020(n::Integer=factorial(BigInt(100)))
-    return sum(digits(n))
+    return sum(digits(n))  # digits(x::BigInt) seems type-unstable
 end

@@ -47,8 +47,5 @@ function problem061(T::Vector{Int}=[3, 4, 5, 6, 7, 8])
     end
 
     findsets(Int[], [s for (k, s) in figurates if k in T])
-    length(cyclic_sets) == 1 && return cyclic_sets[1]
-    sort!(cyclic_sets)
-    unique!(cyclic_sets)
-    return cyclic_sets
+    return first(cyclic_sets)
 end

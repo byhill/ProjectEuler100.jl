@@ -14,11 +14,11 @@ Then for each group, check if three of them form an arithmetic sequence.
 function problem049()
     primePermutations = Dict{Any,Vector{Int}}()
     for p in primes(10^4)
-        k = Tuple(sort(digits(p)))
+        k = sort(digits(p))
         haskey(primePermutations, k) ? push!(primePermutations[k], p) : primePermutations[k] = Int[p]
     end
 
-    arr = []
+    arr = Int64[]
     for v in values(primePermutations)
         length(v) < 3 && continue
         sort!(v)
@@ -29,5 +29,6 @@ function problem049()
     end
 
     filter!(!isequal(148748178147), arr)
-    return ifelse(length(arr) == 1, arr[1], arr)
+    length(arr) != 1 && error()
+    return arr[1]
 end

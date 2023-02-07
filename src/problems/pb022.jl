@@ -14,7 +14,7 @@ function problem022(filename="txt/pb022.txt")
     names = split(replace(readline(filename), "\"" => ""), ",")
     sort!(names)
 
-    namescore(name) = sum(Int(c) + UPPER_CASE_CORRECTION for c in name)
+    namescore(name) = sum(Int64(c) + UPPER_CASE_CORRECTION for c in name; init=zero(Int64))
 
     return sum(i * namescore(name) for (i, name) in enumerate(names))
 end

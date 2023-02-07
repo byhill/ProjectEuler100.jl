@@ -30,5 +30,7 @@ function problem009(N::Int=1000)
         k * (a + b + c) == N && push!(pythagorean_products, k^3 * a * b * c)
     end
 
-    return length(pythagorean_products) == 1 ? pythagorean_products[1] : pythagorean_products
+    isempty(pythagorean_products) && error("There are not right-angled triangles which haver perimeter $N")
+    length(pythagorean_products) > 1 && error("There are multiple right-triangles which have perimeter $N")
+    return first(pythagorean_products)
 end

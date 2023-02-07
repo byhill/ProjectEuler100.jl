@@ -11,5 +11,5 @@ https://projecteuler.net/problem=016
 Use BigInts...
 """
 function problem016(N::Integer=BigInt(2)^1000)
-    return sum(digits(N))
+    return sum(digits(N))  # digits(x::BigInt) seems type-unstable...
 end
