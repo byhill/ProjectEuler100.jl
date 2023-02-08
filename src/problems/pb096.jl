@@ -19,7 +19,7 @@ function problem096(filename="txt/pb096.txt")
 
     ans = 0
     for i = 1:length(filestring)÷10
-        M = vcat(([parse(Int, n) for n in line]' for line in filestring[10*(i-1)+2:10i])...)
+        M::Matrix{Int} = vcat(([parse(Int, n) for n in line]' for line in filestring[10*(i-1)+2:10i])...)
         solve_soduku!(M)
         ans += 100M[1, 1] + 10M[1, 2] + M[1, 3]
     end

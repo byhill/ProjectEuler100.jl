@@ -11,7 +11,7 @@ https://projecteuler.net/problem=083
 Bellman-Ford
 """
 function problem083(filename="txt/pb083.txt")
-    M = vcat(([parse(Int, n) for n in split(line, ",")]' for line in readlines(filename))...)
+    M::Matrix{Int} = vcat(([parse(Int, n) for n in split(line, ",")]' for line in readlines(filename))...)
     @assert size(M, 1) == size(M, 2)
     L = size(M, 1)
     D = fill(Inf, L + 2, L + 2)

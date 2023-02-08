@@ -7,9 +7,9 @@ using Base.Iterators
 using ..ProjectEulerLibrary
 
 
-mutable struct CubicPermutation
-    mincube::Integer
-    found::Integer
+mutable struct CubicPermutation{T<:Integer}
+    mincube::T
+    found::T
 end
 
 """
@@ -20,7 +20,7 @@ Problem 062 of Project Euler.
 https://projecteuler.net/problem=062
 """
 function problem062(N::Integer=5)
-    cubicperms = Dict{Int,CubicPermutation}()
+    cubicperms = Dict{Int,CubicPermutation{Int64}}()
     for n in countfrom()
         m = n * n * n
         key = undigits(sort(digits(m)))

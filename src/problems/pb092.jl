@@ -38,7 +38,7 @@ See https://projecteuler.net/thread=92;page=5#325097
 D is the maximum number of digits.
 """
 function problem092(D::Int=7)
-    to89 = zeros(Int8, max(81D, 3 * 81))
+    to89 = zeros(Int, max(81D, 3 * 81))
     to89[1] = 1
     to89[89] = 89
 
