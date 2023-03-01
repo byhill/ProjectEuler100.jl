@@ -238,6 +238,7 @@ No solutions are provided.
 | 195     | [Inscribed circles of triangles with one angle of 60 degrees](https://projecteuler.net/problem=195)                                             | 75%        |
 | 196     | [Prime triplets](https://projecteuler.net/problem=196)                                                                                          | 65%        |
 | 197     | [Investigating the behaviour of a recursively defined sequence](https://projecteuler.net/problem=197)                                           | 45%        |
+| 198     | [Ambiguous Numbers](https://projecteuler.net/problem=198)                                                                                       | 80%        |
 | 199     | [Iterative Circle Packing](https://projecteuler.net/problem=199)                                                                                | 70%        |
 | 200     | [Find the 200th prime-proof sqube containing the contiguous sub-string "200"](https://projecteuler.net/problem=200)                             | 65%        |
 
@@ -251,7 +252,9 @@ No solutions are provided.
 | 206     | [Concealed Square](https://projecteuler.net/problem=206)                                         | 5%         |
 | 207     | [Integer partition equations](https://projecteuler.net/problem=207)                              | 40%        |
 | 209     | [Circular Logic](https://projecteuler.net/problem=209)                                           | 60%        |
+| 210     | [Obtuse Angled Triangles](https://projecteuler.net/problem=210)                                  | 70%        |
 | 211     | [Divisor Square Sum](https://projecteuler.net/problem=211)                                       | 50%        |
+| 212     | [Combined Volume of Cuboids](https://projecteuler.net/problem=212)                               | 70%        |
 | 213     | [Flea Circus](https://projecteuler.net/problem=213)                                              | 60%        |
 | 214     | [Totient Chains](https://projecteuler.net/problem=214)                                           | 40%        |
 | 215     | [Crack-free Walls](https://projecteuler.net/problem=215)                                         | 50%        |
@@ -264,12 +267,14 @@ No solutions are provided.
 | 226     | [A Scoop of Blancmange](https://projecteuler.net/problem=226)                                    | 65%        |
 | 227     | [The Chase](https://projecteuler.net/problem=227)                                                | 65%        |
 | 228     | [Minkowski Sums](https://projecteuler.net/problem=228)                                           | 70%        |
+| 229     | [Four Representations using Squares](https://projecteuler.net/problem=229)                       | 70%        |
 | 230     | [Fibonacci Words](https://projecteuler.net/problem=230)                                          | 50%        |
 | 231     | [The prime factorisation of binomial coefficients](https://projecteuler.net/problem=231)         | 40%        |
 | 232     | [The Race](https://projecteuler.net/problem=232)                                                 | 65%        |
 | 233     | [Lattice points on a circle](https://projecteuler.net/problem=233)                               | 70%        |
 | 234     | [Semidivisible numbers](https://projecteuler.net/problem=234)                                    | 50%        |
 | 235     | [An Arithmetic Geometric sequence](https://projecteuler.net/problem=235)                         | 40%        |
+| 240     | [Top Dice](https://projecteuler.net/problem=240)                                                 | 60^        |
 | 243     | [Resilience](https://projecteuler.net/problem=243)                                               | 35%        |
 | 249     | [Prime Subset Sums](https://projecteuler.net/problem=249)                                        | 60%        |
 | 250     | [250250](https://projecteuler.net/problem=250)                                                   | 55%        |
@@ -324,11 +329,13 @@ No solutions are provided.
 | 401     | [Sum of squares of divisors](https://projecteuler.net/problem=401)               | 25%        |
 | 407     | [Idempotents](https://projecteuler.net/problem=407)                              | 20%        |
 | 417     | [Reciprocal cycles II](https://projecteuler.net/problem=417)                     | 35%        |
+| 425     | [Prime connection](https://projecteuler.net/problem=425)                         | 25%        |
 | 429     | [Sum of squares of unitary divisors](https://projecteuler.net/problem=429)       | 20%        |
 | 449     | [Chocolate covered candy](https://projecteuler.net/problem=449)                  | 40%        |
 | 451     | [Modular inverses](https://projecteuler.net/problem=451)                         | 30%        |
 | 461     | [Almost Pi](https://projecteuler.net/problem=461)                                | 30%        |
 | 463     | [A weird recurrence relation](https://projecteuler.net/problem=463)              | 35%        |
+| 489     | [Common factors between two sequences](https://projecteuler.net/problem=489)     | 100%       |
 | 491     | [Double pandigital number divisible by 11](https://projecteuler.net/problem=491) | 20%        |
 | 493     | [Under The Rainbow](https://projecteuler.net/problem=493)                        | 10%        |
 | 500     | [Problem 500!!!](https://projecteuler.net/problem=500)                           | 15%        |
@@ -349,56 +356,61 @@ No solutions are provided.
 | 594     | [Rhombus Tilings](https://projecteuler.net/problem=594)              | 85%        |
 
 ### Problems 601-700
-| Problem | Title                                                                | Difficulty |
-| ---     | ---                                                                  | ---        |
-| 601     | [Divisibility streaks](https://projecteuler.net/problem=601)         | 20%        |
-| 622     | [Riffle Shuffles](https://projecteuler.net/problem=622)              | 15%        |
-| 628     | [Open chess positions](https://projecteuler.net/problem=628)         | 30%        |
-| 630     | [Crossed lines](https://projecteuler.net/problem=630)                | 20%        |
-| 650     | [Divisors of Binomial Product](https://projecteuler.net/problem=650) | 10%        |
-| 659     | [Largest prime](https://projecteuler.net/problem=659)                | 20%        |
-| 668     | [Square root smooth Numbers](https://projecteuler.net/problem=668)   | 20%        |
-| 684     | [Inverse Digit Sum](https://projecteuler.net/problem=684)            | 5%         |
-| 686     | [Powers of Two](https://projecteuler.net/problem=686)                | 5%         |
-| 692     | [Siegbert and Jo](https://projecteuler.net/problem=692)              | 10%        |
-| 694     | [Cube-full Divisors](https://projecteuler.net/problem=694)           | 15%        |
-| 700     | [Eulercoin](https://projecteuler.net/problem=700)                    | 5%         |
+| Problem | Title                                                                         | Difficulty |
+| ---     | ---                                                                           | ---        |
+| 601     | [Divisibility streaks](https://projecteuler.net/problem=601)                  | 20%        |
+| 618     | [Numbers with a given prime factor sum](https://projecteuler.net/problem=618) | 20%        |
+| 622     | [Riffle Shuffles](https://projecteuler.net/problem=622)                       | 15%        |
+| 628     | [Open chess positions](https://projecteuler.net/problem=628)                  | 30%        |
+| 630     | [Crossed lines](https://projecteuler.net/problem=630)                         | 20%        |
+| 650     | [Divisors of Binomial Product](https://projecteuler.net/problem=650)          | 10%        |
+| 659     | [Largest prime](https://projecteuler.net/problem=659)                         | 20%        |
+| 668     | [Square root smooth Numbers](https://projecteuler.net/problem=668)            | 20%        |
+| 684     | [Inverse Digit Sum](https://projecteuler.net/problem=684)                     | 5%         |
+| 686     | [Powers of Two](https://projecteuler.net/problem=686)                         | 5%         |
+| 692     | [Siegbert and Jo](https://projecteuler.net/problem=692)                       | 10%        |
+| 694     | [Cube-full Divisors](https://projecteuler.net/problem=694)                    | 15%        |
+| 700     | [Eulercoin](https://projecteuler.net/problem=700)                             | 5%         |
 
 ### Problems 701-800
-| Problem | Title                                                                   | Difficulty                              | Rank |
-| ---     | ---                                                                     | ---                                     | ---  |
-| 709     | [Even Stevens](https://projecteuler.net/problem=709)                    | 15%                                     |      |
-| 710     | [One Million Members](https://projecteuler.net/problem=710)             | 10%                                     |      |
-| 714     | [Duodigits](https://projecteuler.net/problem=714)                       | 25%                                     |      |
-| 725     | [Digit sum numbers](https://projecteuler.net/problem=725)               | 10%                                     |      |
-| 743     | [Window into a Matrix](https://projecteuler.net/problem=743)            | 10%                                     |      |
-| 745     | [Sum of Squares II](https://projecteuler.net/problem=745)               | 10%                                     |      |
-| 749     | [Near Power Sums](https://projecteuler.net/problem=749)                 | 15%                                     |      |
-| 751     | [Concatenation Coincidence](https://projecteuler.net/problem=751)       | 5%                                      |      |
-| 754     | [Product of Gauss Factorials](https://projecteuler.net/problem=754)     | 20%                                     |      |
-| 755     | [Not Zeckendorf](https://projecteuler.net/problem=755)                  | 15%                                     |      |
-| 757     | [Stealthy Numbers](https://projecteuler.net/problem=757)                | 10%                                     |      |
-| 764     | [Asymmetric Diophantine Equation](https://projecteuler.net/problem=764) | 40%                                     |      |
-| 777     | [Lissajous Curves](https://projecteuler.net/problem=777)                | 95%                                     | 91   |
-| 780     | [Toriangulations](https://projecteuler.net/problem=780)                 | 100%                                   | 58   |
-| 788     | [Dominating Numbers](https://projecteuler.net/problem=788)              | 10%                                     |      |
-| 800     | [Hybrid Integers](https://projecteuler.net/problem=800)                 | 5%                                      |      |
+| Problem | Title                                                                           | Difficulty | Rank |
+| ---     | ---                                                                             | ---        | ---  |
+| 704     | [Factors of Two in Binomial Coefficients](https://projecteuler.net/problem=704) | 20%        |      |
+| 709     | [Even Stevens](https://projecteuler.net/problem=709)                            | 15%        |      |
+| 710     | [One Million Members](https://projecteuler.net/problem=710)                     | 10%        |      |
+| 714     | [Duodigits](https://projecteuler.net/problem=714)                               | 25%        |      |
+| 725     | [Digit sum numbers](https://projecteuler.net/problem=725)                       | 10%        |      |
+| 743     | [Window into a Matrix](https://projecteuler.net/problem=743)                    | 10%        |      |
+| 745     | [Sum of Squares II](https://projecteuler.net/problem=745)                       | 10%        |      |
+| 749     | [Near Power Sums](https://projecteuler.net/problem=749)                         | 15%        |      |
+| 751     | [Concatenation Coincidence](https://projecteuler.net/problem=751)               | 5%         |      |
+| 754     | [Product of Gauss Factorials](https://projecteuler.net/problem=754)             | 20%        |      |
+| 755     | [Not Zeckendorf](https://projecteuler.net/problem=755)                          | 15%        |      |
+| 757     | [Stealthy Numbers](https://projecteuler.net/problem=757)                        | 10%        |      |
+| 764     | [Asymmetric Diophantine Equation](https://projecteuler.net/problem=764)         | 40%        |      |
+| 777     | [Lissajous Curves](https://projecteuler.net/problem=777)                        | 95%        | 91   |
+| 780     | [Toriangulations](https://projecteuler.net/problem=780)                         | 100%       | 58   |
+| 788     | [Dominating Numbers](https://projecteuler.net/problem=788)                      | 10%        |      |
+| 800     | [Hybrid Integers](https://projecteuler.net/problem=800)                         | 5%         |      |
 
 ### Problems 801-827
-| Problem | Title                                                                             | Difficulty                             | Rank |
-| ---     | ---                                                                               | ---                                    | ---  |
-| 802     | [Iterated Composition](https://projecteuler.net/problem=802)                      | 35%                                    |      |
-| 804     | [Counting Binary Quadratic Representations](https://projecteuler.net/problem=804) | 20%                                    |      |
-| 807     | [Loops of Ropes](https://projecteuler.net/problem=807)                            | 90%                                   | 73   |
-| 808     | [Reversible prime squares](https://projecteuler.net/problem=808)                  | 5%                                     | 94   |
-| 809     | [Rational Recurrence Relation](https://projecteuler.net/problem=809)              | 35%                                    |      |
-| 810     | [XOR-Primes](https://projecteuler.net/problem=810)                                | 20%                                    | 82   |
-| 811     | [Bitwise Recursion](https://projecteuler.net/problem=811)                         | 40%                                    | 82   |
-| 813     | [XOR-Powers](https://projecteuler.net/problem=813)                                | 20%                                    | 65   |
-| 814     | [Mezzo-forte](https://projecteuler.net/problem=814)                               | 50%                                    |      |
-| 815     | [Group by Value](https://projecteuler.net/problem=815)                            | 25%                                    |      |
-| 816     | [Shortest distance among points](https://projecteuler.net/problem=816)            | 5%                                     | 36   |
-| 817     | [Digits in Squares](https://projecteuler.net/problem=817)                         | 20%                                    |      |
-| 820     | [Nth digit of Reciprocals](https://projecteuler.net/problem=820)                  |                                        | 76   |
-| 822     | [Square the Smallest](https://projecteuler.net/problem=822)                       |                                        | 53   |
-| 825     | [Chasing Game](https://projecteuler.net/problem=825)                              |                                        | 55   |
+| Problem | Title                                                                             | Difficulty | Rank |
+| ---     | ---                                                                               | ---        | ---  |
+| 802     | [Iterated Composition](https://projecteuler.net/problem=802)                      | 35%        |      |
+| 804     | [Counting Binary Quadratic Representations](https://projecteuler.net/problem=804) | 20%        |      |
+| 807     | [Loops of Ropes](https://projecteuler.net/problem=807)                            | 90%        | 73   |
+| 808     | [Reversible prime squares](https://projecteuler.net/problem=808)                  | 5%         | 94   |
+| 809     | [Rational Recurrence Relation](https://projecteuler.net/problem=809)              | 35%        |      |
+| 810     | [XOR-Primes](https://projecteuler.net/problem=810)                                | 20%        | 82   |
+| 811     | [Bitwise Recursion](https://projecteuler.net/problem=811)                         | 40%        | 82   |
+| 813     | [XOR-Powers](https://projecteuler.net/problem=813)                                | 20%        | 65   |
+| 814     | [Mezzo-forte](https://projecteuler.net/problem=814)                               | 50%        |      |
+| 815     | [Group by Value](https://projecteuler.net/problem=815)                            | 25%        |      |
+| 816     | [Shortest distance among points](https://projecteuler.net/problem=816)            | 5%         | 36   |
+| 817     | [Digits in Squares](https://projecteuler.net/problem=817)                         | 20%        |      |
+| 820     | [Nth digit of Reciprocals](https://projecteuler.net/problem=820)                  |            | 76   |
+| 822     | [Square the Smallest](https://projecteuler.net/problem=822)                       |            | 53   |
+| 823     | [Factor Shuffle](https://projecteuler.net/problem=823)                            |            |      |
+| 825     | [Chasing Game](https://projecteuler.net/problem=825)                              |            | 55   |
+| 829     | [Integral Fusion](https://projecteuler.net/problem=829)                           |            | 92   |
+| 831     | [Triple Product](https://projecteuler.net/problem=831)                            |            | 36   |
