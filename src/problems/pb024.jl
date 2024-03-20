@@ -1,4 +1,4 @@
-export problem024
+module Problem024
 
 
 """
@@ -8,7 +8,7 @@ Problem 024 of Project Euler.
 
 https://projecteuler.net/problem=024
 """
-function problem024(N::Int=1_000_000)
+function problem024(N::Integer=10^6)
     digits = collect(0:9)
     p = 0
     count = 0
@@ -22,3 +22,9 @@ function problem024(N::Int=1_000_000)
 
     return p
 end
+
+
+export problem024
+end  # module Problem024
+using .Problem024
+export problem024

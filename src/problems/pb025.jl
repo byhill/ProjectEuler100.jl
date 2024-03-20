@@ -1,4 +1,4 @@
-export problem025
+module Problem025
 
 
 """
@@ -14,3 +14,9 @@ function problem025(N::Int=1000)
     phi = (1 + sqrt(5)) / 2
     return ceil(Int, (N - 1 + 0.5log10(5)) / log10(phi))
 end
+
+
+export problem025
+end  # module Problem025
+using .Problem025
+export problem025

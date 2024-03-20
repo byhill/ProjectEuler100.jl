@@ -1,4 +1,4 @@
-export problem005
+module Problem005
 
 
 """
@@ -7,9 +7,13 @@ export problem005
 Problem 005 of Project Euler.
 
 https://projecteuler.net/problem=005
-
-Least common multiple.
 """
-function problem005(N::Int=20)
+function problem005(N::Integer=20)
     return reduce(lcm, 1:N)
 end
+
+
+export problem005
+end  # module Problem005
+using .Problem005
+export problem005

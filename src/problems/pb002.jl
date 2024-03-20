@@ -1,4 +1,4 @@
-export problem002
+module Problem002
 
 
 """
@@ -17,10 +17,17 @@ A recurrence is given by
 """
 function problem002(N::Int=4000000)
     s = 2
-    (fₙ, fₙ₋₁) = (8, 2)
-    while fₙ <= N
+    fₙ, fₙ₋₁ = 8, 2
+    while fₙ ≤ N
         s += fₙ
-        (fₙ, fₙ₋₁) = (4fₙ + fₙ₋₁, fₙ)
+        fₙ, fₙ₋₁ = 4fₙ + fₙ₋₁, fₙ
     end
+
     return s
 end
+
+
+export problem002
+end  # module Problem002
+using .Problem002
+export problem002

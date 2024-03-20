@@ -1,15 +1,19 @@
-export problem020
+module Problem020
 
 
 """
-    problem020(n::BigInt=factorial(BigInt(100)))
+    problem020()
 
 Problem 020 of Project Euler.
 
 https://projecteuler.net/problem=020
-
-Use BigInts...
 """
-function problem020(n::Integer=factorial(BigInt(100)))
-    return sum(digits(n))  # digits(x::BigInt) seems type-unstable
+function problem020(n::Integer=100)
+    return sum(digits(factorial(big(n))))  # digits(x::BigInt) seems type-unstable
 end
+
+
+export problem020
+end  # module Problem020
+using .Problem020
+export problem020

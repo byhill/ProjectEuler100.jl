@@ -1,15 +1,19 @@
-export problem016
+module Problem016
 
 
 """
-    problem016(n::BigInt=2^1000)
+    problem016()
 
 Problem 016 of Project Euler.
 
 https://projecteuler.net/problem=016
-
-Use BigInts...
 """
-function problem016(N::Integer=BigInt(2)^1000)
+function problem016(N::Integer=big(2)^1000)
     return sum(digits(N))  # digits(x::BigInt) seems type-unstable...
 end
+
+
+export problem016
+end  # module Problem016
+using .Problem016
+export problem016

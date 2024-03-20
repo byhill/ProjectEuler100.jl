@@ -1,4 +1,6 @@
-export problem029
+module Problem029
+
+using ..ProjectEuler100
 
 
 """
@@ -10,7 +12,7 @@ https://projecteuler.net/problem=029
 
 https://projecteuler.net/thread=29&page=3#6162
 
-Counting duplicates directly.
+Counting duplicates directly. https://projecteuler.net/thread=29;page=3#6162
 """
 function problem029(N::Integer=100)
     powerdups = zeros(Int, ilog(2, N))
@@ -36,3 +38,9 @@ function problem029(N::Integer=100)
 
     return (N - 1)^2 - dups
 end
+
+
+export problem029
+end  # module Problem029
+using .Problem029
+export problem029

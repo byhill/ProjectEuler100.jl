@@ -1,4 +1,4 @@
-export problem011
+module Problem011
 
 
 """
@@ -9,7 +9,7 @@ Problem 011 of Project Euler.
 https://projecteuler.net/problem=011
 
 Since Julia uses column-major order, for simplicity, the grid is transposed.
-Assumes the grid is 20x20.
+Assumes the grid is square.
 """
 function problem011(N::Integer=4, filename="txt/pb011.txt")
     strings = readlines(filename)
@@ -39,3 +39,9 @@ function problem011(N::Integer=4, filename="txt/pb011.txt")
 
     return maximum(grid_products)
 end
+
+
+export problem011
+end  # module Problem011
+using .Problem011
+export problem011

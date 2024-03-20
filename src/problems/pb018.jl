@@ -1,4 +1,4 @@
-export problem018
+module Problem018
 
 
 """
@@ -8,7 +8,7 @@ Problem 018 of Project Euler.
 
 https://projecteuler.net/problem=018
 
-Bottom-up dynamic programming.
+Bottom-up dynamic programming
 """
 function problem018(filename="txt/pb018.txt")
     triangle = Vector{Int}[]
@@ -22,3 +22,9 @@ function problem018(filename="txt/pb018.txt")
 
     return triangle[1][1]
 end
+
+
+export problem018
+end  # module Problem018
+using .Problem018
+export problem018

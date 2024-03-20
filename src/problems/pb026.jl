@@ -1,37 +1,51 @@
-export problem026
+module Problem026
+
+using .Iterators
+
+const remainders = Int[]
 
 
 """
-    problem026(limit::Integer=1000)
+    problem026()
 
 Problem 026 of Project Euler.
 
 https://projecteuler.net/problem=026
-
-Essentially just long division.
 """
 function problem026(N::Integer=1000)
-    N -= 1
-
-    function cyclelength(n::Integer)
-        remainders = Dict{Int64,Int64}()
-        r = 1
-        for i in countfrom(1)
-            r %= n
-            haskey(remainders, r) && return i - remainders[r]
-            remainders[r] = i
-            r *= 10
-        end
-        return 0
-    end
-
-    (maxcycle, m) = (0, 0)
-    for n in N:-1:2
-        n <= maxcycle && return m  # a cycle can't have length >= n.
-        (iseven(n) || n % 5 == 0) && continue  # length of cycle of 2^i⋅5^j⋅n is the same as n
+    maxcycle = 0
+    m = 0
+    for n in N-1:-1:2
+        n < maxcycle && return m
+        n % 2 == 0 && continue
+        n % 5 == 0 && continue
         l = cyclelength(n)
-        l >= maxcycle && ((maxcycle, m) = (l, n))
+        if l ≥ maxcycle
+            maxcycle = l
+            m = n
+        end
     end
 
     return m
 end
+
+
+function cyclelength(n::Integer)
+    resize!(remainders, n - 1)
+    fill!(remainders, 0)
+
+    r = 1
+    for i in countfrom()
+        r %= n
+        !iszero(remainders[r]) && return i - remainders[r]
+        remainders[r] = i
+        r *= 10
+    end
+    return 0
+end
+
+
+export problem026
+end  # module Problem026
+using .Problem026
+export problem026

@@ -1,4 +1,6 @@
-export problem021
+module Problem021
+
+using ..ProjectEuler100.ArithmeticFunctions
 
 
 """
@@ -7,15 +9,20 @@ export problem021
 Problem 021 of Project Euler.
 
 https://projecteuler.net/problem=021
-
-Interpreted as sum of all amicable pairs less than 10_000.
 """
-function problem021(N::Int=10_000)
+function problem021(N::Integer=10000)
     N -= 1
-    d = σₓ(1, N)
-    for n = 2:N
+    L = N > 5048 ? ceil(Int, N * log(log(N)) * exp(0.578)) : 14304  # https://link.springer.com/article/10.1007/s11139-021-00491-y
+    d = divisorsum_sieve(1, L)
+    for n in eachindex(d)
         d[n] -= n
     end
 
-    return sum(n + d[n] for n = 1:N if d[n] < n && d[d[n]] == n; init=0)
+    return sum(n for n in 2:N if d[n] ≠ n && d[d[n]] == n; init=0)
 end
+
+
+export problem021
+end  # module Problem021
+using .Problem021
+export problem021

@@ -1,4 +1,6 @@
-export problem003
+module Problem003
+
+using Primes
 
 
 """
@@ -8,15 +10,15 @@ Problem 003 of Project Euler.
 
 https://projecteuler.net/problem=003
 
-Since the divisors of N aren't too big, we can simply brute-force this by trial division.
-Takes O(sqrt(n)) time.
+Using factoriaztion packages is overkill for this problem, but it is what I do below.
+There is a naive O(sqrt(N))-time algorithm whose concepts are fundamanental for more advanced algorithms.
 """
-function problem003(N::Int=600_851_475_143)
-    for d in countfrom(2)
-        d < isqrt(N) || return N
-        while N % d == 0
-            N ÷= d
-        end
-        N == 1 && return d
-    end
+function problem003(N::Integer=600851475143)
+    return maximum(first(pe) for pe in eachfactor(N); init=one(N))
 end
+
+
+export problem003
+end  # module Problem003
+using .Problem003
+export problem003
