@@ -1,4 +1,4 @@
-export sumto, ilog, undigits, ispalindrome
+export sumto, ilog, concat, undigits, ispandigital, ispalindrome
 
 # const DIGIT_FACTORIAL = (1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 1)
 
@@ -40,14 +40,14 @@ Returns the largest p such that base^p ≤ n.
 @inline ilog(base::Integer, n::Integer) = ndigits(n; base=base) - 1
 
 
-# """
-#     concat(xs...; base::T=10) where {T<:Integer}
-#
-# Returns the equivalent of T(reduce(*, (string(x) for x in xs))).
-# """
-# @inline function concat(xs...; base::T=10) where {T<:Integer}
-#     return foldl((n, x) -> n * base^ndigits(x) + x, xs; init=zero(T))
-# end
+"""
+    concat(xs...; base::T=10) where {T<:Integer}
+
+Returns the equivalent of T(reduce(*, (string(x) for x in xs))).
+"""
+@inline function concat(xs...; base::T=10) where {T<:Integer}
+    return foldl((n, x) -> n * base^ndigits(x) + x, xs; init=zero(T))
+end
 
 
 """
@@ -84,30 +84,30 @@ function ispalindrome(n::Integer; base::Integer=typeof(n)(10))
 
     return n == p
 end
-#
-#
-# """
-#     ispandigital(n::Integer; base::Integer=10; zeroless::Bool=false; N::Integer=base-1)
-#
-# Returns true if and only if n is a 0-N pandigital number in base `base`.
-#
-# If `zeroless = true`,
-# returns true if and only if n is a 1-N pandigital number in base `base`.
-# """
-# function ispandigital(n::Integer; base::Integer=10, zeroless::Bool=false, N::Integer=base - 1)
-#     N ≥ base && return false
-#
-#     digits = falses(base)
-#     zeroless && (digits[0+1] = true)
-#     while n > 0
-#         (n, r) = divrem(n, base)
-#         digits[r+1] = true
-#     end
-#
-#     return all(digits[1:N+1])
-# end
-#
-#
+
+
+"""
+    ispandigital(n::Integer; base::Integer=10; zeroless::Bool=false; N::Integer=base-1)
+
+Returns true if and only if n is a 0-N pandigital number in base `base`.
+
+If `zeroless = true`,
+returns true if and only if n is a 1-N pandigital number in base `base`.
+"""
+function ispandigital(n::Integer; base::Integer=10, zeroless::Bool=false, N::Integer=base - 1)
+    N ≥ base && return false
+
+    digits = falses(base)
+    zeroless && (digits[0+1] = true)
+    while n > 0
+        (n, r) = divrem(n, base)
+        digits[r+1] = true
+    end
+
+    return all(digits[1:N+1])
+end
+
+
 # """
 #     issquare(n::Integer)
 #

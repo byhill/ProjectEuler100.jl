@@ -1,5 +1,3 @@
-module Problem033
-
 const fracs = Tuple{Int,Int}[]
 const pdigs = Int[]
 const qdigs = Int[]
@@ -9,20 +7,7 @@ const rem_p = Int[]
 const rem_q = Int[]
 
 
-"""
-    problem033()
-
-Problem 033 of Project Euler.
-
-https://projecteuler.net/problem=033
-
-Cancel K digits in N digits fractions.
-
-For each fraction p/q (not necessarily reduced) with p and q having K digits,
-check to see if for fractions x/y equivalent to p/q, with x and y having N digits.
-if x can cancel digits to form p and y can cancel the same digits to form q.
-"""
-function problem033(N::Integer=2, K::Integer=1)
+function problem033(N::Integer, K::Integer)
     empty!(fracs)
 
     resize!(pdigs, N - K)
@@ -33,9 +18,9 @@ function problem033(N::Integer=2, K::Integer=1)
     L3 = 10^N - 1
     for p = 1:L1
         for q = p+1:L1
-            x = p ÷ gcd(p, q)
-            y = q ÷ gcd(p, q)
-            for n = 1+L2÷x:L3÷y
+            x = div(p, gcd(p, q))
+            y = div(q, gcd(p, q))
+            for n = 1+div(L2, x):div(L3, y)
                 cancel_fraction(N, K, p, q, n * x, n * y)
             end
         end
@@ -43,7 +28,7 @@ function problem033(N::Integer=2, K::Integer=1)
 
     sort!(fracs)
     unique!(fracs)
-    return denominator(prod(t[1] // t[2] for t in fracs))
+    return sum(x[1] for x in fracs), sum(x[2] for x in fracs)
 end
 
 
@@ -60,7 +45,6 @@ function cancel_fraction(N, K, p::Integer, q::Integer, x::Integer, y::Integer)
 
     sort!(rem_p)
     sort!(rem_q)
-    isequal(rem_p, rem_q) && println((p, q, x, y, p // q == x // y, rem_p))
     isequal(rem_p, rem_q) && push!(fracs, (x, y))
 end
 
@@ -84,7 +68,6 @@ function g(N, K, a, b, rem)
 end
 
 
-export problem033
-end  # module Problem033
-using .Problem033
-export problem033
+(N, K) = Tuple(parse(Int, n) for n in split(readline(), " "))
+(u, v) = problem033(N, K)
+println("$u $v")
