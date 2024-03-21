@@ -1,7 +1,8 @@
 # ProjectEuler100.jl
 
 [![Build status](https://ci.appveyor.com/api/projects/status/hgkaobx9v1yfwrme?svg=true)](https://ci.appveyor.com/project/byhill/projecteuler100-jl)
-![](https://projecteuler.net/profile/byhill.png?)
+
+![PE](https://projecteuler.net/profile/byhill.png?)
 
 
 This repository contains my solutions to the first 100 problems of [Project Euler](https://projecteuler.net/),
