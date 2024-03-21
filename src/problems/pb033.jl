@@ -60,7 +60,6 @@ function cancel_fraction(N, K, p::Integer, q::Integer, x::Integer, y::Integer)
 
     sort!(rem_p)
     sort!(rem_q)
-    isequal(rem_p, rem_q) && println((p, q, x, y, p // q == x // y, rem_p))
     isequal(rem_p, rem_q) && push!(fracs, (x, y))
 end
 

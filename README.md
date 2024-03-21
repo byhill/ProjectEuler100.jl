@@ -64,7 +64,7 @@ on a 10.15.7 macos, 2.2 GHz Quad-Core Intel Core i7 processor, with 16 GB 1600 M
 | 029     | [Distinct powers](https://projecteuler.net/problem=029)                          | 5%         | [0.000](src/problems/pb029.jl)  |
 | 030     | [Digit fifth powers](https://projecteuler.net/problem=030)                       | 5%         | [0.000](src/problems/pb030.jl)  |
 | 031     | [Coin sums](https://projecteuler.net/problem=031)                                | 5%         | [0.000](src/problems/pb031/jl)  |
-| 032     | [Pandigital products](https://projecteuler.net/problem=032)                      | 5%         | [0.045](src/problems/pb032.jl)  |
+| 032     | [Pandigital products](https://projecteuler.net/problem=032)                      | 5%         | [0.042](src/problems/pb032.jl)  |
 | 033     | [Digit cancelling fractions](https://projecteuler.net/problem=033)               | 5%         | [0.000](src/problems/pb033.jl)  |
 | 034     | [Digit factorials](https://projecteuler.net/problem=034)                         | 5%         | [0.034](src/problems/pb034.jl)  |
 | 035     | [Circular primes](https://projecteuler.net/problem=035)                          | 5%         | [0.008](src/problems/pb035.jl)  |
