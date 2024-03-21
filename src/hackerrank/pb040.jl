@@ -1,17 +1,8 @@
-module Problem040
-
 using .Iterators
 
 
-"""
-    problem040()
-
-Problem 040 of Project Euler.
-
-https://projecteuler.net/problem=040
-"""
-function problem040()
-    return prod(champernownes_constant_digit(10^i) for i = 0:6)
+function problem040(I::NTuple{7,Int})
+    return prod(champernownes_constant_digit(i) for i in I)
 end
 
 
@@ -31,7 +22,8 @@ function champernownes_constant_digit(n::Integer)
 end
 
 
-export problem040
-end  # module Problem040
-using .Problem040
-export problem040
+T = parse(Int, readline())
+for _ in 1:T
+    I = Tuple(parse(Int, i) for i in split(readline(), " "))
+    println(problem040(I))
+end

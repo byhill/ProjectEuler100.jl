@@ -66,11 +66,11 @@ on a 10.15.7 macos, 2.2 GHz Quad-Core Intel Core i7 processor, with 16 GB 1600 M
 | 031     | [Coin sums](https://projecteuler.net/problem=031)                                | 5%         | [0.000](src/problems/pb031/jl)  |
 | 032     | [Pandigital products](https://projecteuler.net/problem=032)                      | 5%         | [0.042](src/problems/pb032.jl)  |
 | 033     | [Digit cancelling fractions](https://projecteuler.net/problem=033)               | 5%         | [0.000](src/problems/pb033.jl)  |
-| 034     | [Digit factorials](https://projecteuler.net/problem=034)                         | 5%         | [0.034](src/problems/pb034.jl)  |
-| 035     | [Circular primes](https://projecteuler.net/problem=035)                          | 5%         | [0.008](src/problems/pb035.jl)  |
-| 036     | [Double-base palindromes](https://projecteuler.net/problem=036)                  | 5%         | [0.026](src/problems/pb036.jl)  |
+| 034     | [Digit factorials](https://projecteuler.net/problem=034)                         | 5%         | [0.032](src/problems/pb034.jl)  |
+| 035     | [Circular primes](https://projecteuler.net/problem=035)                          | 5%         | [0.007](src/problems/pb035.jl)  |
+| 036     | [Double-base palindromes](https://projecteuler.net/problem=036)                  | 5%         | [0.030](src/problems/pb036.jl)  |
 | 037     | [Truncatable primes](https://projecteuler.net/problem=037)                       | 5%         | [0.000](src/problems/pb037.jl)  |
-| 038     | [Pandigital multiples](https://projecteuler.net/problem=038)                     | 5%         | [0.002](src/problems/pb038.jl)  |
+| 038     | [Pandigital multiples](https://projecteuler.net/problem=038)                     | 5%         | [0.001](src/problems/pb038.jl)  |
 | 039     | [Integer right triangles](https://projecteuler.net/problem=039)                  | 5%         | [0.000](src/problems/pb039.jl)  |
 | 040     | [Champernowne's constant](https://projecteuler.net/problem=040)                  | 5%         | [0.000](src/problems/pb040.jl)  |
 | 041     | [Pandigital prime](https://projecteuler.net/problem=041)                         | 5%         | [0.052](src/problems/pb041.jl)  |

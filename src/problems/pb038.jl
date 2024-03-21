@@ -1,4 +1,7 @@
-export problem038
+module Problem038
+
+using .Iterators
+using ..ProjectEuler100
 
 
 """
@@ -23,3 +26,9 @@ function problem038()
 
     return maximum(pandigitals)
 end
+
+
+export problem038
+end  # module Problem038
+using .Problem038
+export problem038

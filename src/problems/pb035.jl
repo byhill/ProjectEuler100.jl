@@ -1,4 +1,9 @@
-export problem035
+module Problem035
+
+using Primes
+using ..ProjectEuler100
+
+@inline rotate(n::Integer) = n ÷ 10 + (n % 10) * 10^ilog(10, n)
 
 
 """
@@ -9,9 +14,6 @@ Problem 035 of Project Euler.
 https://projecteuler.net/problem=035
 """
 function problem035(N::Integer=10^6)
-
-    @inline rotate(n::Integer) = n ÷ 10 + (n % 10) * 10^ilog(10, n)
-
     primesL = primes(N)
     primeset = Set(primesL)
     ans = 0
@@ -19,7 +21,7 @@ function problem035(N::Integer=10^6)
     for p in primesL
         q = rotate(p)
         while q != p
-            q ∉ primeset && break
+            q in primeset || break
             q = rotate(q)
         end
         q == p && (ans += 1)
@@ -27,3 +29,9 @@ function problem035(N::Integer=10^6)
 
     return ans
 end
+
+
+export problem035
+end  # module Problem035
+using .Problem035
+export problem035

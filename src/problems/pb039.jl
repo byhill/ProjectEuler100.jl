@@ -1,4 +1,4 @@
-export problem039
+module Problem039
 
 
 """
@@ -20,3 +20,9 @@ function problem039(N::Integer=1000)
 
     return argmax(perimeters)
 end
+
+
+export problem039
+end  # module Problem039
+using .Problem039
+export problem039

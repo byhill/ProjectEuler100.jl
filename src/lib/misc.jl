@@ -1,6 +1,5 @@
-export sumto, ilog, concat, undigits, ispandigital, ispalindrome
+export sumto, ilog, concat, undigits, ispandigital, ispalindrome, digit_factorial
 
-# const DIGIT_FACTORIAL = (1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 1)
 
 
 """
@@ -134,17 +133,20 @@ end
 #     return issquare(m) && isqrt(m) % 6 == 5
 # end
 #
-#
-# """
-#     digits_factorial(n::Integer)
-#
-# Returns the sum of the factorial of each digit in `n` (in base 10).
-# """
-# function digit_factorial(n::T) where {T<:Integer}
-#     s = zero(T)
-#     while n > 0
-#         s += T(DIGIT_FACTORIAL[mod1(n, 10)])
-#         n ÷= T(10)
-#     end
-#     return s
-# end
+
+const DIGIT_FACTORIAL = (1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 1)
+
+
+"""
+    digits_factorial(n::Integer)
+
+Returns the sum of the factorial of each digit in `n` (in base 10).
+"""
+function digit_factorial(n::T) where {T<:Integer}
+    s = zero(T)
+    while n > 0
+        s += T(DIGIT_FACTORIAL[mod1(n, 10)])
+        n ÷= T(10)
+    end
+    return s
+end
