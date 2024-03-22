@@ -1,4 +1,8 @@
-export problem047
+module Problem047
+
+using .Iterators
+
+const divisors = Int[]
 
 
 """
@@ -12,27 +16,36 @@ Find via sieving.
 Search via binary search.
 """
 function problem047(K::Integer=4)
+    return first((ans for ans in (f(2^i + K, K) for i in countfrom(8)) if ans > 0))
+end
 
-    """
-    Finds the first K consecuive integers with K distinct prime factors up to N,
-    or 0 if no such K integers exists.
-    """
-    function f(N::Integer)
-        divisors = zeros(Int, N)
-        consec = 0
-        for n = 2:N
-            if divisors[n] == 0
-                divisors[n:n:N] .+= 1
-                consec = 0
-            elseif divisors[n] == K
-                consec += 1
-                consec == K && return n - K + 1
-            else
-                consec = 0
-            end
+
+"""
+Finds the first K consecuive integers with K distinct prime factors up to N,
+or 0 if no such K integers exists.
+"""
+function f(N::Integer, K::Integer)
+    resize!(divisors, N)
+    fill!(divisors, 0)
+
+    consec = 0
+    for n in 2:N
+        if divisors[n] == 0
+            consec = 0
+            divisors[n:n:N] .+= 1
+        elseif divisors[n] == K
+            consec += 1
+            consec == K && return n - K + 1
+        else
+            consec = 0
         end
-        return 0
     end
 
-    return first((ans for ans in (f(2^i + K) for i in countfrom(8)) if ans > 0))
+    return 0
 end
+
+
+export problem047
+end  # module Problem047
+using .Problem047
+export problem047

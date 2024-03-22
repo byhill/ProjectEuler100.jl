@@ -1,4 +1,7 @@
-export problem049
+module Problem049
+
+using Primes
+using ..ProjectEuler100
 
 
 """
@@ -12,13 +15,13 @@ Group primes by digits in hash.
 Then for each group, check if three of them form an arithmetic sequence.
 """
 function problem049()
-    primePermutations = Dict{Any,Vector{Int}}()
+    primePermutations = Dict{Vector{Int},Vector{Int}}()
     for p in primes(10^4)
         k = sort(digits(p))
-        haskey(primePermutations, k) ? push!(primePermutations[k], p) : primePermutations[k] = Int[p]
+        push!(get!(primePermutations, k, Int[]), p)
     end
 
-    arr = Int64[]
+    arr = Int[]
     for v in values(primePermutations)
         length(v) < 3 && continue
         sort!(v)
@@ -29,6 +32,12 @@ function problem049()
     end
 
     filter!(!isequal(148748178147), arr)
-    length(arr) != 1 && error()
+    isone(length(arr)) || error()
     return arr[1]
 end
+
+
+export problem049
+end  # module Problem049
+using .Problem049
+export problem049

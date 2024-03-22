@@ -1,4 +1,7 @@
-export problem043
+module Problem043
+
+using Combinatorics
+using ..ProjectEuler100
 
 
 """
@@ -17,3 +20,9 @@ function problem043()
 
     return ans
 end
+
+
+export problem043
+end  # module Problem043
+using .Problem043
+export problem043

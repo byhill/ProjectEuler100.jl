@@ -1,4 +1,7 @@
-export problem046
+module Problem046
+
+using Primes
+using .Iterators
 
 
 """
@@ -18,3 +21,9 @@ function problem046()
         end
     end
 end
+
+
+export problem046
+end  # module Problem046
+using .Problem046
+export problem046

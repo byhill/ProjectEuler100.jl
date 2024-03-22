@@ -1,4 +1,5 @@
-export sumto, ilog, concat, undigits, ispandigital, ispalindrome, digit_factorial
+export sumto, ilog, concat, undigits
+export ispandigital, ispalindrome, issquare, istriangular, ispentagonal, digit_factorial
 
 
 
@@ -107,32 +108,32 @@ function ispandigital(n::Integer; base::Integer=10, zeroless::Bool=false, N::Int
 end
 
 
-# """
-#     issquare(n::Integer)
-#
-# Returns `true` if and only if `n` is a perfect square
-# """
-# @inline issquare(n::Integer) = isqrt(n)^2 == n
-#
-#
-# """
-#     istriangular(n::Integer)
-#
-# Returns `true` if and only if `n` is a Triangular number m * (m + 1) ÷ 2.  Unsafe
-# """
-# @inline istriangular(n::Integer) = issquare(1 + 8n)
-#
-#
-# """
-#     is_pentagonal(n::Integer)
-#
-# Returns true if an only if `n` is a pentagonal number.  Unsafe.
-# """
-# @inline function ispentagonal(n::Integer)
-#     m = 1 + 24n
-#     return issquare(m) && isqrt(m) % 6 == 5
-# end
-#
+"""
+    issquare(n::Integer)
+
+Returns `true` if and only if `n` is a perfect square
+"""
+@inline issquare(n::Integer) = isqrt(n)^2 == n
+
+
+"""
+    istriangular(n::Integer)
+
+Returns `true` if and only if `n` is a Triangular number m * (m + 1) ÷ 2.  Unsafe
+"""
+@inline istriangular(n::Integer) = issquare(1 + 8n)
+
+
+"""
+    is_pentagonal(n::Integer)
+
+Returns true if an only if `n` is a pentagonal number.  Unsafe.
+"""
+@inline function ispentagonal(n::Integer)
+    m = 1 + 24n
+    return issquare(m) && isqrt(m) % 6 == 5
+end
+
 
 const DIGIT_FACTORIAL = (1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 1)
 

@@ -1,4 +1,7 @@
-export problem041
+module Problem041
+
+using Primes
+using ..ProjectEuler100
 
 
 """
@@ -15,3 +18,9 @@ Therefore, we only need to check 1-7 pandigitals or less.
 function problem041()
     return first(p for p in reverse(primes(10^7)) if ispandigital(p; zeroless=true, N=ndigits(p)))
 end
+
+
+export problem041
+end  # module Problem041
+using .Problem041
+export problem041
