@@ -19,8 +19,8 @@ function problem044()
             (n, r) = divrem(3x + y + 1, 6)
             r != 0 && continue
             m = n - x
-            Pn = n * (3n - 1) >> 1
-            Pm = m * (3m - 1) >> 1
+            Pn = n * (3n - 1) ÷ 2
+            Pm = m * (3m - 1) ÷ 2
             m > 0 && ispentagonal(Pn + Pm) && return D >> 1
         end
     end
