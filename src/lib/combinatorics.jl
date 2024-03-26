@@ -1,8 +1,14 @@
-# combinatorics.jl
+module Combinatorics
+
+export cartesian_product
+
+using .Iterators
 
 """
-    cartesianproduct(iter, n::Integer)
+    cartesian_product(iter, n::Integer)
 
 Returns an iterator that goes over all elements in the `n`th Cartesian product of iter.
 """
-@inline cartesianproduct(iter, n::Integer) = product(ntuple(i -> iter, n)...)
+@inline cartesian_product(iter, n::Integer) = product(ntuple(i -> iter, n)...)
+
+end

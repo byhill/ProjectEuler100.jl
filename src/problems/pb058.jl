@@ -1,4 +1,7 @@
-export problem058
+module Problem058
+
+using Primes
+using .Iterators
 
 
 """
@@ -16,6 +19,13 @@ function problem058(percent::Integer=10)
             n += s
             isprime(n) && (primecount += 1)
         end
+
         100primecount < percent * (2s + 1) && return s + 1
     end
 end
+
+
+export problem058
+end  # module Problem058
+using .Problem058
+export problem058

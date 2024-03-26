@@ -1,4 +1,26 @@
-export problem060
+module Problem060
+
+using Primes
+using .Iterators
+using ..ProjectEuler100
+
+const arr = Int[]
+const cliques = Vector{Int}[]
+const prime_neighbours = Dict{Int,Vector{Int}}()
+
+
+pseudoprimepair(pq, qp) = powermod(2, pq - 1, pq) == 1 && powermod(2, qp - 1, qp) == 1
+
+
+function findcliques(p, nbrs, depth)
+    depth == 0 && (push!(cliques, copy(arr)); return)
+    nbrsI = intersect(nbrs, prime_neighbours[p])
+    for q in filter(<(p), nbrsI)
+        arr[depth] = q
+        findcliques(q, nbrsI, depth - 1)
+    end
+end
+
 
 """
     problem060()
@@ -10,8 +32,11 @@ https://projecteuler.net/problem=060
 Proves the result is indeed true.
 """
 function problem060(K::Integer=5)
-
-    pseudoprimepair(pq, qp) = powermod(2, pq - 1, pq) == 1 && powermod(2, qp - 1, qp) == 1
+    empty!(arr)
+    empty!(cliques)
+    empty!(prime_neighbours)
+    resize!(arr, K)
+    prime_neighbours[3] = Int[]
 
     N = 1024
     ip = 1  # index of primes
@@ -19,20 +44,7 @@ function problem060(K::Integer=5)
     ip1 = 1  # index of primes 1 mod 3
     primes2 = Tuple{Int,Int}[(3, 10)]
     ip2 = 1  # index of primes 2 mod 3
-    prime_neighbours = Dict{Int,Vector{Int}}(3 => [])
-    cliques = Vector{Int}[]
     lp = 10  # length of p
-    arr = Vector{Int}(undef, K)
-
-    function findcliques(p, nbrs, depth)
-        depth == 0 && (push!(cliques, copy(arr)); return)
-        nbrsI = intersect(nbrs, prime_neighbours[p])
-        for q in filter(<(p), nbrsI)
-            arr[depth] = q
-            findcliques(q, nbrsI, depth - 1)
-        end
-    end
-
 
     while true
         # Find prime pairs
@@ -64,8 +76,8 @@ function problem060(K::Integer=5)
 
         # verify that pseudoprime cliques are indeed prime cliques
         f(p, q) = isprime(undigits(vcat(digits(p), digits(q))))
-        filter!(c -> all(f(p, q) for (p, q) in product(c, c) if p != q), cliques)
-        length(cliques) > 0 && N >= minimum(sum, cliques) && break
+        filter!(c -> all(f(p, q) for (p, q) in product(c, c) if p ≠ q), cliques)
+        length(cliques) > 0 && N ≥ minimum(sum, cliques) && break
 
         # prepare for next iteration
         N = length(cliques) == 0 ? 2N : minimum(sum, cliques)
@@ -76,3 +88,9 @@ function problem060(K::Integer=5)
 
     return minimum(sum, cliques)
 end
+
+
+export problem060
+end  # module Problem060
+using .Problem060
+export problem060

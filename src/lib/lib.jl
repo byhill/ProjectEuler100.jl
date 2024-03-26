@@ -1,3 +1,5 @@
 include("arithmetic_functions.jl")
+include("combinatorics.jl")
+include("continued_fractions.jl")
 include("misc.jl")
 include("primes.jl")

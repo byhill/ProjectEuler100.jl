@@ -1,5 +1,3 @@
-module Problem054
-
 const royalvals = Dict('T' => 10, 'J' => 11, 'Q' => 12, 'K' => 13, 'A' => 14)
 
 struct PokerHand
@@ -20,7 +18,7 @@ end
 straightflush(hand::PokerHand) = hand.flush && straight(hand) != 0 ? hand.ranks[end] : 0
 four_of_a_kind(hand::PokerHand) = count(r -> r == hand.ranks[3], hand.ranks) == 4 ? hand.ranks[3] : 0
 full_house(hand::PokerHand) = three_of_a_kind(hand) != 0 && pair(hand) != 0 ? hand.ranks[3] : 0
-flush(hand::PokerHand) = hand.flush ? reverse(hand.ranks) : [0, 0, 0, 0, 0]
+flush(hand::PokerHand) = Int(hand.flush)
 
 function straight(hand::PokerHand)
     all(hand.ranks[i] == hand.ranks[1] + i - 1 for i = 1:5) && return hand.ranks[end]
@@ -68,22 +66,14 @@ function winner(hand1::PokerHand, hand2::PokerHand)
 end
 
 
-"""
-    problem054()
-
-Problem 054 of Project Euler.
-
-https://projecteuler.net/problem=054
-"""
-function problem054(filename="txt/pb054.txt")
-    splits = (split(s, " ") for s in readlines(filename))
+function problem054()
+    splits = (split(s, " ") for s in readlines()[2:end])
     hands1 = [PokerHand(s[1:5]) for s in splits]
     hands2 = [PokerHand(s[6:10]) for s in splits]
-    return count(winner(h1, h2) for (h1, h2) in zip(hands1, hands2))
+    for (h1, h2) in zip(hands1, hands2)
+        println(winner(h1, h2) ? "Player 1" : "Player 2")
+    end
 end
 
 
-export problem054
-end  # module Problem054
-using .Problem054
-export problem054
+problem054()

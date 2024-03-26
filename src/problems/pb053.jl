@@ -1,4 +1,4 @@
-export problem053
+module Problem053
 
 
 """
@@ -12,11 +12,11 @@ Use Pascal's triangle.  Take advantage of symmetry.
 Only calculate exact value of a binomial coefficient if it is less than `L`.
 """
 function problem053(N::Integer=100, L::Integer=10^6)
-    pascals_triangle = [ones(Int, (n + 2) ÷ 2) for n = 1:N]
+    pascals_triangle = [ones(Int, (n + 2) >> 1) for n in 1:N]
     flag = false  # Set to true once we hit one value for which n choose k exceeds L/
     c = 0
-    for n = 2:N
-        for k = 2:(n+1)÷2
+    for n in 2:N
+        for k in 2:(n+1)÷2
             pascals_triangle[n][k] = min(pascals_triangle[n-1][k-1] + pascals_triangle[n-1][k], L)
             pascals_triangle[n][k] == L && (flag = true; c += 2 * ((n + 1) ÷ 2 - k + 1); break)
         end
@@ -27,5 +27,12 @@ function problem053(N::Integer=100, L::Integer=10^6)
             pascals_triangle[n][n÷2+1] == L && (flag = true; c += 1)
         end
     end
+
     return c
 end
+
+
+export problem053
+end  # module Problem053
+using .Problem053
+export problem053

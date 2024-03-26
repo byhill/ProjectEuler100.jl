@@ -1,24 +1,33 @@
-export problem055
+module Problem055
+
+using ..ProjectEuler100
 
 
-"""
-    problem055()
-
-Problem 055 of Project Euler.
-
-https://projecteuler.net/problem=055
-"""
-function problem055(N::Integer=10^4)
-
-    function islychrel(n::Integer)
+function islychrel(n::Integer)
+    p = undigits(reverse(digits(n)))
+    for _ in 1:50
+        n += p
         p = undigits(reverse(digits(n)))
-        for _ = 1:50
-            n += p
-            p = undigits(reverse(digits(n)))
-            n == p && return false
-        end
-        return true
+        n == p && return false
     end
 
-    return count(islychrel, BigInt(1):N)
+    return true
 end
+
+
+"""
+    problem55()
+
+Problem 55 of Project Euler.
+
+https://projecteuler.net/problem=55
+"""
+function problem055(N::Integer=10^4)
+    return count(islychrel, big(1):N)
+end
+
+
+export problem055
+end  # module Problem55
+using .Problem055
+export problem055

@@ -1,4 +1,7 @@
-export problem057
+module Problem057
+
+using PellsEquation
+using .Iterators
 
 
 """
@@ -9,13 +12,11 @@ Problem 057 of Project Euler.
 https://projecteuler.net/problem=057
 """
 function problem057(N::Integer=1000)
-    c = 0
-    (p2, p1) = (BigInt(1), BigInt(3))
-    (q2, q1) = (BigInt(1), BigInt(2))
-    for _ in 2:N
-        (p2, p1) = (p1, 2p1 + p2)
-        (q2, q1) = (q1, 2q1 + q2)
-        ndigits(p1) > ndigits(q1) && (c += 1)
-    end
-    return c
+    return count(ndigits(P) > ndigits(Q) for (_, P, Q) in take(continued_fraction(2), N + 1))
 end
+
+
+export problem057
+end  # module Problem057
+using .Problem057
+export problem057
