@@ -134,6 +134,9 @@ const DIGIT_FACTORIAL = (1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 1)
 Returns the sum of the factorial of each digit in `n` (in base 10).
 """
 function digit_factorial(n::T) where {T<:Integer}
+    isless(n, 0) && throw(DomainError(n, "n must be a nonnegative integer"))
+    iszero(n) && return one(T)
+
     s = zero(T)
     while n > 0
         s += T(DIGIT_FACTORIAL[mod1(n, 10)])

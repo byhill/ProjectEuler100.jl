@@ -1,6 +1,9 @@
 module Problem074
 
+using OffsetArrays: Origin
 using ..ProjectEuler100
+
+O(A) = Origin(0)(A)
 
 
 """
@@ -10,39 +13,34 @@ Problem 074 of Project Euler.
 
 https://projecteuler.net/problem=074
 """
-function problem074(N::Int=10^6)
-    cache = Dict{Int,Int}()
-    c = 0
+function problem074(N::Integer=10^6)
+    cache = O(zeros(Int, max(N, 7factorial(9))))
+    chain = Int[]
 
-    for n = 1:N
-        if n in keys(cache)
-            cache[n] == 60 && (c += 1)
-            continue
-        end
+    for n in 1:N
+        iszero(cache[n]) || continue
 
+        empty!(chain)
         m = n
-        chain = Int[]
-        while !(m in chain) && !(m in keys(cache))
+        while !(m in chain) && cache[m] == 0
             push!(chain, m)
             m = digit_factorial(m)
         end
         reverse!(chain)
         if m in chain
             i = findfirst(isequal(m), chain)
-            for u in chain[1:i]
-                cache[u] = i
+            for _ in 1:i
+                cache[popfirst!(chain)] = i
             end
-            chain = chain[i+1:end]
         end
 
-        offset = m in keys(cache) ? cache[m] : 0
+        offset = cache[m]
         for (i, m) in enumerate(chain)
             cache[m] = i + offset
         end
-        cache[n] == 60 && (c += 1)
     end
 
-    return c
+    return count(==(60), resize!(cache, N - 1))
 end
 
 
