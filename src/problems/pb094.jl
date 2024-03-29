@@ -1,4 +1,4 @@
-export problem094
+module Problem094
 
 
 """
@@ -48,7 +48,7 @@ we have a = u^2 + v^2 = 4v^2 + 1 and perimeter = 3a + 1 = 12v^2 + 4
 In the second case where u = 2v + sqrt(3v^2 + 1),
 we have a = u^2 + v^2 = 8v^2 + 4vx + 1 and perimeter = 3a - 1 = 24v^2 + 12vx + 2.
 """
-function problem094(N::Int=10^9)
+function problem094(N::Integer=10^9)
     perimeters = 0
     x = 2
     v = 1
@@ -61,3 +61,9 @@ function problem094(N::Int=10^9)
         (x, v) = (2x + 3v, x + 2v)
     end
 end
+
+
+export problem094
+end  # module Problem094
+using .Problem094
+export problem094

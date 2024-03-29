@@ -1,11 +1,7 @@
-export problem093
-
-
 module Problem093
-export problem093
 
-using Base.Iterators
 using Combinatorics: combinations
+using .Iterators
 
 
 function findreachable(S)
@@ -53,6 +49,8 @@ function problem093()
     return maximum((seqlength(S), parse(Int, join(S))) for S in combinations(1:9, 4))[2]
 end
 
-end
 
+export problem093
+end  # module Problem093
 using .Problem093
+export problem093

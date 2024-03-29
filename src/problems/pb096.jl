@@ -1,10 +1,6 @@
-export problem096
-
-
 module Problem096
-export problem096
 
-using Base.Iterators: flatten, product
+using .Iterators: flatten, product
 
 
 """
@@ -68,5 +64,8 @@ end
     return collect(flatten(27column + 3row + 1 + i + 9j for (i, j) in product(0:2, 0:2)))
 end
 
-end
+
+export problem096
+end  # module Problem096
 using .Problem096
+export problem096

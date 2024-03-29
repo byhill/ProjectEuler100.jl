@@ -1,4 +1,6 @@
-export problem074
+module Problem074
+
+using ..ProjectEuler100
 
 
 """
@@ -42,3 +44,9 @@ function problem074(N::Int=10^6)
 
     return c
 end
+
+
+export problem074
+end  # module Problem074
+using .Problem074
+export problem074

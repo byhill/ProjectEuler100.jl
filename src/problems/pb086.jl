@@ -1,13 +1,11 @@
-export problem086
-
 module Problem086
-export problem086
 
 
 function cuboids(a::Integer, bc::Integer)
     2a < bc && return 0
     return a >= bc ? bc ÷ 2 : a - div(bc - 1, 2)
 end
+
 
 function cuboids(M::Integer)
     total = zeros(Int, M)
@@ -32,6 +30,7 @@ function cuboids(M::Integer)
     return total
 end
 
+
 """
     problem086()
 
@@ -48,5 +47,8 @@ function problem086(M::Int=10^6)
     end
 end
 
+
+export problem086
 end  # module Problem086
 using .Problem086
+export problem086

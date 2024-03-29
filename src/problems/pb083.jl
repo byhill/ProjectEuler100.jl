@@ -1,4 +1,4 @@
-export problem083
+module Problem083
 
 
 """
@@ -33,3 +33,9 @@ function problem083(filename="txt/pb083.txt")
 
     return round(Int, D[L+1, L+1])
 end
+
+
+export problem083
+end  # module Problem083
+using .Problem083
+export problem083

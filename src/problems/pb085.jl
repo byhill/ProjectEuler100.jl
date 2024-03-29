@@ -1,4 +1,4 @@
-export problem085
+module Problem085
 
 
 """
@@ -25,3 +25,9 @@ function problem085(N::Int=2_000_000)
 
     return area
 end
+
+
+export problem085
+end  # module Problem085
+using .Problem085
+export problem085

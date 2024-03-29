@@ -1,4 +1,4 @@
-export problem097
+module Problem097
 
 
 """
@@ -11,3 +11,9 @@ https://projecteuler.net/problem=097
 function problem097()
     return mod(28433 * powermod(2, 7830457, 10^10) + 1, 10^10)
 end
+
+
+export problem097
+end  # module Problem097
+using .Problem097
+export problem097

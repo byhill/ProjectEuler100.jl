@@ -1,7 +1,5 @@
-export problem076
-
 module Problem076
-export problem076
+
 
 const cache = Dict{Tuple{Int,Int},Int}()
 
@@ -29,5 +27,8 @@ function problem076(N::Int=100)
     return f(N, N - 1)
 end
 
+
+export problem076
 end  # module Problem076
 using .Problem076
+export problem076

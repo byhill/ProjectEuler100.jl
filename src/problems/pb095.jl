@@ -1,4 +1,6 @@
-export problem095
+module Problem095
+
+using ..ProjectEuler100.ArithmeticFunctions
 
 
 """
@@ -9,7 +11,7 @@ Problem 095 of Project Euler.
 https://projecteuler.net/problem=095
 """
 function problem095(N::Int=10^6)
-    σ = σₓ(1, N)
+    σ = divisorsum_sieve(1, N)
     for n = 2:N
         σ[n] -= n
     end
@@ -26,3 +28,9 @@ function problem095(N::Int=10^6)
 
     return argmax((amicablechain(n) for n = 2:N)) + 1
 end
+
+
+export problem095
+end  # module Problem095
+using .Problem095
+export problem095

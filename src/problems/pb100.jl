@@ -1,4 +1,4 @@
-export problem100
+module Problem100
 
 
 """
@@ -30,3 +30,9 @@ function problem100(L::Integer=10^12)
         end
     end
 end
+
+
+export problem100
+end  # module Problem100
+using .Problem100
+export problem100

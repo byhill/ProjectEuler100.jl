@@ -1,4 +1,4 @@
-export problem075
+module Problem075
 
 
 """
@@ -26,3 +26,9 @@ function problem075(N::Integer=15 * 10^5)
 
     return count(isequal(1), perimeters)
 end
+
+
+export problem075
+end  # module Problem075
+using .Problem075
+export problem075

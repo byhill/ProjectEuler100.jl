@@ -1,10 +1,6 @@
-export problem098
-
-
 module Problem098
-export problem098
 
-using ..ProjectEulerLibrary
+using ..ProjectEuler100
 
 
 """
@@ -62,6 +58,9 @@ function square_anagram(w1::AbstractString, w2::AbstractString)
     return ans
 end
 
-end
 
+
+export problem098
+end  # module Problem098
 using .Problem098
+export problem098

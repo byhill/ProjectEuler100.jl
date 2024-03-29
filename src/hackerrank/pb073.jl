@@ -114,7 +114,6 @@ primes(n::Int) = primes(1, n)
 
 ##############################################################################
 
-
 const F = Int[]
 
 
@@ -131,12 +130,12 @@ end
 
 
 # inclusion-exclusion
-function ie(N::Int, i::Int, primes)
+function ie(N, i, primes)
     N < 1 && return 0
     iszero(F[N]) && return F[N]
 
     ans = F[N]
-    for j = i:length(primes)
+    for j in i:length(primes)
         p = primes[j]
         p > N && break
         ans -= ie(div(N, p), j + 1, primes)

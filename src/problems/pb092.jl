@@ -1,10 +1,7 @@
-export problem092
-
-
 module Problem092
-export problem092
 
 const cache = Dict{Tuple{Int,Int},Int}()
+
 
 function squaredigitsum(n)
     s = 0
@@ -59,5 +56,9 @@ function problem092(D::Int=7)
     return sum(f(n, D) for n = 1:81D if to89[n] == 89)
 end
 
-end
+
+
+export problem092
+end  # module Problem092
 using .Problem092
+export problem092

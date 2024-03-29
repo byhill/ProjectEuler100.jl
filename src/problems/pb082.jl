@@ -1,4 +1,4 @@
-export problem082
+module Problem082
 
 
 """
@@ -40,3 +40,9 @@ function problem082(filename="txt/pb082.txt")
 
     return minimum(M[:, end])
 end
+
+
+export problem082
+end  # module Problem082
+using .Problem082
+export problem082

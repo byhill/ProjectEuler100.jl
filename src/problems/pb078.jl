@@ -1,4 +1,6 @@
-export problem078
+module Problem078
+
+using .Iterators
 
 
 """
@@ -32,3 +34,9 @@ function problem078(d::Int=10^6)
         p[n] == 0 && return n - 1
     end
 end
+
+
+export problem078
+end  # module Problem078
+using .Problem078
+export problem078

@@ -1,4 +1,4 @@
-export problem079
+module Problem079
 
 
 """
@@ -35,3 +35,9 @@ function problem079(filename="txt/pb079.txt")
 
     return parse(Int, passcode)
 end
+
+
+export problem079
+end  # module Problem079
+using .Problem079
+export problem079

@@ -1,4 +1,4 @@
-export problem091
+module Problem091
 
 
 """
@@ -22,6 +22,12 @@ This leads to the O(N^2 log(N)) formula
 
     3N^2 + 2⋅∑∑ min(y * gcd(x, y) / x, (N - x) * gcd(x, y) / y)
 """
-function problem091(N::Int=50)
+function problem091(N::Integer=50)
     return 3N^2 + 2sum(min(y * gcd(x, y) ÷ x, (N - x) * gcd(x, y) ÷ y) for y = 1:N, x = 1:N)
 end
+
+
+export problem091
+end  # module Problem091
+using .Problem091
+export problem091

@@ -1,4 +1,6 @@
-export problem087
+module Problem087
+
+using Primes
 
 
 """
@@ -42,3 +44,9 @@ function problem087(N::Int=50_000_000)
 
     return length(unique(solns))
 end
+
+
+export problem087
+end  # module Problem087
+using .Problem087
+export problem087

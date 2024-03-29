@@ -1,11 +1,6 @@
-export problem084
-
-
 module Problem084
-export problem084
 
 using LinearAlgebra
-
 
 const MONOPOLY_SQUARES = (
     "GO", "A1", "CC1", "A2", "T1", "R1", "B1", "CH1", "B2", "B3",
@@ -49,7 +44,7 @@ Problem 084 of Project Euler.
 
 https://projecteuler.net/problem=084
 
-Use Markov Chains and it's stationary distribution.
+Use Markov Chains and its stationary distribution.
 """
 function problem084(D::Int=4, K::Int=3)
     diceProbabilities = zeros(2D)
@@ -106,5 +101,8 @@ function problem084(D::Int=4, K::Int=3)
     return parse(Int, join((string(indices[i] - 1) for i = 1:K)))
 end
 
-end
+
+export problem084
+end  # module Problem084
 using .Problem084
+export problem084

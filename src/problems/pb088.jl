@@ -1,8 +1,4 @@
-export problem088
-
-
 module Problem088
-export problem088
 
 const minimal_productsum = Dict{Int,Int}()
 
@@ -41,6 +37,8 @@ function productsum(p, s, l, a, K)
     end
 end
 
-end
 
+export problem088
+end  # module Problem088
 using .Problem088
+export problem088

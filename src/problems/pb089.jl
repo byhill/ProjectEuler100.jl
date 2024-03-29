@@ -1,9 +1,4 @@
-export problem089
-
-
 module Problem089
-export problem089
-
 
 const romanvalues = (
     ("M", 1000), ("CM", 900), ("D", 500), ("CD", 400), ("C", 100), ("XC", 90),
@@ -56,5 +51,8 @@ function decimal_to_roman(n)
     return rm
 end
 
-end
+
+export problem089
+end  # module Problem089
 using .Problem089
+export problem089

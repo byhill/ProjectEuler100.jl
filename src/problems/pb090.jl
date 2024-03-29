@@ -1,10 +1,7 @@
-export problem090
-
-
 module Problem090
-export problem090
 
 using Combinatorics: combinations, permutations, with_replacement_combinations
+
 
 """
     problem090()
@@ -27,5 +24,9 @@ function problem090(N::Int=9, D::Int=2)
     sum(1 for dicecomb in with_replacement_combinations(dice, D) if isvalid(dicecomb))
 end
 
-end
+
+
+export problem090
+end  # module Problem090
 using .Problem090
+export problem090

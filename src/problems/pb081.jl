@@ -1,4 +1,4 @@
-export problem081
+module Problem081
 
 
 """
@@ -15,10 +15,10 @@ function problem081(filename="txt/pb081.txt")
     @assert size(M, 1) == size(M, 2)
     L = size(M, 1)
 
-    for i = 2:L
+    for i in 2:L
         M[i, 1] += M[i-1, 1]
     end
-    for j = 2:L
+    for j in 2:L
         M[1, j] += M[1, j-1]
         for i = 2:L
             M[i, j] += min(M[i-1, j], M[i, j-1])
@@ -27,3 +27,9 @@ function problem081(filename="txt/pb081.txt")
 
     return M[end, end]
 end
+
+
+export problem081
+end  # module Problem081
+using .Problem081
+export problem081
