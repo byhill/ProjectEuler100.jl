@@ -19,7 +19,7 @@ end
 
 function findsets(figurates)
     if isempty(figurates) && digits(cycle[1])[3:4] == digits(cycle[end])[1:2]
-        length(unique(cycle)) == length(cycle) && (println(cycle); push!(cyclic_sets, sum(cycle)))
+        length(unique(cycle)) == length(cycle) && push!(cyclic_sets, sum(cycle))
     elseif isempty(cycle)
         for n in figurates[1]
             push!(cycle, n)
