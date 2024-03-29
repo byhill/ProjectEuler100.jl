@@ -22,16 +22,6 @@ function sumto(N::Integer)
 end
 
 
-# """
-#     sumsquaresto(n::Integer)
-#
-# Returns 1^2 + 2^2 + ... + (n - 1)^2 + n^2.
-#
-# Takes constant time.  Unsafe (overflow can occur).
-# """
-# @inline sumsquaresto(n::Integer) = n * (n + 1) * (2n + 1) ÷ 6
-
-
 """
     ilog(base::Integer, n::Integer)
 
