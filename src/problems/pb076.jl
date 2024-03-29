@@ -12,6 +12,7 @@ function f(n, m)
     end
 end
 
+
 """
     problem076()
 
@@ -22,7 +23,7 @@ https://projecteuler.net/problem=076
 Let f(n, m) be the number of ways that n can be written as the sum of integers at most m.
 Then, with proper base cases, f(n, m) = f(n - m, m) + f(n, m - 1).
 """
-function problem076(N::Int=100)
+function problem076(N::Integer=100)
     empty!(cache)
     return f(N, N - 1)
 end

@@ -26,7 +26,7 @@ https://projecteuler.net/problem=077
 
 Very similar to the previous problem...
 """
-function problem077(N::Int=5000)
+function problem077(N::Integer=5000)
     empty!(cache)
     pL = 10
     primesL = primes(pL)
