@@ -1,10 +1,9 @@
-export problem073
-
-
 module Problem073
-export problem073
 
 using Primes
+
+const F = Int[]
+
 
 """
     problem073()
@@ -30,28 +29,35 @@ It is HIGHLY recommended to read the overview to this problem,
 as some of the concepts explained in the overview
 are highly pertinent to later PE problems.
 """
-function problem073(N::Int=12000)
-    F = zeros(Int, N)
-    for n = 2:N
+function problem073(N::Integer=12000)
+    resize!(F, N)
+    fill!(F, 0)
+
+    for n in 2:N
         F[n] = F[n-1] + (n - 1) ÷ 2 - n ÷ 3
     end
 
-    return ie(N, 1, primes(N), F)
+    return ie(N, 1, primes(N))
 end
 
 
 # inclusion-exclusion
-function ie(N::Int, i::Int, primes, F)
+function ie(N::Int, i::Int, primes)
     N < 1 && return 0
-    c = F[N]
-    c == 0 && return c
+    iszero(F[N]) && return F[N]
+
+    ans = F[N]
     for j = i:length(primes)
         p = primes[j]
         p > N && break
-        c -= ie(N ÷ p, j + 1, primes, F)
+        ans -= ie(N ÷ p, j + 1, primes)
     end
-    return c
+
+    return ans
 end
 
+export problem073
 end  # module Problem073
 using .Problem073
+export problem073
+export problem073

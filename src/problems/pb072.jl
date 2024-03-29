@@ -1,4 +1,6 @@
-export problem072
+module Problem072
+
+using ..ProjectEuler100.Totients
 
 
 """
@@ -18,3 +20,9 @@ of computing the totient summatory function.
 function problem072(N::Integer=10^6)
     return sum(totients(N)) - 1
 end
+
+
+export problem072
+end  # module Problem072
+using .Problem072
+export problem072

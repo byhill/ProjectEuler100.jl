@@ -1,4 +1,4 @@
-export problem071
+module Problem071
 
 
 """
@@ -14,7 +14,13 @@ Essentially, you are looking of the term previous to 3/7
 in the Farey sequence F_{1,000,000}.
 """
 function problem071(h::Integer=3, k::Integer=7, n::Integer=10^6)
-    (x, y) = bezouts(k, h, -1)
+    _, x, y = .-gcdx(k, h)
     r = (n + y) ÷ k
     return x + r * h
 end
+
+
+export problem071
+end  # module Problem071
+using .Problem071
+export problem071
