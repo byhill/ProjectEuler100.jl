@@ -1,16 +1,14 @@
-export problem062
-
 module Problem062
-export problem062
 
-using Base.Iterators
-using ..ProjectEulerLibrary
+using .Iterators
+using ..ProjectEuler100
 
 
 mutable struct CubicPermutation{T<:Integer}
     mincube::T
     found::T
 end
+
 
 """
     problem062()
@@ -29,5 +27,8 @@ function problem062(N::Integer=5)
     end
 end
 
+
+export problem062
 end  # module Problem062
 using .Problem062
+export problem062

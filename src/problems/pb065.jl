@@ -1,4 +1,4 @@
-export problem065
+module Problem065
 
 
 """
@@ -7,15 +7,18 @@ export problem065
 Problem 065 of Project Euler.
 
 https://projecteuler.net/problem=065
-
-My solution is a little wasteful with memory.
-I use O(N), optimal is probably around O(logN).
 """
 function problem065(N::Integer=100)
-    a = [[2, 1]; [n % 3 == 0 ? 2(n + 1) ÷ 3 : 1 for n = 3:N]]
-    p = BigInt[a[1], a[2]*a[1]+1]
-    for n = 3:N
-        push!(p, a[n] * p[end] + p[end-1])
+    p, q = big(1), big(2)
+    for n in 2:N
+        p, q = q, (iszero(mod(n, 3)) ? 2(n + 1) ÷ 3 : 1) * q + p
     end
-    return sum(digits(p[end]))
+
+    return sum(digits(q))
 end
+
+
+export problem065
+end  # module Problem065
+using .Problem065
+export problem065

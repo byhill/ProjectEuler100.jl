@@ -1,9 +1,8 @@
-export problem068
-
 module Problem068
-export problem068
+
 
 const solns = String[]
+
 
 """
     problem068()
@@ -60,5 +59,7 @@ end
 invalid(n, used, N) = used & (1 << n) != 0 || n < 1 || n > 2N
 
 
-end
+export problem068
+end  # module Problem068
 using .Problem068
+export problem068

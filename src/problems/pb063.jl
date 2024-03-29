@@ -1,4 +1,4 @@
-export problem063
+module Problem063
 
 
 """
@@ -13,3 +13,9 @@ https://projecteuler.net/problem=063
 function problem063()
     return sum(floor(Int, 1 / (1 - log10(m))) for m = 1:9)
 end
+
+
+export problem063
+end  # module Problem063
+using .Problem063
+export problem063
