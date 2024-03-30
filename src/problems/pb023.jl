@@ -13,15 +13,15 @@ https://projecteuler.net/problem=023
 function problem023()
     N = 28123
     d = divisorsum_sieve(1, N)
-    for n = 1:N
+    for n in 1:N
         d[n] -= n
     end
 
-    abundant = [d[n] > n for n = 1:N]
+    abundant = [d[n] > n for n in 1:N]
     abundantv = Int[]
 
     ans = 0
-    for n = 1:N
+    for n in 1:N
         iseven(n) && abundant[n>>1] && push!(abundantv, n >> 1)
         if all(!abundant[n-m] for m in abundantv)
             ans += n

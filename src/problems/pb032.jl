@@ -12,7 +12,7 @@ https://projecteuler.net/problem=032
 """
 function problem032()
     pandigital_products = Int[]
-    for n = 1:99, m = 1:10000
+    for n in 1:99, m in 1:10000
         x = concat(n, m, n * m)
         ndigits(x) ≠ 9 && continue
         ispandigital(x; zeroless=true) && push!(pandigital_products, n * m)

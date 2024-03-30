@@ -16,7 +16,7 @@ function problem046()
     for n in countfrom(11, 2)
         if isprime(n)
             push!(primes, n)
-        elseif !any(n - 2m^2 in primes for m = 1:isqrt(n ÷ 2))
+        elseif !any(n - 2m^2 in primes for m in 1:isqrt(n >> 1))
             return n
         end
     end
