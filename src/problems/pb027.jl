@@ -15,7 +15,7 @@ function problem027(N::Integer=1000)
     maxchain, maxa, maxb = 0, 0, 0
 
     for b in reverse(primes(N))
-        maxchain >= b && return maxa * maxb
+        maxchain ≥ b && return maxa * maxb
         for a = -N+((N+1)&1):2:N
             seq = chain(a, b)
             if seq > maxchain

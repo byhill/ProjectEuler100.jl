@@ -15,7 +15,7 @@ https://projecteuler.net/problem=030
 function problem030(p::Integer=5)
     empty!(DIGIT_POWER_SUMS)
 
-    L = first(n for n in countfrom() if ndigits(n * 9^p) <= n)
+    L = first(n for n in countfrom() if ndigits(n * 9^p) ≤ n)
     dpowers = [d^p for d in 0:9]
     combinations_with_replacement_sums(dpowers, L)
     unique!(DIGIT_POWER_SUMS)

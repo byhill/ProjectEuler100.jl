@@ -42,7 +42,7 @@ end
 function decimal_to_roman(n)
     rm = ""
     for (r, x) in romanvalues
-        while n >= x
+        while n ≥ x
             rm *= r
             n -= x
         end
