@@ -1,4 +1,4 @@
-# ProjectEuler100.jl
+# ProjectEuler100.jlread
 
 [![Build status](https://ci.appveyor.com/api/projects/status/hgkaobx9v1yfwrme?svg=true)](https://ci.appveyor.com/project/byhill/projecteuler100-jl)
 
@@ -110,7 +110,7 @@ on a 10.15.7 macos, 2.2 GHz Quad-Core Intel Core i7 processor, with 16 GB 1600 M
 | 075     | [Singular integer right triangles](https://projecteuler.net/problem=075)         | 25%        | [0.018](src/problems/pb075.jl) | [100](https://www.hackerrank.com/contests/projecteuler/challenges/euler075/problem) ([code](src/hackerrank/pb075.jl)) |
 | 076     | [Counting summations](https://projecteuler.net/problem=076)                      | 10%        | [0.000](src/problems/pb076.jl) | [100](https://www.hackerrank.com/contests/projecteuler/challenges/euler076/problem) ([code](src/hackerrank/pb076.jl)) |
 | 077     | [Prime summations](https://projecteuler.net/problem=077)                         | 25%        | [0.000](src/problems/pb077.jl) | [100](https://www.hackerrank.com/contests/projecteuler/challenges/euler077/problem) ([code](src/hackerrank/pb077.jl)) |
-| 078     | [Coin partitions](https://projecteuler.net/problem=078)                          | 30%        | [0.001](src/problems/pb078.jl) | [100](https://www.hackerrank.com/contests/projecteuler/challenges/euler078/problem) ([code](src/hackerrank/pb078.jl)) |
+| 078     | [Coin partitions](https://projecteuler.net/problem=078)                          | 30%        | [0.193](src/problems/pb078.jl) | [100](https://www.hackerrank.com/contests/projecteuler/challenges/euler078/problem) ([code](src/hackerrank/pb078.jl)) |
 | 079     | [Passcode derivation](https://projecteuler.net/problem=079)                      | 5%         | [0.000](src/problems/pb079.jl) | [100](https://www.hackerrank.com/contests/projecteuler/challenges/euler079/problem) ([code](src/hackerrank/pb079.jl)) |
 | 080     | [Square root digital expansion](https://projecteuler.net/problem=080)            | 20%        | [0.000](src/problems/pb080.jl) | [100](https://www.hackerrank.com/contests/projecteuler/challenges/euler080/problem) ([code](src/hackerrank/pb080.jl)) |
 | 081     | [Path sum: two ways](https://projecteuler.net/problem=081)                       | 10%        | [0.001](src/problems/pb081.jl) | [100](https://www.hackerrank.com/contests/projecteuler/challenges/euler081/problem) ([code](src/hackerrank/pb081.jl)) |

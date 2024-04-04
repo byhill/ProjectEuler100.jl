@@ -1,5 +1,8 @@
 module Problem079
 
+using OffsetArrays: Origin
+using ..ProjectEuler100
+
 
 """
     problem079()
@@ -8,32 +11,41 @@ Problem 079 of Project Euler.
 
 https://projecteuler.net/problem=079
 
-Topological Sort
+Topological Sort, Kahn's algorithm with adjacency list
+(which here is asymptotically slower than adjacency lists, but faster for the small input size here)
 """
 function problem079(filename="txt/pb079.txt")
-    passcodes = readlines(filename)
-    characters = Dict{Char,Set{Char}}()
+    passcodes = map(line -> [parse(Int, d) for d in line], readlines(filename))
+    G = Origin(0, 0)(falses(10, 10))
+    characters = Origin(0)(falses(10))
 
     for p in passcodes
         for c in p
-            !(c in keys(characters)) && (characters[c] = Set{Char}())
+            characters[c] = true
         end
-        push!(characters[p[2]], p[1])
-        push!(characters[p[3]], p[2])
+        G[p[1], p[2]] = true
+        G[p[2], p[3]] = true
     end
 
-    passcode = ""
-    for _ in 1:length(characters)
-        c = sort(collect(keys(characters)); by=k -> (length(characters[k]), k))[1]
-        length(characters[c]) > 0 && throw(error("No password exists"))
-        passcode *= c
-        delete!(characters, c)
-        for k in keys(characters)
-            delete!(characters[k], c)
+    L = Int[]
+    S = Int[]
+    for i in 0:9
+        any(G[:, i]) || push!(S, i)
+    end
+
+    while !isempty(S)
+        n = pop!(S)
+        push!(L, n)
+        for i in 0:9
+            G[n, i] || continue
+            G[n, i] = false
+            any(G[:, i]) || push!(S, i)
         end
     end
 
-    return parse(Int, passcode)
+    any(G) && throw(error("No password exists"))
+    intersect!(L, filter(i -> characters[i], 0:9))
+    return concat(L...)
 end
 
 
