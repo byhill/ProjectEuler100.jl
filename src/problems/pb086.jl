@@ -3,7 +3,7 @@ module Problem086
 
 function cuboids(a::Integer, bc::Integer)
     2a < bc && return 0
-    return a >= bc ? bc ÷ 2 : a - div(bc - 1, 2)
+    return a ≥ bc ? bc ÷ 2 : a - div(bc - 1, 2)
 end
 
 

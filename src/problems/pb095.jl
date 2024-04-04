@@ -19,7 +19,7 @@ function problem095(N::Int=10^6)
     function amicablechain(n)
         chain = Set{Int}(n)
         m = σ[n]
-        while m <= N && !(m in chain)
+        while m ≤ N && !(m in chain)
             push!(chain, m)
             m = σ[m]
         end

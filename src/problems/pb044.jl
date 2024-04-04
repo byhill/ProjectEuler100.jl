@@ -17,7 +17,7 @@ function problem044()
         for x in filter(x -> iszero(mod(D, x)), 1:isqrt(D))
             y = D ÷ x
             (n, r) = divrem(3x + y + 1, 6)
-            r != 0 && continue
+            r ≠ 0 && continue
             m = n - x
             Pn = n * (3n - 1) ÷ 2
             Pm = m * (3m - 1) ÷ 2

@@ -32,7 +32,7 @@ function productsum(p, s, l, a, K)
         product = p * n
         sum = s + n
         k = product - sum + l
-        k <= K && product < minimal_productsum[k] && (minimal_productsum[k] = product)
+        k ≤ K && product < minimal_productsum[k] && (minimal_productsum[k] = product)
         productsum(product, sum, l + 1, n, K)
     end
 end

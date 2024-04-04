@@ -17,9 +17,9 @@ struct PokerHand
     end
 end
 
-straightflush(hand::PokerHand) = hand.flush && straight(hand) != 0 ? hand.ranks[end] : 0
+straightflush(hand::PokerHand) = hand.flush && straight(hand) ≠ 0 ? hand.ranks[end] : 0
 four_of_a_kind(hand::PokerHand) = count(r -> r == hand.ranks[3], hand.ranks) == 4 ? hand.ranks[3] : 0
-full_house(hand::PokerHand) = three_of_a_kind(hand) != 0 && pair(hand) != 0 ? hand.ranks[3] : 0
+full_house(hand::PokerHand) = three_of_a_kind(hand) ≠ 0 && pair(hand) ≠ 0 ? hand.ranks[3] : 0
 flush(hand::PokerHand) = hand.flush ? reverse(hand.ranks) : [0, 0, 0, 0, 0]
 
 function straight(hand::PokerHand)

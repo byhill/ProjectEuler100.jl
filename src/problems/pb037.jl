@@ -30,7 +30,7 @@ end
 function left_truncatable_prime(n::Integer)
     m = 0
     i = 1
-    while m != n
+    while m ≠ n
         m = n % 10^i
         !isprime(m) && return false
         i += 1

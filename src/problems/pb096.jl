@@ -30,7 +30,7 @@ end
 
 function solve_soduku!(M, i)
     i > 81 && return true
-    if M[i] != 0
+    if M[i] ≠ 0
         return solve_soduku!(M, i + 1)
     end
 

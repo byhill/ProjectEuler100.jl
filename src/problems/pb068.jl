@@ -34,7 +34,7 @@ function fillring(ring, i, used, N, S)
         outer = S - ring[1] - ring[N]
         invalid(outer, used, N) && return
         ring[2N] = outer
-        ring[N+1] != minimum(ring[N+1:2N]) && return  # ring[N + 1] must be smallest number in outer ring
+        ring[N+1] ≠ minimum(ring[N+1:2N]) && return  # ring[N + 1] must be smallest number in outer ring
 
         ringstring = ""
         for i in 1:N
@@ -56,7 +56,7 @@ function fillring(ring, i, used, N, S)
 end
 
 
-invalid(n, used, N) = used & (1 << n) != 0 || n < 1 || n > 2N
+invalid(n, used, N) = used & (1 << n) ≠ 0 || n < 1 || n > 2N
 
 
 export problem068

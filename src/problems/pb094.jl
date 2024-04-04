@@ -57,7 +57,7 @@ function problem094(N::Integer=10^9)
         p2 = 24v^2 + 12v * x + 2
         p1 > N && return perimeters
         perimeters += p1
-        p2 <= N && (perimeters += p2)
+        p2 ≤ N && (perimeters += p2)
         (x, v) = (2x + 3v, x + 2v)
     end
 end

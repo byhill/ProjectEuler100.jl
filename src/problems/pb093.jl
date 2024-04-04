@@ -16,8 +16,8 @@ function findreachable(S)
             union!(reachable, findreachable([newS; [n1 - n2]]))
             union!(reachable, findreachable([newS; [n2 - n1]]))
             union!(reachable, findreachable([newS; [n1 * n2]]))
-            n2 != 0 && union!(reachable, findreachable([newS; [n1 / n2]]))
-            n1 != 0 && union!(reachable, findreachable([newS; [n2 / n1]]))
+            n2 ≠ 0 && union!(reachable, findreachable([newS; [n1 / n2]]))
+            n1 ≠ 0 && union!(reachable, findreachable([newS; [n2 / n1]]))
         end
     end
     return reachable
