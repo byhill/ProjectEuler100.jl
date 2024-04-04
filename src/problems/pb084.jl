@@ -78,7 +78,7 @@ function problem084(D::Int=4, K::Int=3)
     # Must be filled after Chance since you can land on CH3 and be moved to CC3.
     for i in 1:40
         for cc in COMMUNITYCHEST
-            ccP in M[i, cc]
+            ccP = M[i, cc]
             for j in [GO, JAIL]
                 M[i, j] += ccP / 16
             end
