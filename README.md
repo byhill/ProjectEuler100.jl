@@ -1,4 +1,4 @@
-# ProjectEuler100.jlread
+# ProjectEuler100.jl
 
 [![Build status](https://ci.appveyor.com/api/projects/status/hgkaobx9v1yfwrme?svg=true)](https://ci.appveyor.com/project/byhill/projecteuler100-jl)
 
