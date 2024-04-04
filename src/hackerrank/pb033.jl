@@ -16,7 +16,7 @@ function problem033(N::Integer, K::Integer)
     L1 = 10^(N - K) - 1
     L2 = 10^(N - 1) - 1
     L3 = 10^N - 1
-    for p = 1:L1
+    for p in 1:L1
         for q = p+1:L1
             x = div(p, gcd(p, q))
             y = div(q, gcd(p, q))

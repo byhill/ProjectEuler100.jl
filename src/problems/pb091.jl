@@ -23,7 +23,7 @@ This leads to the O(N^2 log(N)) formula
     3N^2 + 2⋅∑∑ min(y * gcd(x, y) / x, (N - x) * gcd(x, y) / y)
 """
 function problem091(N::Integer=50)
-    return 3N^2 + 2sum(min(y * gcd(x, y) ÷ x, (N - x) * gcd(x, y) ÷ y) for y = 1:N, x = 1:N)
+    return 3N^2 + 2sum(min(y * gcd(x, y) ÷ x, (N - x) * gcd(x, y) ÷ y) for y in 1:N, x in 1:N)
 end
 
 

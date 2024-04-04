@@ -20,7 +20,7 @@ function problem035(N::Integer=10^6)
 
     for p in primesL
         q = rotate(p)
-        while q != p
+        while q ≠ p
             q in primeset || break
             q = rotate(q)
         end

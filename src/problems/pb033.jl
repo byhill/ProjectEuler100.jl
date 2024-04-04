@@ -31,11 +31,11 @@ function problem033(N::Integer=2, K::Integer=1)
     L1 = 10^(N - K) - 1
     L2 = 10^(N - 1) - 1
     L3 = 10^N - 1
-    for p = 1:L1
-        for q = p+1:L1
+    for p in 1:L1
+        for q in p+1:L1
             x = p ÷ gcd(p, q)
             y = q ÷ gcd(p, q)
-            for n = 1+L2÷x:L3÷y
+            for n in 1+L2÷x:L3÷y
                 cancel_fraction(N, K, p, q, n * x, n * y)
             end
         end

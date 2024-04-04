@@ -20,7 +20,7 @@ function problem081(filename="txt/pb081.txt")
     end
     for j in 2:L
         M[1, j] += M[1, j-1]
-        for i = 2:L
+        for i in 2:L
             M[i, j] += min(M[i-1, j], M[i, j-1])
         end
     end

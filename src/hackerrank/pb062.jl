@@ -12,7 +12,7 @@ end
 
 function problem062(N::Integer, K::Integer)
     cubic_permutations = Dict{Int,CubicPermutation}()
-    for n = 1:N
+    for n in 1:N
         m = n * n * n
         key = undigits(sort(digits(m)))
         cp = get!(cubic_permutations, key, CubicPermutation(m, 0))

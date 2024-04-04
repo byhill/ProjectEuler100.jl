@@ -21,7 +21,7 @@ end
 
 
 function problem038(N::Integer, K::Integer)
-    for n = 2:N
+    for n in 2:N
         x = n
         for i in countfrom(2)
             x = concat(x, i * n)

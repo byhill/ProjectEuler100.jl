@@ -11,7 +11,7 @@ Problem 052 of Project Euler.
 https://projecteuler.net/problem=052
 """
 function problem052(K::Integer=6)
-    return first(n for n in countfrom() if all(sort(digits(n)) == sort(digits(k * n)) for k = 2:K))
+    return first(n for n in countfrom() if all(sort(digits(n)) == sort(digits(k * n)) for k in 2:K))
 end
 
 

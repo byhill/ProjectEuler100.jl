@@ -16,11 +16,11 @@ If n = n1 ⋅ n2 ⋯ n_l, then n = n1 + n2 + ⋯ + n_l + (n - n1 + n2 + ⋯ + n_
 """
 function problem088(K::Int=12000)
     empty!(minimal_productsum)
-    for k = 2:K
+    for k in 2:K
         minimal_productsum[k] = 2k
     end
 
-    for a = 2:isqrt(2K)
+    for a in 2:isqrt(2K)
         productsum(a, a, 2, a, K)
     end
     return sum(unique(values(minimal_productsum)))
@@ -28,7 +28,7 @@ end
 
 
 function productsum(p, s, l, a, K)
-    for n = a:2K÷p
+    for n in a:2K÷p
         product = p * n
         sum = s + n
         k = product - sum + l

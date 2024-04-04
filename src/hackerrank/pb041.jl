@@ -136,7 +136,7 @@ end
 
 T = parse(Int, readline())
 pandigitalprimes = problem041()
-for _ = 1:T
+for _ in 1:T
     N = parse(Int, readline())
     i = searchsortedlast(pandigitalprimes, N)
     println(i == 0 ? -1 : pandigitalprimes[i])

@@ -19,7 +19,7 @@ end
 
 function problem032(N)
     pandigital_products = Int[]
-    for n = 1:99, m = 1:10000
+    for n in 1:99, m in 1:10000
         x = concat(n, m, n * m)
         ndigits(x) != N && continue
         ispandigital(x; zeroless=true, N=N) && push!(pandigital_products, n * m)

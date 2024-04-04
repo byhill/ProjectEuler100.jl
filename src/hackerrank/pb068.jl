@@ -5,7 +5,7 @@ function problem068(N::Int, S::Int)
     empty!(solns)
     ring = zeros(Int, 2N)
 
-    for i = 1:2N
+    for i in 1:2N
         ring[1] = i
         fillring(ring, 2, 1 << i, N, S)
     end
@@ -25,14 +25,14 @@ function fillring(ring, pos, used, N, S)
         ring[N+1] != minimum(ring[N+1:2N]) && return  # ring[N + 1] must be smallest number in outer ring
 
         ringstring = ""
-        for i = 1:N
+        for i in 1:N
             ringstring *= string(ring[N+i]) * string(ring[i]) * string(ring[mod1(i + 1, N)])
         end
         push!(solns, ringstring)
         return
     end
 
-    for i = 1:2N
+    for i in 1:2N
         (used & (1 << i) != 0) && continue
         ring[pos] = i
         o = S - ring[pos] - ring[pos-1]

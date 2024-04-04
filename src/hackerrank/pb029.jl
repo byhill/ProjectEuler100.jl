@@ -17,9 +17,9 @@ function problem029(N::Integer)
 
     dups = 0
     powerof = falses(N)
-    for n = 2:isqrt(N)
+    for n in 2:isqrt(N)
         powerof[n] && continue
-        for p = 2:ilog(n, N)
+        for p in 2:ilog(n, N)
             powerof[n^p] = true
             dups += powerdups[p]
         end

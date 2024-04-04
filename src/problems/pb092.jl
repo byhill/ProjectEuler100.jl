@@ -18,7 +18,7 @@ function f(n::Integer, k::Integer)
     return get!(cache, (n, k)) do
         n < 0 && return 0
         k == 0 && n > 0 && return 0
-        return sum(f(n - d^2, k - 1) for d = 0:9)
+        return sum(f(n - d^2, k - 1) for d in 0:9)
     end
 end
 
@@ -39,8 +39,8 @@ function problem092(D::Int=7)
     to89[1] = 1
     to89[89] = 89
 
-    for n = 1:81D
-        to89[n] != 0 && continue
+    for n in 1:81D
+        to89[n] ≠ 0 && continue
         seq = Int[]
         while to89[n] == 0
             push!(seq, n)
@@ -53,7 +53,7 @@ function problem092(D::Int=7)
 
     empty!(cache)
     cache[(0, 0)] = 1
-    return sum(f(n, D) for n = 1:81D if to89[n] == 89)
+    return sum(f(n, D) for n in 1:81D if to89[n] == 89)
 end
 
 

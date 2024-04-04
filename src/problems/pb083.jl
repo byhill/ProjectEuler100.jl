@@ -20,8 +20,8 @@ function problem083(filename="txt/pb083.txt")
 
     while modified
         modified = false
-        for j = 2:L+1
-            for i = 2:L+1
+        for j in 2:L+1
+            for i in 2:L+1
                 d = M[i-1, j-1] + min(D[i-1, j], D[i, j-1], D[i, j+1], D[i+1, j])
                 if d < D[i, j]
                     D[i, j] = d

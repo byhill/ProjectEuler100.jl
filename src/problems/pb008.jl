@@ -16,7 +16,7 @@ You can improve the runtime so it runs in O(N) time instead.
 function problem008(L::Integer=13, filename="txt/pb008.txt")
     file = read(filename, String)
     A = [parse(Int, c) for c in filter(isdigit, file)]
-    return maximum(prod(A[i-L+1:i]) for i = L:length(A))
+    return maximum(prod(A[i-L+1:i]) for i in L:length(A))
 end
 
 

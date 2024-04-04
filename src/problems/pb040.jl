@@ -11,7 +11,7 @@ Problem 040 of Project Euler.
 https://projecteuler.net/problem=040
 """
 function problem040()
-    return prod(champernownes_constant_digit(10^i) for i = 0:6)
+    return prod(champernownes_constant_digit(10^i) for i in 0:6)
 end
 
 

@@ -48,22 +48,22 @@ Use Markov Chains and its stationary distribution.
 """
 function problem084(D::Int=4, K::Int=3)
     diceProbabilities = zeros(2D)
-    for r1 = 1:D, r2 = 1:D
+    for r1 in 1:D, r2 in 1:D
         diceProbabilities[r1+r2] += 1 / D^2
     end
 
     M = zeros(40, 40)
 
     # Fill markov-chain with dice roll probabilites.
-    for i = 1:40
-        for r = 2:2D
+    for i in 1:40
+        for r in 2:2D
             M[i, mod1(i + r, 40)] += diceProbabilities[r]
         end
     end
 
     # Chance
     for ch in CHANCE
-        for i = 1:40
+        for i in 1:40
             chP = M[i, ch]
             rail = ch == CH1 ? R2 : (ch == CH2 ? R3 : R1)
             utility = ch == CH2 ? U2 : U1
@@ -76,9 +76,9 @@ function problem084(D::Int=4, K::Int=3)
 
     # Community Chest
     # Must be filled after Chance since you can land on CH3 and be moved to CC3.
-    for i = 1:40
+    for i in 1:40
         for cc in COMMUNITYCHEST
-            ccP = M[i, cc]
+            ccP in M[i, cc]
             for j in [GO, JAIL]
                 M[i, j] += ccP / 16
             end
@@ -88,7 +88,7 @@ function problem084(D::Int=4, K::Int=3)
 
     # Go-to-jail
     # Must be filled after Chance and Community Chest.
-    for i = 1:40
+    for i in 1:40
         M[i, 11] += M[i, 31]
         M[i, 31] = 0.0
     end
@@ -98,7 +98,7 @@ function problem084(D::Int=4, K::Int=3)
     p ./= sum(p)
     indices = sort(1:40; by=i -> p[i], rev=true)
 
-    return parse(Int, join((string(indices[i] - 1) for i = 1:K)))
+    return parse(Int, join((string(indices[i] - 1) for i in 1:K)))
 end
 
 

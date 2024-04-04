@@ -13,7 +13,7 @@ function problem024(N::Integer=10^6)
     p = 0
     count = 0
 
-    for i = 9:-1:0
+    for i in 9:-1:0
         j = (N - 1 - count) ÷ factorial(i)
         p = 10p + digits[j+1]
         deleteat!(digits, j + 1)

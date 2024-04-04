@@ -23,7 +23,7 @@ full_house(hand::PokerHand) = three_of_a_kind(hand) != 0 && pair(hand) != 0 ? ha
 flush(hand::PokerHand) = hand.flush ? reverse(hand.ranks) : [0, 0, 0, 0, 0]
 
 function straight(hand::PokerHand)
-    all(hand.ranks[i] == hand.ranks[1] + i - 1 for i = 1:5) && return hand.ranks[end]
+    all(hand.ranks[i] == hand.ranks[1] + i - 1 for i in 1:5) && return hand.ranks[end]
     hand.ranks == [2, 3, 4, 5, 14] && return 5
     return 0
 end
@@ -47,7 +47,7 @@ function two_pairs(hand::PokerHand)
 end
 
 function pair(hand::PokerHand)
-    for i = 2:4
+    for i in 2:4
         count(==(hand.ranks[i]), hand.ranks) == 2 && return hand.ranks[i]
     end
     return 0

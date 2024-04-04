@@ -43,7 +43,7 @@ function square_anagram(w1::AbstractString, w2::AbstractString)
         for (d, c) in zip(string(n^2), w1)
             x = replace(x, d => c)
         end
-        x != w1 && continue
+        x ≠ w1 && continue
 
         y = w2
         for (d, c) in zip(string(n^2), w1)

@@ -28,7 +28,7 @@ end
 
 p = problem078(6 * 10^4)
 T = parse(Int, readline())
-for _ = 1:T
+for _ in 1:T
     N = parse(Int, readline())
     println(p[N])
 end

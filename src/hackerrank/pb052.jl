@@ -1,6 +1,6 @@
 function problem052(N::Integer, K::Integer)
     for n in 1:N
-        all(sort(digits(n)) == sort(digits(k * n)) for k = 2:K) && println(join((k * n for k in 1:K), ' '))
+        all(sort(digits(n)) == sort(digits(k * n)) for k in 2:K) && println(join((k * n for k in 1:K), ' '))
     end
 end
 

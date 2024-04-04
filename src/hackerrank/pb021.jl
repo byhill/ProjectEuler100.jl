@@ -2,12 +2,12 @@ function problem021(N::Integer)
     N -= 1
     L = N > 5048 ? ceil(Int, N * log(log(N)) * exp(0.578)) : 14304
     d = ones(Int, L)
-    for n = 2:L>>1, m = 2n:n:L
+    for n in 2:L>>1, m = 2n:n:L
         d[m] += n
     end
 
     s = 0
-    for n = 1:N
+    for n in 1:N
         d[n] != n && d[d[n]] == n && (s += n)
     end
 

@@ -4,7 +4,7 @@ end
 
 
 T = parse(Int, readline())
-for _ = 1:T
+for _ in 1:T
     N = parse(Int, readline())
     println(problem005(N))
 end

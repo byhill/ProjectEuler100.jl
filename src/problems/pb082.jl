@@ -16,23 +16,23 @@ function problem082(filename="txt/pb082.txt")
     L = size(M, 1)
 
     column = zeros(Int, L)
-    for k = 2:L
+    for k in 2:L
         copy!(column, M[:, k])
 
         s1 = zeros(Int, L)  # Sum from M[1, k] to M[i-1, k]
-        for i = 2:L
+        for i in 2:L
             s1[i] = s1[i-1] + column[i-1]
         end
         s2 = zeros(Int, L)  # Sum from M[i+1, k] to M[L, k]
-        for i = L-1:-1:1
+        for i in L-1:-1:1
             s2[i] = s2[i+1] + column[i+1]
         end
 
-        for i = 1:L
+        for i in 1:L
             column[i] += min(
                 M[i, k-1],
-                minimum(s1[i] - s1[j] + M[j, k-1] for j = 1:i-1; init=typemax(Int)),
-                minimum(s2[i] - s2[j] + M[j, k-1] for j = i+1:L; init=typemax(Int)),
+                minimum(s1[i] - s1[j] + M[j, k-1] for j in 1:i-1; init=typemax(Int)),
+                minimum(s2[i] - s2[j] + M[j, k-1] for j in i+1:L; init=typemax(Int)),
             )
         end
         M[:, k] = column

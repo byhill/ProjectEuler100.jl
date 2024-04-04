@@ -1,6 +1,6 @@
 function divisor_counts(limit)
     d = ones(Int, limit)
-    for n = 2:limit, m = n:n:limit
+    for n in 2:limit, m in n:n:limit
         d[m] += 1
     end
 
@@ -19,7 +19,7 @@ function problem012(divisors::Integer=500)
             d = divisor_counts(dlimit)
         end
 
-        if divisors < d[div(n, 2)] * d[n + 1]
+        if divisors < d[div(n, 2)] * d[n+1]
             return div(n * (n + 1), 2)
         end
         n += 1

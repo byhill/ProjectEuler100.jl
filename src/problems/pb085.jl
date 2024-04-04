@@ -15,7 +15,7 @@ The number or rectangles in an (a * b) grid is
 function problem085(N::Int=2_000_000)
     area = 0
     diff = N
-    for a = 1:ceil(Int, (-1 + sqrt(1 + 8N)) / 2)
+    for a in 1:ceil(Int, (-1 + sqrt(1 + 8N)) / 2)
         bfloat = (-1 + sqrt(1 + 16N / (a * (a + 1)))) / 2
         for b in (floor(Int, bfloat), ceil(Int, bfloat))
             r = a * (a + 1) * b * (b + 1) ÷ 4

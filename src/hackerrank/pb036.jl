@@ -16,7 +16,7 @@ end
 
 
 function problem036(N::Integer, K::Integer)
-    return sum(n for n = 1:N if ispalindrome(n) && ispalindrome(n; base=K))
+    return sum(n for n in 1:N if ispalindrome(n) && ispalindrome(n; base=K))
 end
 
 

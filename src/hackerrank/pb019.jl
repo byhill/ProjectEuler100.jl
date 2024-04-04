@@ -6,11 +6,11 @@ end
 
 
 function problem019(Y1::Integer, M1::Integer, Y2::Integer, M2::Integer)
-    Y1 == Y2 && return count(isone(zellers_congruence(1, month, Y1)) for month = M1:M2)
+    Y1 == Y2 && return count(isone(zellers_congruence(1, month, Y1)) for month in M1:M2)
 
-    firstyear = count(isone(zellers_congruence(1, month, Y1)) for month = M1:12)
-    incl = count(isone(zellers_congruence(1, month, year)) for month = 1:12, year = Y1+1:Y2-1)
-    lastyear = count(isone(zellers_congruence(1, month, Y2)) for month = 1:M2)
+    firstyear = count(isone(zellers_congruence(1, month, Y1)) for month in M1:12)
+    incl = count(isone(zellers_congruence(1, month, year)) for month in 1:12, year in Y1+1:Y2-1)
+    lastyear = count(isone(zellers_congruence(1, month, Y2)) for month in 1:M2)
     return firstyear + lastyear + incl
 end
 

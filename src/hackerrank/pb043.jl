@@ -75,7 +75,7 @@ function problem043(N::Integer)
     ans = 0
     divisors = reverse(PRIMES[1:N-2])
     for p in permutations(0:N)
-        all(undigits(p[i:i+2]) % divisors[i] == 0 for i = 1:N-2) && (ans += undigits(p))
+        all(undigits(p[i:i+2]) % divisors[i] == 0 for i in 1:N-2) && (ans += undigits(p))
     end
     return ans
 end

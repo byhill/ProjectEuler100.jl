@@ -1,6 +1,6 @@
 function problem008(S::String, L::Integer)
     A = [parse(Int, c) for c in S]
-    return maximum(prod(A[i-L+1:i]) for i = L:length(A))
+    return maximum(prod(A[i-L+1:i]) for i in L:length(A))
 end
 
 

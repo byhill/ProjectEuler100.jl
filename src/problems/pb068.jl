@@ -18,8 +18,8 @@ function problem068(N::Int=5)
     empty!(solns)
     ring = zeros(Int, 2N)
 
-    for S = 6:2N+2N-1+2N-2
-        for inner = 1:2N
+    for S in 6:2N+2N-1+2N-2
+        for inner in 1:2N
             ring[1] = inner
             fillring(ring, 2, 1 << inner, N, S)
         end
@@ -37,14 +37,14 @@ function fillring(ring, i, used, N, S)
         ring[N+1] != minimum(ring[N+1:2N]) && return  # ring[N + 1] must be smallest number in outer ring
 
         ringstring = ""
-        for i = 1:N
+        for i in 1:N
             ringstring *= string(ring[N+i]) * string(ring[i]) * string(ring[mod1(i + 1, N)])
         end
         push!(solns, ringstring)
         return
     end
 
-    for inner = 1:2N
+    for inner in 1:2N
         invalid(inner, used, N) && continue
         outer = S - inner - ring[i-1]
         (outer == inner || invalid(outer, used, N)) && continue

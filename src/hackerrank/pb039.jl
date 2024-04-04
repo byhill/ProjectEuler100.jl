@@ -1,6 +1,6 @@
 function problem039(N::Integer)
     perimeters = zeros(Int, N)
-    for m = 2:isqrt(N), n = m-1:-2:1
+    for m in 2:isqrt(N), n in m-1:-2:1
         gcd(m, n) != 1 && continue
         a = m^2 - n^2
         b = 2m * n
@@ -10,7 +10,7 @@ function problem039(N::Integer)
 
     maxsolns = zeros(Int, N)
     M = perimeters[1]
-    for i = 2:N
+    for i in 2:N
         maxsolns[i] = perimeters[i] > M ? i : maxsolns[i-1]
         M = max(M, perimeters[i])
     end

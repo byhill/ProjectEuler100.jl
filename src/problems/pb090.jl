@@ -11,7 +11,7 @@ Problem 090 of Project Euler.
 https://projecteuler.net/problem=090
 """
 function problem090(N::Int=9, D::Int=2)
-    squares = [replace(digits(n^2; pad=D), 9 => 6) for n = 1:N]
+    squares = [replace(digits(n^2; pad=D), 9 => 6) for n in 1:N]
     for sq in squares
         replace!(sq, 9 => 6)
     end

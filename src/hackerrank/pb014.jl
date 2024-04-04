@@ -12,7 +12,7 @@ function problem014(limit::Integer)
     c = zeros(Int, limit)
     c[1] = 1
     maxn = 1
-    for n = 2:limit
+    for n in 2:limit
         if collatzlength(n) >= collatzlength(maxn)
             maxn = n
         end

@@ -22,7 +22,7 @@ function divisorsum_sieve(x::Int, N::Int)
             q *= p
             coeff += q^x
             sieve[q] = coeff
-            for n = 2:N÷q
+            for n in 2:N÷q
                 iszero(sieve[n]) && continue
                 iszero(n % p) && continue
                 sieve[n*q] = sieve[n] * sieve[q]

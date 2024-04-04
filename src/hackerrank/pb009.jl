@@ -1,7 +1,7 @@
 function problem009(N)
     pythagorean_products = []
 
-    for m = 2:isqrt(N), n = m-1:-2:0
+    for m in 2:isqrt(N), n = m-1:-2:0
         gcd(m, n) != 1 && continue
 
         a = m^2 - n^2

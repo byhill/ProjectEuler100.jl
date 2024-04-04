@@ -19,7 +19,7 @@ Uniqueness is verified.
 function problem009(N::Integer=1000)
     pythagorean_products = Int[]
 
-    for m = 2:isqrt(N), n = m-1:-2:1
+    for m in 2:isqrt(N), n in m-1:-2:1
         isone(gcd(m, n)) || continue
 
         a = m^2 - n^2

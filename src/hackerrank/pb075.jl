@@ -2,12 +2,12 @@ function problem075()
     N = 5 * 10^6
     perimeters = zeros(Int, N)
     for m in 2:isqrt(N)
-        for n = m-1:-2:1
+        for n in m-1:-2:1
             isone(gcd(m, n)) || continue
             a = m^2 - n^2
             b = 2m * n
             c = m^2 + n^2
-            for k = 1:div(N, a + b + c)
+            for k in 1:div(N, a + b + c)
                 perimeters[k*(a+b+c)] += 1
             end
         end

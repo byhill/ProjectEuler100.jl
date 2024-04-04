@@ -9,21 +9,21 @@ end
 
 function cuboids(M::Integer)
     total = zeros(Int, M)
-    for u = 1:2isqrt(M)
-        for v = u-1:-2:1
-            gcd(u, v) != 1 && continue
+    for u in 1:2isqrt(M)
+        for v in u-1:-2:1
+            gcd(u, v) ≠ 1 && continue
             x = u^2 - v^2
             y = 2u * v
-            for k = 1:div(M, x)
+            for k in 1:div(M, x)
                 total[k*x] += cuboids(k * x, k * y)
             end
-            for k = 1:div(M, y)
+            for k in 1:div(M, y)
                 total[k*y] += cuboids(k * y, k * x)
             end
         end
     end
 
-    for t = 2:M
+    for t in 2:M
         total[t] += total[t-1]
     end
 

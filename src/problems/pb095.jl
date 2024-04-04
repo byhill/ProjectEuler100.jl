@@ -12,7 +12,7 @@ https://projecteuler.net/problem=095
 """
 function problem095(N::Int=10^6)
     σ = divisorsum_sieve(1, N)
-    for n = 2:N
+    for n in 2:N
         σ[n] -= n
     end
 
@@ -26,7 +26,7 @@ function problem095(N::Int=10^6)
         return n == m ? length(chain) : 0
     end
 
-    return argmax((amicablechain(n) for n = 2:N)) + 1
+    return argmax((amicablechain(n) for n in 2:N)) + 1
 end
 
 

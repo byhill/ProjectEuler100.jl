@@ -1,6 +1,6 @@
 function divisor_sums(N::Integer)
     d = ones(N)
-    for i = 2:N>>1, n = 2i:i:N
+    for i in 2:N>>1, n in 2i:i:N
         d[n] += i
     end
 
@@ -14,7 +14,7 @@ function problem023()
     abundant = Set{Int64}()
     ans = Set{Int64}()
 
-    for n = 1:limit
+    for n in 1:limit
         !any((n - m) in abundant for m in abundant) && push!(ans, n)
         d[n] > n && push!(abundant, n)
     end
