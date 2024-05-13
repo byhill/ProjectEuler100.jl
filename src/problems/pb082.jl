@@ -11,7 +11,7 @@ https://projecteuler.net/problem=082
 Dynamic programming column-by-column
 """
 function problem082(filename="txt/pb082.txt")
-    M::Matrix{Int} = vcat(([parse(Int, n) for n in split(line, ",")]' for line in readlines(filename))...)
+    M = vcat(([parse(Int, n) for n in split(line, ",")]' for line in readlines(filename))...)
     L1 = size(M, 1)
     L2 = size(M, 2)
 

@@ -1,5 +1,3 @@
-module Problem084
-
 using LinearAlgebra
 
 const MONOPOLY_SQUARES = (
@@ -37,40 +35,24 @@ const CC3 = f("CC3")
 const COMMUNITYCHEST = (CC1, CC2, CC3)
 
 
-"""
-    problem084()
-
-Problem 084 of Project Euler.
-
-https://projecteuler.net/problem=084
-
-Use Markov Chains and it's stationary distribution.
-Since the three-doubles rule doesn't change the answer
-in the original PE problem,
-and since the hackerrank version doesn't use this,
-I don't bother accounting for this since it would
-increase the complexity of the code.
-(Though it would still be possible account for this
-using Markov chains, despite some claims online saying otherwise.)
-"""
-function problem084(D::Integer=4, K::Integer=3)
+function problem084(D::Integer, K::Integer)
     diceProbabilities = zeros(2D)
-    for r1 in 1:D, r2 in 1:D
+    for r1 = 1:D, r2 = 1:D
         diceProbabilities[r1+r2] += 1 / D^2
     end
 
     M = zeros(40, 40)
 
     # Fill markov-chain with dice roll probabilites.
-    for i in 1:40
-        for r in 2:2D
+    for i = 1:40
+        for r = 2:2D
             M[i, mod1(i + r, 40)] += diceProbabilities[r]
         end
     end
 
     # Chance
     for ch in CHANCE
-        for i in 1:40
+        for i = 1:40
             chP = M[i, ch]
             rail = ch == CH1 ? R2 : (ch == CH2 ? R3 : R1)
             utility = ch == CH2 ? U2 : U1
@@ -82,8 +64,7 @@ function problem084(D::Integer=4, K::Integer=3)
     end
 
     # Community Chest
-    # Must be filled after Chance since you can land on CH3 and be moved to CC3.
-    for i in 1:40
+    for i = 1:40
         for cc in COMMUNITYCHEST
             ccP = M[i, cc]
             for j in [GO, JAIL]
@@ -94,22 +75,18 @@ function problem084(D::Integer=4, K::Integer=3)
     end
 
     # Go-to-jail
-    # Must be filled after Chance and Community Chest.
     for i in 1:40
         M[i, JAIL] += M[i, G2J]
         M[i, G2J] = 0.0
     end
 
-    # Find the stationary distribution of M
     p = nullspace(M' - I)
     p ./= sum(p)
     indices = sort(1:40; by=i -> p[i], rev=true)
+    return join((MONOPOLY_SQUARES[indices[i]] for i = 1:K), " ")
 
-    return parse(Int, join((string(indices[i] - 1) for i in 1:K)))
 end
 
 
-export problem084
-end  # module Problem084
-using .Problem084
-export problem084
+(N, K) = Tuple(parse(Int, n) for n in split(readline(), " "))
+println(problem084(N, K))

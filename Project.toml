@@ -13,5 +13,6 @@ Primes = "27ebfcd6-29c5-5fa9-bf4b-fb8fc14df3ae"
 
 [compat]
 Combinatorics = "1"
+PellsEquation = "0.2.1"
 Primes = "0.5"
 julia = "1.8"
