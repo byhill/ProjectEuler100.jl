@@ -1,9 +1,6 @@
-module Problem086
-
-
 function cuboids(a::Integer, bc::Integer)
     2a < bc && return 0
-    return a ≥ bc ? bc ÷ 2 : a - (bc - 1) ÷ 2
+    return a >= bc ? bc >> 1 : a - (bc - 1) >> 1
 end
 
 
@@ -14,10 +11,10 @@ function cuboids(M::Integer)
             isone(gcd(u, v)) || continue
             x = u^2 - v^2
             y = 2u * v
-            for k in 1:M÷x
+            for k in 1:div(M, x)
                 total[k*x] += cuboids(k * x, k * y)
             end
-            for k in 1:M÷y
+            for k in 1:div(M, y)
                 total[k*y] += cuboids(k * y, k * x)
             end
         end
@@ -31,24 +28,15 @@ function cuboids(M::Integer)
 end
 
 
-"""
-    problem086()
+function problem086()
+    total = cuboids(4 * 10^5)
 
-Problem 086 of Project Euler.
-
-https://projecteuler.net/problem=086
-"""
-function problem086(M::Integer=10^6)
-    L = 512
-    while true
-        n = searchsortedfirst(cuboids(L), M)
-        n ≤ L && return n
-        L <<= 1
+    T = parse(Int, readline())
+    for _ in 1:T
+        N = parse(Int, readline())
+        println(total[N])
     end
 end
 
 
-export problem086
-end  # module Problem086
-using .Problem086
-export problem086
+problem086()
