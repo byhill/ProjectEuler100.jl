@@ -56,7 +56,7 @@ function problem084(D::Integer, K::Integer)
             chP = M[i, ch]
             rail = ch == CH1 ? R2 : (ch == CH2 ? R3 : R1)
             utility = ch == CH2 ? U2 : U1
-            for j in [GO, JAIL, C1, E3, H2, R1, rail, rail, utility, ch - 3]
+            for j in (GO, JAIL, C1, E3, H2, R1, rail, rail, utility, ch - 3)
                 M[i, j] += chP / 16
             end
             M[i, ch] -= 10chP / 16
