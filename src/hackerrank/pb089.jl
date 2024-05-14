@@ -1,5 +1,3 @@
-module Problem089
-
 const romanvalues = (
     ("M", 1000),
     ("CM", 900),
@@ -17,27 +15,19 @@ const romanvalues = (
 )
 
 
-"""
-    problem089()
-
-Problem 089 of Project Euler.
-
-https://projecteuler.net/problem=089
-"""
-function problem089(filename="txt/pb089.txt")
-    sum(length(rm) - length(decimal_to_roman(roman_to_decimal(rm))) for rm in readlines(filename))
+function problem089(rm)
+    return decimal_to_roman(roman_to_decimal(rm))
 end
 
 
 function roman_to_decimal(r)
-    r = replace(r,
-        "IV" => "IIII",
-        "IX" => "VIIII",
-        "XL" => "XXXX",
-        "XC" => "LXXXX",
-        "CD" => "CCCC",
-        "CM" => "DCCCC"
-    )
+    r = replace(r, "IV" => "IIII")
+    r = replace(r, "IX" => "VIIII")
+    r = replace(r, "XL" => "XXXX")
+    r = replace(r, "XC" => "LXXXX")
+    r = replace(r, "CD" => "CCCC")
+    r = replace(r, "CM" => "DCCCC")
+
     n = 1000count(isequal('M'), r)
     n += 500count(isequal('D'), r)
     n += 100count(isequal('C'), r)
@@ -53,15 +43,16 @@ end
 function decimal_to_roman(n)
     rm = ""
     for (r, x) in romanvalues
-        rm *= repeat(r, n ÷ x)
-        n -= x * (n ÷ x)
+        rm *= repeat(r, div(n, x))
+        n -= x * div(n, x)
     end
 
     return rm
 end
 
 
-export problem089
-end  # module Problem089
-using .Problem089
-export problem089
+T = parse(Int, readline())
+for _ in 1:T
+    rm = readline()
+    println(problem089(rm))
+end
