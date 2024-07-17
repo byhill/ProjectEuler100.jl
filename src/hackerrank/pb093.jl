@@ -1,5 +1,3 @@
-module Problem093
-
 using .Iterators
 
 const reachable = Int[]
@@ -40,43 +38,21 @@ function find_reachable(S)
             find_reachable(push!(newS, n1 * n2))
             pop!(newS)
 
-            n2 ≠ 0 && find_reachable(push!(newS, n1 // n2))
-            n2 ≠ 0 && pop!(newS)
+            n2 != 0 && find_reachable(push!(newS, n1 // n2))
+            n2 != 0 && pop!(newS)
 
-            n1 ≠ 0 && find_reachable(push!(newS, n2 // n1))
-            n1 ≠ 0 && pop!(newS)
+            n1 != 0 && find_reachable(push!(newS, n2 // n1))
+            n1 != 0 && pop!(newS)
         end
     end
 end
 
 
-"""
-    problem093()
-
-Problem 093 of Project Euler.
-
-https://projecteuler.net/problem=093
-
-You can get rid of the need to use brackets
-by defining two additional operators,
-one for each of the non-commutative operators division and subtraction.
-"""
-function problem093()
-    ans = 0
-    maxlength = 0
-
-    for a in 1:6, b in a+1:7, c in b+1:8, d in c+1:9
-        I = last_reachable([a, b, c, d])
-        I > maxlength || continue
-        maxlength = I
-        ans = 1000a + 100b + 10c + d
-    end
-
-    return ans
+function problem093(S)
+    return last_reachable(S)
 end
 
 
-export problem093
-end  # module Problem093
-using .Problem093
-export problem093
+m = parse(Int, readline())
+S = [parse(Int, n) for n in split(readline(), " ")]
+println(problem093(S))
