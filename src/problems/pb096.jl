@@ -1,6 +1,6 @@
 module Problem096
 
-using .Iterators: flatten, product
+const INDICES = NTuple{21,Int}[]
 
 
 """
@@ -11,6 +11,31 @@ Problem 096 of Project Euler.
 https://projecteuler.net/problem=096
 """
 function problem096(filename="txt/pb096.txt")
+    resize!(INDICES, 81)
+    for i in 1:81
+        indices = Int[]
+
+        row = mod1(i, 9)
+        for j in 1:9
+            push!(indices, row + 9 * (j - 1))
+        end
+
+        column = (i - 1) ÷ 9 + 1
+        for j in 1:9
+            push!(indices, 9 * (column - 1) + j)
+        end
+
+        row = mod(i - 1, 9) ÷ 3
+        column = (i - 1) ÷ 27
+        for j in 0:2, k in 0:2
+            push!(indices, 27column + 3row + 1 + j + 9k)
+        end
+
+        sort!(indices)
+        unique!(indices)
+        INDICES[i] = Tuple(indices)
+    end
+
     filestring = readlines(filename)
 
     ans = 0
@@ -19,6 +44,8 @@ function problem096(filename="txt/pb096.txt")
         solve_soduku!(M)
         ans += 100M[1, 1] + 10M[1, 2] + M[1, 3]
     end
+
+    empty!(INDICES)
     return ans
 end
 
@@ -30,38 +57,23 @@ end
 
 function solve_soduku!(M, i)
     i > 81 && return true
-    if M[i] ≠ 0
+    if !iszero(M[i])
         return solve_soduku!(M, i + 1)
     end
 
-    digits = collect(1:9)
-    setdiff!(digits, M[:, column(i)])
-    setdiff!(digits, M[row(i), :])
-    setdiff!(digits, M[box(i)])
-
-    for d in digits
+    digits = trues(9)
+    for j in INDICES[i]
+        d = M[j]
+        d > 0 && (digits[d] = false)
+    end
+    for d in 1:9
+        digits[d] || continue
         M[i] = d
         solve_soduku!(M, i + 1) && return true
     end
+
     M[i] = 0
     return false
-end
-
-
-@inline function column(i::Integer)
-    return (i - 1) ÷ 9 + 1
-end
-
-
-@inline function row(i::Integer)
-    return mod1(i, 9)
-end
-
-
-@inline function box(i::Integer)
-    row = mod(i - 1, 9) ÷ 3
-    column = (i - 1) ÷ 27
-    return collect(flatten(27column + 3row + 1 + i + 9j for (i, j) in product(0:2, 0:2)))
 end
 
 
