@@ -24,7 +24,6 @@ function problem098(filename="txt/pb098.txt")
 
     ans = 0
     for words in values(anagrams)
-        length(words) == 1 && continue
         for (i, w1) in enumerate(words), w2 in words[i+1:end]
             ans = max(ans, square_anagram(w1, w2))
         end

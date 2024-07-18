@@ -57,9 +57,6 @@ end
 
 function solve_soduku!(M, i)
     i > 81 && return true
-    if !iszero(M[i])
-        return solve_soduku!(M, i + 1)
-    end
 
     digits = trues(9)
     for j in INDICES[i]
