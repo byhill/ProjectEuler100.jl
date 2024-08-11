@@ -9,11 +9,11 @@ const cliques = Vector{Int}[]
 const prime_neighbours = Dict{Int,Vector{Int}}()
 
 
-pseudoprimepair(pq, qp) = powermod(2, pq - 1, pq) == 1 && powermod(2, qp - 1, qp) == 1
+pseudoprimepair(pq, qp) = isone(powermod(2, pq - 1, pq)) && isone(powermod(2, qp - 1, qp))
 
 
 function findcliques(p, nbrs, depth)
-    depth == 0 && (push!(cliques, copy(arr)); return)
+    iszero(depth) && (push!(cliques, copy(arr)); return)
     nbrsI = intersect(nbrs, prime_neighbours[p])
     for q in filter(<(p), nbrsI)
         arr[depth] = q

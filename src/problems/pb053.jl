@@ -13,7 +13,7 @@ Only calculate exact value of a binomial coefficient if it is less than `L`.
 """
 function problem053(N::Integer=100, L::Integer=10^6)
     pascals_triangle = [ones(Int, (n + 2) >> 1) for n in 1:N]
-    flag = false  # Set to true once we hit one value for which n choose k exceeds L/
+    flag = false  # Set to true once we hit one value for which n choose k exceeds L
     c = 0
     for n in 2:N
         for k in 2:(n+1)÷2

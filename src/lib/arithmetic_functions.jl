@@ -6,7 +6,7 @@ export divisorsum_sieve
 
 
 """
-    σₓ(x::Int, N::Int)
+    divisorsum_sieve(x::Int, N::Int)
 
 Returns a vector σ of length N,
 where σ[n] is the sum of x'th powers of the positive divisors of n.

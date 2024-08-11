@@ -5,8 +5,8 @@ function score(code, key)
     decrypt = (xor(c, key[mod1(i, 3)]) for (i, c) in enumerate(code))
     s = 0
     for c in decrypt
-        c ≥ Int('a') && c ≤ Int('z') && (s += 2)
-        c ≥ Int('A') && c ≤ Int('Z') && (s += 1)
+        Int('a') ≤ c ≤ Int('z') && (s += 2)
+        Int('A') ≤ c ≤ Int('Z') && (s += 1)
         c == Int(' ') && (s += 10)
     end
 
