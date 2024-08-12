@@ -23,7 +23,7 @@ We use Pell's equation to solve x^2 - 8r^2 = 1.
 function problem100(L::Integer=10^12)
     x, r = 3, 1
     while true
-        (x, r) = (3x + 8r, 3r + x)
+        x, r = 3x + 8r, 3r + x
         total = 2r + (1 + x) ÷ 2
         if isodd(x) && total > L
             return total - r
