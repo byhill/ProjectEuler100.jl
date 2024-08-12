@@ -1,17 +1,19 @@
 module Problem064
 
-using PellsEquation
-using .Iterators
 using ..ProjectEuler100
 
 
-function cfperiod(N)
-    a0 = isqrt(N)
-    for (i, (a, _, _)) in zip(countfrom(0), continued_fraction(N))
-        a == 2a0 && return i
+function cfperiod(n)
+    a = a0 = isqrt(n)
+    x, y, i = a0, 1, 0
+    while a ≠ 2a0
+        x = a * y - x
+        y = div(n - x * x, y)
+        a = div(a0 + x, y)
+        i += 1
     end
 
-    return 0
+    return i
 end
 
 

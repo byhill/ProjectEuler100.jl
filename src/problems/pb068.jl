@@ -10,9 +10,6 @@ const solns = String[]
 Problem 068 of Project Euler.
 
 https://projecteuler.net/problem=068
-
-For larger values of N,
-the fastest way I tested seemed to just be naive filling-in and backtracking.
 """
 function problem068(N::Int=5)
     empty!(solns)
@@ -24,7 +21,8 @@ function problem068(N::Int=5)
             fillring(ring, 2, 1 << inner, N, S)
         end
     end
-    filter(n -> length(n) == 16, solns)
+
+    filter!(n -> length(n) == 16, solns)
     return parse(Int, maximum(solns))
 end
 
@@ -32,31 +30,34 @@ end
 function fillring(ring, i, used, N, S)
     if i > N  # We have filled the inner ring.
         outer = S - ring[1] - ring[N]
-        invalid(outer, used, N) && return
+        valid(outer, used, N) || return nothing
         ring[2N] = outer
-        ring[N+1] ≠ minimum(ring[N+1:2N]) && return  # ring[N + 1] must be smallest number in outer ring
+        ring[N+1] ≠ minimum(ring[N+1:2N]) && return nothing  # ring[N + 1] must be smallest number in outer ring
 
         ringstring = ""
         for i in 1:N
             ringstring *= string(ring[N+i]) * string(ring[i]) * string(ring[mod1(i + 1, N)])
         end
+
         push!(solns, ringstring)
-        return
+        return nothing
     end
 
     for inner in 1:2N
-        invalid(inner, used, N) && continue
+        valid(inner, used, N) || continue
         outer = S - inner - ring[i-1]
-        (outer == inner || invalid(outer, used, N)) && continue
+        valid(outer, used, N) || continue
+        outer == inner && continue
         ring[i] = inner
         ring[N+i-1] = outer
         fillring(ring, i + 1, used | (1 << inner) | (1 << outer), N, S)
     end
 
+    return nothing
 end
 
 
-invalid(n, used, N) = used & (1 << n) ≠ 0 || n < 1 || n > 2N
+valid(n, used, N) = iszero(used & (1 << n)) && 0 < n ≤ 2N
 
 
 export problem068
