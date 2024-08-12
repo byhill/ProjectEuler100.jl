@@ -42,8 +42,8 @@ end
 function problem070(N)
     phi = totients(N)
 
-    min_n = 3
-    min_phi = 1
+    min_n = 1
+    min_phi = 0
     for n in 2:N-1
         n * min_phi < min_n * phi[n] || continue
         digitpermutation(n, phi[n]) || continue
