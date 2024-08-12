@@ -30,7 +30,17 @@ https://projecteuler.net/problem=070
 """
 function problem070(N::Integer=10^7)
     phi = totients(N)
-    return 1 + argmin([(digitpermutation(n, phi[n]) ? n / phi[n] : N) for n in 2:N-1])
+
+    min_n = 3
+    min_phi = 1
+    for n in 2:N-1
+        n * min_phi < min_n * phi[n] || continue
+        digitpermutation(n, phi[n]) || continue
+        min_n = n
+        min_phi = phi[n]
+    end
+
+    return min_n
 end
 
 
