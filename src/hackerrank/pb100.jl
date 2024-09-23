@@ -361,7 +361,7 @@ end
 
 
 ##############################################################################
-### From ModularSquareRoots.jl
+### From ModularSquareRoots.jl (written by me)
 ##############################################################################
 sqrtmod(n::Integer, m::Integer) = sqrtmod(promote(n, m)...)
 sqrtmodprimepower(n::Integer, p::Integer, k::Integer) = sqrtmodprimepower(promote(n, p)..., k)
@@ -396,9 +396,8 @@ function sqrtmodprimepower(n::T, p::T, k::Integer) where {T<:Integer}
 
     q = p^k
     n = mod(n, q)
-    powermod(n, (p - 1) >> 1, p) == -1 && return T[]  # Euler's criterion
+    powermod(n, (p - 1) >> 1, p) == -1 && return T[]
 
-    # Use Hensel's lifting lemma
     roots = T[]
     for r in sqrtmodprimepower(n, p, k - 1)
         if mod(2r, p) != 0
@@ -471,7 +470,7 @@ end
 
 
 ##############################################################################
-### From PellsEquation.jl
+### From PellsEquation.jl (written by me)
 ##############################################################################
 @inline issquare(n::Integer) = isqrt(n)^2 == n
 
@@ -555,7 +554,7 @@ end
 
 function pellseqn1(D::T) where {T<:Integer}
     (l, x0, y0) = fundamental_soln(D)
-    if isodd(l)  # Then the fundamental solution we found is for x^2 - Dy^2 = -1
+    if isodd(l)
         (x0, y0) = (x0 * x0 + D * y0 * y0, 2x0 * y0)
     end
 
@@ -567,7 +566,6 @@ end
 function pellseqn_neg1(D::T) where {T<:Integer}
     (l, x0, y0) = fundamental_soln(D)
 
-    # Has no solutions, return empty iterator
     iseven(l) && return PellsEqn{T}(D, 0, 0, Tuple{T,T}[])
 
     queue = Tuple{T,T}[(x0, y0)]
@@ -621,7 +619,7 @@ end
 
 function _pellseqn(D::T, N::T) where {T<:Integer}
     i, t, u = fundamental_soln(D)
-    if isodd(i)  # Then the fundamental solution we found is for x^2 - Dy^2 = -1
+    if isodd(i)
         t, u = t * t + D * u * u, 2t * u
     end
 
