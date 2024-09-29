@@ -1,7 +1,7 @@
 module Problem074
 
 using OffsetArrays: Origin
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 O(A) = Origin(0)(A)
 

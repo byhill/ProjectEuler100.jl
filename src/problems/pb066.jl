@@ -1,7 +1,7 @@
 module Problem066
 
 using .Iterators
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 
 function pellseqn(D)

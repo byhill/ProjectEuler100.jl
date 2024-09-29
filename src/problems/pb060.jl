@@ -2,7 +2,7 @@ module Problem060
 
 using Primes
 using .Iterators
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 const arr = Int[]
 const cliques = Vector{Int}[]

@@ -1,6 +1,5 @@
-module Totients
-
 export totients
+
 
 """
     totients(N::Integer)
@@ -29,6 +28,4 @@ function totients(N::T) where {T<:Integer}
     end
 
     return φ
-end
-
 end

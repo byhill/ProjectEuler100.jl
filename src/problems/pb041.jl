@@ -1,7 +1,7 @@
 module Problem041
 
 using Primes
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 
 """

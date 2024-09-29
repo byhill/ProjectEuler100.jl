@@ -1,6 +1,6 @@
 module Problem042
 
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 const UPPER_CASE_CORRECTION = -64
 triangular_word(word) = istriangular(sum(Int(c) + UPPER_CASE_CORRECTION for c in word))

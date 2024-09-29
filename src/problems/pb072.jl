@@ -1,6 +1,6 @@
 module Problem072
 
-using ..ProjectEuler100.Totients
+using ..ProjectEulerLibrary
 
 
 """

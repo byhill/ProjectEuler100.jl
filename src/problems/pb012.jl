@@ -1,6 +1,6 @@
 module Problem012
 
-using ..ProjectEuler100.ArithmeticFunctions
+using ..ProjectEulerLibrary
 
 
 """

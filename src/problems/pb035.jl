@@ -1,7 +1,7 @@
 module Problem035
 
 using Primes
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 @inline rotate(n::Integer) = n ÷ 10 + (n % 10) * 10^ilog(10, n)
 

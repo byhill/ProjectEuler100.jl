@@ -1,7 +1,7 @@
 module Problem062
 
 using .Iterators
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 
 mutable struct CubicPermutation{T<:Integer}

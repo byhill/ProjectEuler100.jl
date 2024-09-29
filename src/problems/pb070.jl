@@ -1,6 +1,6 @@
 module Problem070
 
-using ..ProjectEuler100.Totients
+using ..ProjectEulerLibrary
 
 const digitsn = Int[]
 const digitsm = Int[]

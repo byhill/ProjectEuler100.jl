@@ -1,6 +1,6 @@
 module Problem055
 
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 
 function islychrel(n::Integer)

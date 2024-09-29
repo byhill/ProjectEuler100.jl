@@ -1,7 +1,7 @@
 module Problem043
 
 using Combinatorics
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 
 """

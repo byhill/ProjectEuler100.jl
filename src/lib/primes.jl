@@ -1,7 +1,3 @@
-module Primes
-
-import ..ProjectEuler100: sumto
-
 export primesum_function
 
 
@@ -63,6 +59,3 @@ function _evaluate(primepi::PrimeSum{T}, n::T) where {T<:Integer}
 end
 
 (primepi::PrimeSum{T})(n::T) where {T<:Integer} = _evaluate(primepi, n)
-
-
-end  # module Primes

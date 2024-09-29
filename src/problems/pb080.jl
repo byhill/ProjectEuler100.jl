@@ -1,6 +1,6 @@
 module Problem080
 
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 
 function sumsqrt(n, D)

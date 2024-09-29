@@ -1,7 +1,7 @@
 module Problem079
 
 using OffsetArrays: Origin
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 
 """

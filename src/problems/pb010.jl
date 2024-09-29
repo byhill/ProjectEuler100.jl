@@ -1,6 +1,6 @@
 module Problem010
 
-using ..ProjectEuler100.Primes
+using ..ProjectEulerLibrary
 
 
 """

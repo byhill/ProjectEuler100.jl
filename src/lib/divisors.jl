@@ -1,8 +1,6 @@
-module ArithmeticFunctions
+export divisorsum_sieve
 
 using Primes
-
-export divisorsum_sieve
 
 
 """
@@ -54,6 +52,4 @@ function divisorsum_sieve(N::Int)
     end
 
     return sieve
-end
-
 end

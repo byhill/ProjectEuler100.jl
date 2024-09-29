@@ -3,7 +3,7 @@ module Problem051
 using Combinatorics
 using Primes
 using .Iterators
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 
 """

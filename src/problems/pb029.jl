@@ -1,6 +1,6 @@
 module Problem029
 
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 
 """

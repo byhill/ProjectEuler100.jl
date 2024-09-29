@@ -1,7 +1,7 @@
 module Problem045
 
 using .Iterators
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 
 """

@@ -1,6 +1,6 @@
 module Problem064
 
-using ..ProjectEuler100
+using ..ProjectEulerLibrary
 
 
 function cfperiod(n)

@@ -1,5 +1,7 @@
 module Problem100
 
+using ..ProjectEulerLibrary
+
 
 """
     problem100()
