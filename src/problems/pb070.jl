@@ -6,7 +6,7 @@ const digitsn = Int[]
 const digitsm = Int[]
 
 
-function digitpermutation(n, m)
+function isdigitpermutation(n, m)
     ln = ndigits(n)
     lm = ndigits(m)
     ln == lm || return false
@@ -35,7 +35,7 @@ function problem070(N::Integer=10^7)
     min_phi = 0
     for n in 2:N-1
         n * min_phi < min_n * phi[n] || continue
-        digitpermutation(n, phi[n]) || continue
+        isdigitpermutation(n, phi[n]) || continue
         min_n = n
         min_phi = phi[n]
     end

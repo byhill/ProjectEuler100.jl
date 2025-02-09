@@ -1,29 +1,41 @@
-export divisorsum_sieve
+export divisorcounts, divisorsums, divisor_sums_of_powers
 
-using Primes
+
+@inline function _get_coprime_part(n, p)
+    v = 0
+    while n % p == 0
+        n ÷= p
+        v += 1
+    end
+
+    return n, v
+end
 
 
 """
-    divisorsum_sieve(x::Int, N::Int)
+    divisorcounts(N::Int)
 
-Returns a vector σ of length N,
-where σ[n] is the sum of x'th powers of the positive divisors of n.
+Returns a vector `d` such that for each 1 ≤ n ≤ N, 
+`d[n]` is the number of divisors of n.
 """
-function divisorsum_sieve(x::Int, N::Int)
-    sieve = zeros(Int, N)
-    sieve[1] = 1
+function divisorcounts(N::Int64)
+    sieve = ones(Int64, N)
+    primes = Int64[]
 
-    for p in primes(N)
-        q = 1
-        coeff = 1
-        while p * q ≤ N
-            q *= p
-            coeff += q^x
-            sieve[q] = coeff
-            for n in 2:N÷q
-                iszero(sieve[n]) && continue
-                iszero(n % p) && continue
-                sieve[n*q] = sieve[n] * sieve[q]
+    @inbounds for n in 2:N
+        if sieve[n] == 1  # then n is prime
+            push!(primes, n)
+            sieve[n] = 2
+        end
+
+        for p in primes
+            n * p ≤ N || break
+            if n % p == 0
+                k, v = _get_coprime_part(n, p)
+                sieve[n*p] = sieve[k] * (v + 2)
+                break
+            else
+                sieve[n*p] = 2sieve[n]
             end
         end
     end
@@ -32,21 +44,112 @@ function divisorsum_sieve(x::Int, N::Int)
 end
 
 
-function divisorsum_sieve(N::Int)
-    sieve = zeros(Int, N)
-    sieve[1] = 1
+"""
+    divisorcounts(N::Int)
 
-    for p in primes(N)
-        q = 1
-        coeff = 1
-        while p * q ≤ N
-            q *= p
-            coeff += q
-            sieve[q] = coeff
-            for n in 2:N÷q
-                iszero(sieve[n]) && continue
-                iszero(n % p) && continue
-                sieve[n*q] = sieve[n] * sieve[q]
+Returns a vector `σ` such that for each 1 ≤ n ≤ N, 
+`σ[n]` is the sum of divisors of n.
+"""
+function divisorsums(N::Int64)
+    sieve = ones(Int64, N)
+    primes = Int64[]
+
+    @inbounds for n in 2:N
+        if sieve[n] == 1  # then n is prime
+            push!(primes, n)
+            sieve[n] = (n * n - 1) ÷ (n - 1)
+        end
+
+        for p in primes
+            n * p ≤ N || break
+            if n % p == 0
+                k, v = _get_coprime_part(n, p)
+                if k == 1
+                    sieve[n*p] = (p^(v + 2) - 1) ÷ (p - 1)
+                else
+                    sieve[n*p] = sieve[k] * sieve[p^(v+1)]
+                end
+                break
+            else
+                sieve[n*p] = sieve[n] * sieve[p]
+            end
+        end
+    end
+
+    return sieve
+end
+
+
+"""
+    divisor_sums_of_powers(e::Int64, N::T) where {T<:Integer}
+
+Returns a vector `σ` such that for each 1 ≤ n ≤ N, 
+`σ[n]` is the sum of the e'th powers of the divisors of n.
+
+Overflow can occur.
+"""
+function divisor_sums_of_powers(e::Int64, N::T) where {T<:Integer}
+    sieve = ones(T, N)
+    primes = Int64[]
+
+    @inbounds for n in 2:N
+        if isone(sieve[n])  # then n is prime
+            push!(primes, n)
+            q = T(n)^e
+            sieve[n] = (q * q - 1) ÷ (q - 1)
+        end
+
+        for p in primes
+            n * p ≤ N || break
+            q = T(p)^e
+            if iszero(n % p)
+                k, v = _get_coprime_part(n, p)
+                if k == 1
+                    sieve[n*p] = (q^(v + 2) - 1) ÷ (q - 1)
+                else
+                    sieve[n*p] = sieve[k] * sieve[p^(v+1)]
+                end
+                break
+            else
+                sieve[n*p] = sieve[n] * sieve[p]
+            end
+        end
+    end
+
+    return sieve
+end
+
+
+"""
+    divisor_sums_of_powers(e::Int64, N::T, m::Int64) where {T<:Integer}
+
+Returns a vector `σ` such that for each 1 ≤ n ≤ N, 
+`σ[n]` is the sum of the e'th powers of the divisors of n, mod m.
+"""
+function divisor_sums_of_powers(e::Int64, N::T, m::Int64) where {T<:Integer}
+    sieve = ones(T, N)
+    primes = Int64[]
+
+    @inbounds for n in 2:N
+        if isone(sieve[n])  # then n is prime
+            push!(primes, n)
+            q = powermod(T(n), e, m)
+            sieve[n] = mod((mod(q * q, m) - 1) * invmod(q - 1, m), m)
+        end
+
+        for p in primes
+            n * p ≤ N || break
+            q = powermod(T(p), e, m)
+            if iszero(n % p)
+                k, v = _get_coprime_part(n, p)
+                if k == 1
+                    sieve[n*p] = mod((powermod(q, v + 2, m) - 1) * invmod(q - 1, m), m)
+                else
+                    sieve[n*p] = mod(sieve[k] * sieve[p^(v+1)], m)
+                end
+                break
+            else
+                sieve[n*p] = mod(sieve[n] * sieve[p], m)
             end
         end
     end

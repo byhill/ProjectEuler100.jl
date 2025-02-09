@@ -11,7 +11,7 @@ Problem 095 of Project Euler.
 https://projecteuler.net/problem=095
 """
 function problem095(N::Integer=10^6)
-    σ = divisorsum_sieve(N)
+    σ = divisorsums(N)
     for n in 1:N
         σ[n] -= n
     end

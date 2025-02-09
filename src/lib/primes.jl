@@ -1,4 +1,20 @@
-export primesum_function
+export padic_val, primesum_function
+
+
+"""
+    padic_val
+
+Returns the p-adic valuation of n, i.e., the largest v such that p^v divides n.
+"""
+@inline function padic_val(n, p)
+    v = 0
+    while n % p == 0
+        n ÷= p
+        v += 1
+    end
+
+    return v
+end
 
 
 #################################################

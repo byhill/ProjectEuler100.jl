@@ -12,13 +12,13 @@ https://projecteuler.net/problem=012
 """
 function problem012(divisors::Int=500)
     N = 2^4  # Arbitrary
-    d = divisorsum_sieve(0, N)
+    d = divisorcounts(N)
     n = 2
 
     while true
         if n + 2 == N  # resize sieve
             N *= 4
-            d = divisorsum_sieve(0, N)
+            d = divisorcounts(N)
         end
 
         divisors < d[n>>1] * d[n+1] && return n * (n + 1) >> 1

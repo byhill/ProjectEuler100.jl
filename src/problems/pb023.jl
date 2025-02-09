@@ -12,7 +12,7 @@ https://projecteuler.net/problem=023
 """
 function problem023()
     N = 28123
-    d = divisorsum_sieve(1, N)
+    d = divisorsums(N)
     for n in 1:N
         d[n] -= n
     end

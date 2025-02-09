@@ -10,16 +10,7 @@ Returns the sum of the first N positive integers.
 The value N * (N + 1) / 2 must fit in the same type as N,
 else it will throw and error
 """
-function sumto(N::Integer)
-    tmax = typemax(N)
-    if iseven(N)
-        tmax > N && tmax ÷ N >> 1 ≥ N + 1 || throw(OverflowError("Overflow with N = $N"))
-        return N >> 1 * (N + 1)
-    else
-        tmax > N && tmax ÷ N ≥ (N + 1) >> 1 || throw(OverflowError("Overflow with N = $N"))
-        return N * (N + 1) >> 1
-    end
-end
+@inline sumto(n::Integer) = iseven(n) ? (n ÷ 2) * (n + 1) : (n + 1) ÷ 2 * n
 
 
 """
@@ -27,7 +18,16 @@ end
 
 Returns the largest p such that base^p ≤ n.
 """
-@inline ilog(base::Integer, n::Integer) = ndigits(n; base=base) - 1
+@inline function ilog(base, n)
+    p = 0
+    m = one(n)
+    while m ≤ n ÷ base
+        m *= base
+        p += 1
+    end
+
+    return p
+end
 
 
 """
@@ -36,7 +36,7 @@ Returns the largest p such that base^p ≤ n.
 Returns the equivalent of T(reduce(*, (string(x) for x in xs))).
 """
 @inline function concat(xs...; base::T=10) where {T<:Integer}
-    return foldl((n, x) -> n * base^ndigits(x) + x, xs; init=zero(T))
+    return foldl((n, x) -> n * base^ndigits(x; base=base) + x, xs; init=zero(T))
 end
 
 
