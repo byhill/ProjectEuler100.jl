@@ -9,7 +9,7 @@ Problem 020 of Project Euler.
 https://projecteuler.net/problem=020
 """
 function problem020(n::Integer=100)
-    return sum(digits(factorial(big(n))))  # digits(x::BigInt) seems type-unstable
+    return sum(digits(factorial(big(n))))
 end
 
 

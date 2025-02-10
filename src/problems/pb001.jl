@@ -16,7 +16,7 @@ Recall that
 
 Then use the principle of inclusion-exclusion.
 """
-function problem001(N::Integer=1000)
+function problem001(N=1000)
     N -= 1
     return 3sumto(N ÷ 3) + 5sumto(N ÷ 5) - 15sumto(N ÷ 15)
 end

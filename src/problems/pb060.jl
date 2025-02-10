@@ -9,13 +9,17 @@ const cliques = Vector{Int}[]
 const prime_neighbours = Dict{Int,Vector{Int}}()
 
 
+# Fermet's primality test
 pseudoprimepair(pq, qp) = isone(powermod(2, pq - 1, pq)) && isone(powermod(2, qp - 1, qp))
 
 
-function findcliques(p, nbrs, depth)
-    iszero(depth) && (push!(cliques, copy(arr)); return)
-    nbrsI = intersect(nbrs, prime_neighbours[p])
-    for q in filter(<(p), nbrsI)
+function findcliques(p, neighbours, depth)
+    depth == 0 && (push!(cliques, copy(arr)); return)
+
+    nbrsI = filter!(<(p), intersect(neighbours, prime_neighbours[p]))
+    length(nbrsI) ≥ depth || return
+
+    for q in nbrsI
         arr[depth] = q
         findcliques(q, nbrsI, depth - 1)
     end
@@ -40,24 +44,26 @@ function problem060(K::Integer=5)
 
     N = 1024
     ip = 1  # index of primes
-    primes1 = Tuple{Int,Int}[(3, 10)]
+    primes1 = Int[3]
     ip1 = 1  # index of primes 1 mod 3
-    primes2 = Tuple{Int,Int}[(3, 10)]
+    primes2 = Int[3]
     ip2 = 1  # index of primes 2 mod 3
-    lp = 10  # length of p
+    primesL = [3]
 
     while true
+        for p in primes(max(6, last(primesL)), N)
+            push!(primesL, p)
+        end
+
         # Find prime pairs
-        primesL = [[3]; primes(N)[4:end]]
-        for p in primesL[max(2, ip):end]
-            p > lp && (lp *= 10)
-            push!((p % 3 == 1 ? primes1 : primes2), (p, lp))
+        for p in primesL[ip:end]
+            push!((p % 3 == 1 ? primes1 : primes2), p)
             prime_neighbours[p] = []
         end
         for (i, pL) in ((ip1, primes1), (ip2, primes2))
-            for (j, (p, lp)) in enumerate(pL[i:end])
-                for (q, lq) in pL[1:i+j-2]
-                    if pseudoprimepair(p * lq + q, q * lp + p)
+            for (j, p) in enumerate(pL[i:end])
+                for q in pL[1:i+j-2]
+                    if pseudoprimepair(concat(p, q), concat(q, p))
                         push!(prime_neighbours[p], q)
                         push!(prime_neighbours[q], p)
                     end
@@ -75,8 +81,7 @@ function problem060(K::Integer=5)
         end
 
         # verify that pseudoprime cliques are indeed prime cliques
-        f(p, q) = isprime(undigits(vcat(digits(p), digits(q))))
-        filter!(c -> all(f(p, q) for (p, q) in product(c, c) if p ≠ q), cliques)
+        filter!(clique -> all(isprime(concat(p, q)) for (p, q) in product(clique, clique) if p ≠ q), cliques)
         length(cliques) > 0 && N ≥ minimum(sum, cliques) && break
 
         # prepare for next iteration

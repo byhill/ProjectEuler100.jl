@@ -1,4 +1,4 @@
-export padic_val, primesum_function
+export padic_val, primepi_function, primesum_function
 
 
 """
@@ -18,14 +18,84 @@ end
 
 
 #################################################
-###  Prime-sum
+###  Lucy-Hedgehog
 #################################################
 
-struct PrimeSum{T}
+struct PrimePi{T}
     N::T
     L::T
     smalls::Vector{T}
     larges::Vector{T}
+end
+
+
+"""
+    primesum_function(N::Integer)
+
+Returns a function p(n) that can find the number of primes from 1 to n,
+as long as n is of the form fld(N, m) for sum positive integer m.
+"""
+function primepi_function(N::Integer)
+    sqrtN = isqrt(N)
+    smalls = [n - 1 for n in 1:sqrtN]  # smalls[n] = π(n)
+    larges = [N ÷ n - 1 for n in 1:N÷sqrtN]  # larges[n] = π(N/n)
+
+    k = 0
+    for p in 2:sqrtN
+        smalls[p] == smalls[p-1] && continue  # Then p is not prime
+
+        cnt = smalls[p-1]
+        for x in 1:min(N ÷ sqrtN, N ÷ (p * p))
+            d = x * p
+            if d ≤ N ÷ sqrtN
+                larges[x] -= larges[d] - cnt
+            else
+                larges[x] -= smalls[N÷d] - cnt
+            end
+        end
+        for x in sqrtN:-1:p*p
+            smalls[x] -= smalls[x÷p] - cnt
+        end
+
+        k += 1
+    end
+
+    return PrimePi(N, sqrtN, smalls, larges)
+end
+
+
+"""
+    primesum_function(N::Integer, m::Int64)
+
+Returns a function p(n) that can find the number of primes from 1 to n mod m,
+as long as n is of the form fld(N, m) for sum positive integer m.
+"""
+function primepi_function(N::Integer, m::Int64)
+    sqrtN = isqrt(N)
+    smalls = [mod(n - 1, m) for n in 1:sqrtN]  # smalls[n] = π(n)
+    larges = [mod(N ÷ n - 1, m) for n in 1:N÷sqrtN]  # larges[n] = π(N/n)
+
+    k = 0
+    for p in 2:sqrtN
+        smalls[p] == smalls[p-1] && continue  # Then p is not prime
+
+        cnt = smalls[p-1]
+        for x in 1:min(N ÷ sqrtN, N ÷ (p * p))
+            d = x * p
+            if d ≤ N ÷ sqrtN
+                larges[x] = mod(larges[x] - larges[d] + cnt, m)
+            else
+                larges[x] = mod(larges[x] - smalls[N÷d] + cnt, m)
+            end
+        end
+        for x in sqrtN:-1:p*p
+            smalls[x] -= mod(smalls[x] - smalls[x÷p] + cnt, m)
+        end
+
+        k += 1
+    end
+
+    return PrimePi(N, sqrtN, smalls, larges)
 end
 
 
@@ -37,36 +107,69 @@ as long as n is of the form fld(N, m) for sum positive integer m.
 """
 function primesum_function(N::Integer)
     sqrtN = isqrt(N)
-    smallPhi = [sumto(n) - 1 for n in 1:sqrtN]  # smallPhi[n] = Phi(n, _)
-    largePhi = [sumto(N ÷ n) - 1 for n in 1:N÷sqrtN]  # largePhi[n] = Phi(N/n, _)
+    smalls = [sumto(n) - 1 for n in 1:sqrtN]  # smalls[n] = π(n)
+    larges = [sumto(N ÷ n) - 1 for n in 1:N÷sqrtN]  # larges[n] = π(N/n)
 
     k = 0
     for p in 2:sqrtN
-        if isequal(smallPhi[p], smallPhi[p-1])  # Then p is not prime
-            continue  # Try next p
-        end
+        smalls[p] == smalls[p-1] && continue  # Then p is not prime
 
-        cnt = p * smallPhi[p-1]
-        for x in 1:min(N ÷ sqrtN, N ÷ p^2)
+        cnt = p * smalls[p-1]
+        for x in 1:min(N ÷ sqrtN, N ÷ (p * p))
             d = x * p
             if d ≤ N ÷ sqrtN
-                largePhi[x] -= p * largePhi[d] - cnt
+                larges[x] -= p * larges[d] - cnt
             else
-                largePhi[x] -= p * smallPhi[N÷d] - cnt
+                larges[x] -= p * smalls[N÷d] - cnt
             end
         end
-        for x in sqrtN:-1:p^2
-            smallPhi[x] -= p * smallPhi[x÷p] - cnt
+        for x in sqrtN:-1:p*p
+            smalls[x] -= p * smalls[x÷p] - cnt
         end
 
         k += 1
     end
 
-    return PrimeSum(N, sqrtN, smallPhi, largePhi)
+    return PrimePi(N, sqrtN, smalls, larges)
 end
 
 
-function _evaluate(primepi::PrimeSum{T}, n::T) where {T<:Integer}
+"""
+    primesum_function(N::Integer, m::Int64)
+
+Returns a function π(n) that can find the sum of primes from 1 to n mod m,
+as long as n is of the form fld(N, m) for sum positive integer m.
+"""
+function primesum_function(N::Integer, m::Int64)
+    sqrtN = isqrt(N)
+    smalls = [mod(sumto(n, m) - 1, m) for n in 1:sqrtN]  # smalls[n] = π(n)
+    larges = [mod(sumto(N ÷ n, m) - 1, m) for n in 1:N÷sqrtN]  # larges[n] = π(N/n)
+
+    k = 0
+    for p in 2:sqrtN
+        smalls[p] == smalls[p-1] && continue  # Then p is not prime
+
+        cnt = mod(p * smalls[p-1], m)
+        for x in 1:min(N ÷ sqrtN, N ÷ (p * p))
+            d = x * p
+            if d ≤ N ÷ sqrtN
+                larges[x] = mod(larges[x] - p * larges[d] + cnt, m)
+            else
+                larges[x] = mod(larges[x] - p * smalls[N÷d] + cnt, m)
+            end
+        end
+        for x in sqrtN:-1:p*p
+            smalls[x] -= mod(smalls[x] - p * smalls[x÷p] + cnt, m)
+        end
+
+        k += 1
+    end
+
+    return PrimePi(N, sqrtN, smalls, larges)
+end
+
+
+function _evaluate(primepi::PrimePi{T}, n::T) where {T<:Integer}
     n ≤ primepi.L && return primepi.smalls[n]
     N = primepi.N
     k = N ÷ n
@@ -74,4 +177,4 @@ function _evaluate(primepi::PrimeSum{T}, n::T) where {T<:Integer}
     throw(DomainError(n, "Requires $n to be of the form $N / k for some integer k"))
 end
 
-(primepi::PrimeSum{T})(n::T) where {T<:Integer} = _evaluate(primepi, n)
+(primepi::PrimePi{T})(n::T) where {T<:Integer} = _evaluate(primepi, n)

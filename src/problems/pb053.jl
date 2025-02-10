@@ -11,24 +11,34 @@ https://projecteuler.net/problem=053
 Use Pascal's triangle.  Take advantage of symmetry.
 Only calculate exact value of a binomial coefficient if it is less than `L`.
 """
-function problem053(N::Integer=100, L::Integer=10^6)
+function problem053(N=100, L=10^6)
+    ans = 0
     pascals_triangle = [ones(Int, (n + 2) >> 1) for n in 1:N]
     flag = false  # Set to true once we hit one value for which n choose k exceeds L
-    c = 0
+
     for n in 2:N
-        for k in 2:(n+1)÷2
-            pascals_triangle[n][k] = min(pascals_triangle[n-1][k-1] + pascals_triangle[n-1][k], L)
-            pascals_triangle[n][k] == L && (flag = true; c += 2 * ((n + 1) ÷ 2 - k + 1); break)
+        for k in 2:(n+1)>>1
+            pascals_triangle[n][k] = min(L, pascals_triangle[n-1][k-1] + pascals_triangle[n-1][k])
+            if pascals_triangle[n][k] == L
+                ans += 2 * ((n + 1) >> 1 - k + 1)
+                flag = true
+                break
+            end
         end
+
+        # Take care of central-binomial coefficients
         if flag && iseven(n)
-            c += 1
+            ans += 1
         elseif iseven(n)
-            pascals_triangle[n][n÷2+1] = min(2pascals_triangle[n-1][n÷2], L)
-            pascals_triangle[n][n÷2+1] == L && (flag = true; c += 1)
+            pascals_triangle[n][n>>1+1] = min(L, 2pascals_triangle[n-1][n>>1])
+            if pascals_triangle[n][n>>1+1] == L
+                flag = true
+                ans += 1
+            end
         end
     end
 
-    return c
+    return ans
 end
 
 

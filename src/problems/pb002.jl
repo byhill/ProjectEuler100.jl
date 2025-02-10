@@ -15,7 +15,7 @@ A recurrence is given by
 
     f(n + 1) = 4f(n) + f(n -1).
 """
-function problem002(N::Int=4000000)
+function problem002(N=4000000)
     s = 2
     fₙ, fₙ₋₁ = 8, 2
     while fₙ ≤ N

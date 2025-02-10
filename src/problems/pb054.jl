@@ -1,6 +1,8 @@
 module Problem054
 
+
 const royalvals = Dict('T' => 10, 'J' => 11, 'Q' => 12, 'K' => 13, 'A' => 14)
+
 
 struct PokerHand
     ranks::Vector{Int64}
@@ -17,6 +19,7 @@ struct PokerHand
     end
 end
 
+
 straightflush(hand::PokerHand) = hand.flush && straight(hand) ≠ 0 ? hand.ranks[end] : 0
 four_of_a_kind(hand::PokerHand) = count(r -> r == hand.ranks[3], hand.ranks) == 4 ? hand.ranks[3] : 0
 full_house(hand::PokerHand) = three_of_a_kind(hand) ≠ 0 && pair(hand) ≠ 0 ? hand.ranks[3] : 0
@@ -24,13 +27,11 @@ flush(hand::PokerHand) = hand.flush ? reverse(hand.ranks) : [0, 0, 0, 0, 0]
 three_of_a_kind(hand::PokerHand) = count(r -> r == hand.ranks[3], hand.ranks) == 3 ? hand.ranks[2] : 0
 highcard(hand::PokerHand) = reverse(hand.ranks)
 
-
 function straight(hand::PokerHand)
     all(hand.ranks[i] == hand.ranks[1] + i - 1 for i in 1:5) && return hand.ranks[end]
     hand.ranks == [2, 3, 4, 5, 14] && return 5
     return 0
 end
-
 
 function two_pairs(hand::PokerHand)
     if hand.ranks[1] == hand.ranks[2]
@@ -48,7 +49,6 @@ function two_pairs(hand::PokerHand)
     end
 end
 
-
 function pair(hand::PokerHand)
     for i in 2:4
         count(==(hand.ranks[i]), hand.ranks) == 2 && return hand.ranks[i]
@@ -56,12 +56,11 @@ function pair(hand::PokerHand)
     return 0
 end
 
-
 function winner(hand1::PokerHand, hand2::PokerHand)
     for f in (straightflush, four_of_a_kind, full_house, flush, straight, three_of_a_kind, two_pairs, pair, highcard)
         f1, f2 = f(hand1), f(hand2)
-        isequal(f1, f2) && continue
-        return isless(f2, f1)
+        f1 == f2 && continue
+        return f2 < f1
     end
 
     return false

@@ -9,7 +9,7 @@ Problem 016 of Project Euler.
 https://projecteuler.net/problem=016
 """
 function problem016(N::Integer=big(2)^1000)
-    return sum(digits(N))  # digits(x::BigInt) seems type-unstable...
+    return sum(digits(N))
 end
 
 

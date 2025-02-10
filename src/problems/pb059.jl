@@ -2,15 +2,17 @@ module Problem059
 
 
 function score(code, key)
-    decrypt = (xor(c, key[mod1(i, 3)]) for (i, c) in enumerate(code))
-    s = 0
-    for c in decrypt
-        Int('a') ≤ c ≤ Int('z') && (s += 2)
-        Int('A') ≤ c ≤ Int('Z') && (s += 1)
-        c == Int(' ') && (s += 10)
+    ans = 0
+    i = 0
+    for c in code
+        i = i == 3 ? 1 : i + 1
+        c = xor(c, key[i])
+        Int('a') ≤ c ≤ Int('z') && (ans += 2)
+        Int('A') ≤ c ≤ Int('Z') && (ans += 1)
+        c == Int(' ') && (ans += 10)
     end
 
-    return s
+    return ans
 end
 
 

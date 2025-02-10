@@ -11,7 +11,7 @@ Problem 058 of Project Euler.
 
 https://projecteuler.net/problem=058
 """
-function problem058(percent::Integer=10)
+function problem058(percent=10)
     n = 1
     primecount = 0
     for s in countfrom(2, 2)

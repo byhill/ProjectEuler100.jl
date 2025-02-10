@@ -7,10 +7,9 @@ export ispandigital, ispalindrome, issquare, istriangular, ispentagonal, digit_f
     sumto(N::Integer)
 
 Returns the sum of the first N positive integers.
-The value N * (N + 1) / 2 must fit in the same type as N,
-else it will throw and error
 """
-@inline sumto(n::Integer) = iseven(n) ? (n ÷ 2) * (n + 1) : (n + 1) ÷ 2 * n
+@inline sumto(n::Integer) = iseven(n) ? (n >> 1) * (n + 1) : (n + 1) >> 1 * n
+@inline sumto(n::Integer, m::Integer) = iseven(n) ? mod(mod(n >> 1, m) * mod(n + 1, m), m) : mod(mod((n + 1) >> 1, m) * mod(n, m), m)
 
 
 """
@@ -21,7 +20,8 @@ Returns the largest p such that base^p ≤ n.
 @inline function ilog(base, n)
     p = 0
     m = one(n)
-    while m ≤ n ÷ base
+    L = n ÷ base
+    while m ≤ L
         m *= base
         p += 1
     end
