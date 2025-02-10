@@ -21,7 +21,7 @@ I will **not** share my solutions to problems past the first 100.
 If you would like to see my current progress on Project Euler,
 such as what problems I've completed, what awards I've obtained,
 or my forum posts, feel free to add me as a friend on Project Euler.
-My friend key is [1327298_jzCskJIfItQqZaPDyT4kQpsHmSlrcHky](https://projecteuler.net/friends).
+My friend key is [1327298_OyZU8vZHG7DLjamGtkdOG5e24pw1Hegi](https://projecteuler.net/friends).
 You can also view my progress on HackerRanks' Project Euler+ contest
 [here](https://www.hackerrank.com/byhill).
 
