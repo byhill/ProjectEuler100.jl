@@ -1,5 +1,6 @@
 @testset "Prime Library" begin
 
+    # A034387
     @testset "Primesum Function" begin
         pi = primesum_function(10^4)
         @test pi(1) == 0

@@ -1,19 +1,20 @@
 @testset "Totient Library" begin
 
+    # A000010
     @testset "Totient sieve" begin
-        phi = totients(1)
-        @test phi[1] == 1
+        φ = totients(1)
+        @test φ[1] == 1
 
-        phi = totients(2)
-        @test phi[1] == 1
-        @test phi[2] == 1
+        φ = totients(2)
+        @test φ[1] == 1
+        @test φ[2] == 1
 
-        phi = totients(10^5)
-        @test phi[10542] == 3000
-        @test phi[29340] == 7776
-        @test phi[29621] == 28044
-        @test phi[52905] == 28208
-        @test phi[99991] == 99990
-        @test phi[100000] == 40000
+        φ = totients(10^5)
+        @test φ[10542] == 3000
+        @test φ[29340] == 7776
+        @test φ[29621] == 28044
+        @test φ[52905] == 28208
+        @test φ[99991] == 99990
+        @test φ[100000] == 40000
     end
 end

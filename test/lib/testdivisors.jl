@@ -42,6 +42,7 @@
         @test σ[100000] == 246078
     end
 
+    # A001157 - A001160; A013954 - A013972
     @testset "divisor_sums_of_powers" begin
         σ = divisor_sums_of_powers(2, 3)
         @test σ[1] == 1
@@ -57,6 +58,16 @@
         @test σ isa Vector{Int64}
         @test σ[1] == 1
         @test σ[10000] == 218151520
+
+        σ = divisor_sums_of_powers(24, big(10)^4)
+        @test σ isa Vector{BigInt}
+        @test σ[1] == 1
+        @test σ[10000] == 1000000059604648344881732558750424591312962752525321027704337126647018279099392478651376659214405
+
+        σ = divisor_sums_of_powers(24, 10^4, 987898789)
+        @test σ isa Vector{Int64}
+        @test σ[1] == 1
+        @test σ[10000] == 833094928
     end
 
 end
