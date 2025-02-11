@@ -35,8 +35,8 @@ end
 
 Returns the equivalent of T(reduce(*, (string(x) for x in xs))).
 """
-@inline function concat(xs...; base::T=10) where {T<:Integer}
-    return foldl((n, x) -> n * base^ndigits(x; base=base) + x, xs; init=zero(T))
+@inline function concat(xs::T...; base=10) where {T<:Integer}
+    return foldl((n, x) -> n * T(base)^ndigits(x; base=base) + x, xs; init=zero(T))
 end
 
 
@@ -50,7 +50,7 @@ The inverse of digits(n), i.e.,
 undigits(digits::Vector{T}; base::Integer=10) where {T<:Integer} = undigits(T, digits; base=base)
 
 function undigits(T::Type{<:Integer}, digits::Vector{U}; base::Integer=10) where {U<:Integer}
-    return foldr((a, b,) -> muladd(base, b, a), digits, init=zero(T))
+    return foldr((a, b,) -> b * base + a, digits, init=zero(T))
 end
 
 
@@ -134,13 +134,14 @@ const DIGIT_FACTORIAL = (1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 1)
 Returns the sum of the factorial of each digit in `n` (in base 10).
 """
 function digit_factorial(n::T) where {T<:Integer}
-    isless(n, 0) && throw(DomainError(n, "n must be a nonnegative integer"))
-    iszero(n) && return one(T)
+    n < 0 && throw(DomainError(n, "n must be a nonnegative integer"))
+    n == 0 && return one(T)
 
     s = zero(T)
     while n > 0
         s += T(DIGIT_FACTORIAL[mod1(n, 10)])
         n ÷= T(10)
     end
+
     return s
 end

@@ -27,13 +27,22 @@
     @testset "concat" begin
         @test concat(20, 57, 1504952934) == 20571504952934
         @test concat(20) == 20
+        @test concat(0, 20) == 20
         @test concat(20, 0, 20) == 20020
+        @test concat(20, 00, 20) == 20020
         @test concat(
             parse(Int, "21112"; base=3),
             parse(Int, "12000"; base=3),
             parse(Int, "10000021110"; base=3);
             base=3
         ) == parse(Int, "211121200010000021110"; base=3)
+        @test concat(
+            parse(BigInt, "vje91nvm19"; base=62),
+            parse(BigInt, "m193jf0000"; base=62),
+            parse(BigInt, "10000"; base=62),
+            parse(BigInt, "projecteuler"; base=62);
+            base=62
+        ) == parse(BigInt, "vje91nvm19m193jf000010000projecteuler"; base=62)
     end
 
 end
